@@ -16,13 +16,13 @@ export default function Home() {
         </p>
         <div className="relative">
           <p
-            className="bg-gradient-to-br from-blue-200 to-slate-900 bg-clip-text text-center font-['Montserrat'] text-[64px] font-extrabold tracking-widest text-black"
+            className="bg-gradient-to-br from-blue-200 to-slate-900 bg-clip-text text-center text-[64px] font-extrabold tracking-widest text-black"
             style={{ WebkitTextStroke: "6px transparent" }}
           >
             Web Developer
           </p>
           <p
-            className="absolute left-[6px] top-0 z-[-1] translate-y-[12%] bg-gradient-to-br from-blue-200 to-slate-900 bg-clip-text text-center font-['Montserrat'] text-[64px] font-extrabold tracking-widest text-black opacity-50"
+            className="absolute left-[6px] top-0 z-[-1] translate-y-[12%] bg-gradient-to-br from-blue-200 to-slate-900 bg-clip-text text-center text-[64px] font-extrabold tracking-widest text-black opacity-50"
             style={{ WebkitTextStroke: "6px transparent" }}
           >
             Web Developer

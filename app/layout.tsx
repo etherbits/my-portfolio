@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Header from "./components/Header";
+import { cn } from "./utils/tailwind";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -17,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>
+      <body className={cn("flex flex-col tracking-wider h-screen", montserrat.className)}>
         <Header />
         {children}
       </body>

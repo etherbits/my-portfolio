@@ -1,9 +1,17 @@
 "use client";
-
+import { motion } from "framer-motion";
 import React from "react";
 import { usePathname } from "next/navigation";
 import { cn } from "../utils/tailwind";
 import Link from "next/link";
+
+const links = [
+  { name: "Home", href: "/" },
+  { name: "About Me", href: "/about-me" },
+  { name: "Journey", href: "/journey" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact Me", href: "/contact-me" },
+];
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -11,43 +19,21 @@ const Navigation = () => {
   return (
     <nav>
       <ul className="flex gap-8 text-lg text-slate-400">
-        <li>
-          <Link href="/" className={cn({ "text-slate-200": pathname === "/" })}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/about-me"
-            className={cn({ "text-slate-200": pathname === "/about-me" })}
+        {links.map((link, i) => (
+          <motion.li
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{delay: 0.025 * i}}
+            key={link.href}
           >
-            About Me
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/journey"
-            className={cn({ "text-slate-200": pathname === "/journey" })}
-          >
-            Journey
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/projects"
-            className={cn({ "text-slate-200": pathname === "/projects" })}
-          >
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/contact-me"
-            className={cn({ "text-slate-200": pathname === "/contact-me" })}
-          >
-            Contact Me
-          </Link>
-        </li>
+            <Link
+              href={link.href}
+              className={cn({ "text-slate-200": pathname === link.href })}
+            >
+              {link.name}
+            </Link>
+          </motion.li>
+        ))}
       </ul>
     </nav>
   );

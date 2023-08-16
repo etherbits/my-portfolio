@@ -1,21 +1,39 @@
 import Image from "next/image";
 import React from "react";
+import { Icon } from "./Icon";
+import { icons } from "lucide-react";
 
-const linkObjs = [
-  { img: "/vectors/newspaper.svg", imgSize: 24, url: "#" },
+type BaseLinkObj = {
+  url: string;
+};
+
+type VectorLinkObj = {
+  imgType: "vector";
+  vectorName: keyof typeof icons;
+} & BaseLinkObj;
+
+type ImageLinkObj = {
+  imgType: "image";
+  imageSrc: string;
+} & BaseLinkObj;
+
+type LinkObj = VectorLinkObj | ImageLinkObj;
+
+const linkObjs: LinkObj[] = [
+  { vectorName: "Newspaper", imgType: "vector", url: "#" },
   {
-    img: "/images/github.webp",
-    imgSize: 48,
+    imageSrc: "/images/github.webp",
+    imgType: "image",
     url: "https://github.com/etherbits",
   },
   {
-    img: "/images/twitter.jpg",
-    imgSize: 48,
+    imageSrc: "/images/twitter.jpg",
+    imgType: "image",
     url: "https://twitter.com/etherbito",
   },
   {
-    img: "/images/linkedin.jpg",
-    imgSize: 48,
+    imageSrc: "/images/linkedin.jpg",
+    imgType: "image",
     url: "https://www.linkedin.com/in/nika-qvrivishvili-126664203",
   },
 ];
@@ -29,12 +47,11 @@ const RectLinks = () => {
             href={link.url}
             className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border border-slate-600 bg-neutral-950 hover:border-slate-300"
           >
-            <Image
-              src={link.img}
-              width={link.imgSize}
-              height={link.imgSize}
-              alt="resume"
-            />
+            {link.imgType === "vector" ? (
+              <Icon name={link.vectorName} size={24} color="slate-400" />
+            ) : (
+              <Image src={link.imageSrc} width={48} height={48} alt="resume" />
+            )}
           </a>
         </li>
       ))}

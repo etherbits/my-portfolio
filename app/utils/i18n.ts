@@ -3,7 +3,7 @@ import { getDictionary } from "../[lang]/dictionaries";
 
 export async function generateTranslator(locale: Locale, section: string) {
   const dictionary = await getDictionary(locale);
-  if (!Object.keys(dictionary).includes(section)) return "";
+  if (!Object.keys(dictionary).includes(section)) return null;
 
   const sectionDictionary = dictionary[section as keyof typeof dictionary];
 

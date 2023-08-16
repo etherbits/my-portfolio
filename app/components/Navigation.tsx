@@ -5,8 +5,6 @@ import { usePathname } from "next/navigation";
 import { cn, getColorRGB } from "../utils/tailwind";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { generateTranslator } from "../utils/i18n";
-import { Locale } from "@/middleware";
 
 const links = [
   { name: "Home", href: "/" },
@@ -19,7 +17,6 @@ const links = [
 const Navigation = () => {
   const pathname = "/" + usePathname().split("/").slice(2).join("/");
   const { lang } = useParams();
-  const t = generateTranslator(lang as Locale, "Navigation");
   return (
     <nav>
       <ul className="flex gap-8 text-lg text-slate-400">

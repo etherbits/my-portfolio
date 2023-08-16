@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { usePathname } from "next/navigation";
-import { cn } from "../utils/tailwind";
+import { cn, getColorRGB } from "../utils/tailwind";
 import Link from "next/link";
 
 const links = [
@@ -23,7 +23,8 @@ const Navigation = () => {
           <motion.li
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{delay: 0.025 * i}}
+            transition={{ delay: 0.025 * i }}
+            whileHover={{ color: getColorRGB("slate-300") ?? "" }}
             key={link.href}
           >
             <Link

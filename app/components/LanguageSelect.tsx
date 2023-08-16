@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { getColorRGB } from "../utils/tailwind";
-
+import Icon from './Icon'
 const languages = {
   eng: { label: "English", image: "/images/eng.png" },
   geo: { label: "ქართული", image: "/images/geo.png" },
@@ -25,13 +25,6 @@ const LanguageSelect = () => {
           setIsOpen((state) => !state);
         }}
       >
-        <Image
-          src={languages[currentLang].image}
-          width={16}
-          height={16}
-          alt="english flag"
-          className="mr-2 h-4 w-4"
-        />
         {languages[currentLang].label}
         <MotionImage
           src="/vectors/caret.svg"
@@ -41,6 +34,7 @@ const LanguageSelect = () => {
           className="ml-[6px] h-1 w-2"
           animate={{ rotateZ: isOpen ? "180deg" : "0deg" }}
         />
+        <Icon name="Bot" color="red" size="16"/>
       </motion.button>
       {isOpen && (
         <motion.ul

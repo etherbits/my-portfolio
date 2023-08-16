@@ -1,4 +1,4 @@
-import { icons } from "lucide-react";
+import { icons } from "@/node_modules/lucide-react";
 
 type Props = {
   name: keyof typeof icons;

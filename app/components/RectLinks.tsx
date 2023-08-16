@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import { Icon } from "./Icon";
-import { icons } from "lucide-react";
+import Icon, { IconName } from "./Icon";
+import { getColorRGB } from "../utils/tailwind";
 
 type BaseLinkObj = {
   url: string;
@@ -9,7 +9,7 @@ type BaseLinkObj = {
 
 type VectorLinkObj = {
   imgType: "vector";
-  vectorName: keyof typeof icons;
+  vectorName: IconName;
 } & BaseLinkObj;
 
 type ImageLinkObj = {
@@ -46,9 +46,14 @@ const RectLinks = () => {
           <a
             href={link.url}
             className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border border-slate-600 bg-neutral-950 hover:border-slate-300"
+            target="_blank"
           >
             {link.imgType === "vector" ? (
-              <Icon name={link.vectorName} size={24} color="slate-400" />
+              <Icon
+                name={link.vectorName}
+                size={24}
+                color={getColorRGB("slate-500")}
+              />
             ) : (
               <Image src={link.imageSrc} width={48} height={48} alt="resume" />
             )}

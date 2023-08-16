@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { getColorRGB } from "../utils/tailwind";
-import { MotionIcon } from "./Icon";
+import MotionIcon from "./MotionIcon";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 

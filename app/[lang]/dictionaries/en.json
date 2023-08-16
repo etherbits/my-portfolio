@@ -1,5 +1,10 @@
 {
   "home": {
-    "hello": "hello my man"
+    "intro_first_start": "Hello there! I'm",
+    "intro_first_name": "Nika",
+    "intro_first_end": "a",
+    "intro_profession": "Web Developer",
+    "intro_paragraph": "I build responsive, performant, and inclusive web solutions utilizing leading web technologies with the goal of delivering seamless digital experiences.",
+    "intro_button": "View About Me"
   }
 }

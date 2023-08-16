@@ -6,6 +6,7 @@ import Navigation from "./Navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { getColorRGB } from "../utils/tailwind";
+import LanguageSelect from "./LanguageSelect";
 
 const MotionLink = motion(Link);
 
@@ -27,14 +28,7 @@ const Header = () => {
         NQ
       </MotionLink>
       <Navigation />
-      <select
-        name="language-selector"
-        id="language-selector"
-        className="ml-auto w-fit bg-black text-slate-300"
-      >
-        <option value="eng">English</option>
-        <option value="geo">ქართული</option>
-      </select>
+      <LanguageSelect/>
     </header>
   );
 };

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 
-let locales = ["en", "ge"];
+export type Locale = "en" | "ge";
+
+let locales: Locale[] = ["en", "ge"];
 
 // Get the preferred locale, similar to above or using a library
 function getLocale(request: any) {

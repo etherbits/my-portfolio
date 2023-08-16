@@ -4,6 +4,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { cn, getColorRGB } from "../utils/tailwind";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const links = [
   { name: "Home", href: "/" },
@@ -15,6 +16,7 @@ const links = [
 
 const Navigation = () => {
   const pathname = "/" + usePathname().split("/").slice(2).join("/");
+  const {lang} = useParams()
   return (
     <nav>
       <ul className="flex gap-8 text-lg text-slate-400">

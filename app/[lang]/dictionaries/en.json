@@ -1,4 +1,11 @@
 {
+  "navigation": {
+    "home": "Home",
+    "about": "About Me",
+    "journey": "Journey",
+    "projects": "Projects",
+    "contact": "Contact Me"
+  },
   "home": {
     "intro_first_start": "Hello there! I'm",
     "intro_first_name": "Nika",

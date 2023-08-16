@@ -7,7 +7,7 @@ export async function generateTranslator(locale: Locale, section: string) {
 
   const sectionDictionary = dictionary[section as keyof typeof dictionary];
 
-  return function t(key: keyof typeof sectionDictionary) {
+  return function translator(key: keyof typeof sectionDictionary) {
     return sectionDictionary[key] ?? "";
   };
 }

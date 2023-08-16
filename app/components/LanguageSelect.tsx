@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { getColorRGB } from "../utils/tailwind";
-import Icon from './Icon'
+import { MotionIcon } from "./Icon";
 const languages = {
   eng: { label: "English", image: "/images/eng.png" },
   geo: { label: "ქართული", image: "/images/geo.png" },
@@ -31,41 +31,47 @@ const LanguageSelect = () => {
           width={8}
           height={4}
           alt="english flag"
-          className="ml-[6px] h-1 w-2"
+        />
+        <MotionIcon
+          name="ChevronDown"
+          size={16}
+          color={getColorRGB("slate-600")}
           animate={{ rotateZ: isOpen ? "180deg" : "0deg" }}
         />
-        <Icon name="Bot" color="red" size="16"/>
       </motion.button>
-      {isOpen && (
-        <motion.ul
-          className="absolute right-0 top-[100%] mt-4 flex flex-col rounded-lg bg-neutral-900 text-slate-300"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          {Object.entries(languages).map(([key, language]) => (
-            <li key={key}>
-              <motion.button
-                className="flex w-full items-center gap-3 rounded-lg px-3 py-[6px]"
-                whileHover={{
-                  backgroundColor: getColorRGB("neutral-800"),
-                }}
-                onClick={() => {
-                  setCurrentLang(key as keyof typeof languages);
-                }}
-              >
-                <Image
-                  src={language.image}
-                  width={16}
-                  height={16}
-                  alt="english flag"
-                  className="h-4 w-4"
-                />
-                {language.label}
-              </motion.button>
-            </li>
-          ))}
-        </motion.ul>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            className="absolute right-0 top-[100%] mt-4 flex flex-col rounded-lg bg-neutral-900 text-slate-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {Object.entries(languages).map(([key, language]) => (
+              <li key={key}>
+                <motion.button
+                  className="flex w-full items-center gap-3 rounded-lg px-3 py-[6px]"
+                  whileHover={{
+                    backgroundColor: getColorRGB("neutral-800"),
+                  }}
+                  onClick={() => {
+                    setCurrentLang(key as keyof typeof languages);
+                  }}
+                >
+                  <Image
+                    src={language.image}
+                    width={16}
+                    height={16}
+                    alt="english flag"
+                    className="h-4 w-4"
+                  />
+                  {language.label}
+                </motion.button>
+              </li>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

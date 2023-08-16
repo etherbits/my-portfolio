@@ -5,6 +5,7 @@ import React from "react";
 import Navigation from "./Navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { getColor } from "../utils/tailwind";
 
 const MotionLink = motion(Link);
 
@@ -17,6 +18,11 @@ const Header = () => {
         style={{ WebkitTextStroke: "2px transparent" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        whileHover={{
+          backgroundImage: `linear-gradient(to right bottom,${getColor(
+            "blue-200",
+          )}, ${getColor("blue-200")}))`,
+        }}
       >
         NQ
       </MotionLink>

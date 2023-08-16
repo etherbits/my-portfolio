@@ -14,8 +14,7 @@ const links = [
 ];
 
 const Navigation = () => {
-  const pathname = usePathname();
-
+  const pathname = "/" + usePathname().split("/").slice(2).join("/");
   return (
     <nav>
       <ul className="flex gap-8 text-lg text-slate-400">

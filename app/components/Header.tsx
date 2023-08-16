@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
 import Navigation from "./Navigation";
 import Link from "next/link";

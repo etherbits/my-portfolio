@@ -18,7 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn("flex flex-col tracking-wider h-screen", montserrat.className)}>
+      <body
+        className={cn(
+          "flex h-screen flex-col tracking-wider",
+          montserrat.className,
+        )}
+      >
         <Header />
         {children}
       </body>

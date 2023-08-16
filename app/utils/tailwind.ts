@@ -13,11 +13,26 @@ export function getColor(color: string) {
   const [label, shade] = color.split("-");
   const colors = tailwindConf.theme?.colors;
 
-  if (!colors) return "";
+  if (!colors) return null;
 
   const twColor = colors[label];
 
   if (typeof twColor === "string") return twColor;
 
-  return twColor[shade];
+  return twColor[shade] as string;
+}
+
+export function getColorRGB(color: string) {
+  const twColor = getColor(color);
+
+  if (!twColor) return null;
+
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(twColor);
+
+  return result
+    ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(
+        result[3],
+        16,
+      )})`
+    : null;
 }

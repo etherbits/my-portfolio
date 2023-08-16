@@ -24,7 +24,7 @@ const Navigation = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.025 * i }}
-            whileHover={{ color: getColorRGB("slate-300") ?? "" }}
+            whileHover={{ color: getColorRGB("slate-300") }}
             key={link.href}
           >
             <Link

@@ -25,7 +25,7 @@ export function getColor(color: string) {
 export function getColorRGB(color: string) {
   const twColor = getColor(color);
 
-  if (!twColor) return null;
+  if (!twColor) return "";
 
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(twColor);
 
@@ -34,5 +34,5 @@ export function getColorRGB(color: string) {
         result[3],
         16,
       )})`
-    : null;
+    : "";
 }

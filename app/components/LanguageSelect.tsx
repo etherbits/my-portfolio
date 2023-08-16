@@ -26,16 +26,11 @@ const LanguageSelect = () => {
         }}
       >
         {languages[currentLang].label}
-        <MotionImage
-          src="/vectors/caret.svg"
-          width={8}
-          height={4}
-          alt="english flag"
-        />
         <MotionIcon
           name="ChevronDown"
           size={16}
           color={getColorRGB("slate-600")}
+          className=""
           animate={{ rotateZ: isOpen ? "180deg" : "0deg" }}
         />
       </motion.button>

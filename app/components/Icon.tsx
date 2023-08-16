@@ -5,7 +5,8 @@ type Props = {
   name: keyof typeof icons;
   color: string | undefined;
   size: string | number | undefined;
-} & MotionProps;
+} & React.HTMLAttributes<HTMLDivElement> &
+  MotionProps;
 
 const Icon: React.FC<Props> = ({ name, color, size }) => {
   const LucideIcon = icons[name];

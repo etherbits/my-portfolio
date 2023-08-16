@@ -1,36 +1,65 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { getColorRGB } from "../utils/tailwind";
 import { MotionIcon } from "./Icon";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+
 const languages = {
-  eng: { label: "English", image: "/images/eng.png" },
-  geo: { label: "ქართული", image: "/images/geo.png" },
+  en: { label: "English", image: "/images/eng.png" },
+  ge: { label: "ქართული", image: "/images/geo.png" },
 };
 
-const MotionImage = motion(Image);
+const MotionLink = motion(Link);
 
 const LanguageSelect = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState<keyof typeof languages>("eng");
+  const pathname = usePathname();
+  const currentLocale = pathname.split("/")[1] as "ge" | "en";
+  const currentLanguage = languages[currentLocale];
+  const selectRef = useRef(null);
+
+  useEffect(() => {
+    function closeOnOutsideClick(e: MouseEvent) {
+      if (!selectRef.current || !e.target) return;
+      const targetNode = e.target as Node;
+
+      if (targetNode.contains(selectRef.current)) return;
+
+      setIsOpen(false);
+    }
+    window.addEventListener("click", closeOnOutsideClick);
+
+    return () => {
+      window.removeEventListener("click", closeOnOutsideClick);
+    };
+  }, []);
 
   return (
     <div className="relative">
       <motion.button
-        id="language-selector"
+        ref={selectRef}
         className="ml-auto flex w-fit items-center bg-black  text-slate-400"
         whileHover={{ color: getColorRGB("slate-300") }}
         onClick={() => {
           setIsOpen((state) => !state);
         }}
       >
-        {languages[currentLang].label}
+        <Image
+          src={currentLanguage.image}
+          width={16}
+          height={16}
+          alt="english flag"
+          className="mr-3 h-4 w-4"
+        />
+        {currentLanguage.label}
         <MotionIcon
           name="ChevronDown"
           size={16}
           color={getColorRGB("slate-600")}
-          className=""
+          className="ml-[6px]"
           animate={{ rotateZ: isOpen ? "180deg" : "0deg" }}
         />
       </motion.button>
@@ -44,24 +73,22 @@ const LanguageSelect = () => {
           >
             {Object.entries(languages).map(([key, language]) => (
               <li key={key}>
-                <motion.button
+                <MotionLink
                   className="flex w-full items-center gap-3 rounded-lg px-3 py-[6px]"
                   whileHover={{
                     backgroundColor: getColorRGB("neutral-800"),
                   }}
-                  onClick={() => {
-                    setCurrentLang(key as keyof typeof languages);
-                  }}
+                  href={`/${key}`}
                 >
                   <Image
                     src={language.image}
                     width={16}
                     height={16}
-                    alt="english flag"
+                    alt={`${language.label} flag`}
                     className="h-4 w-4"
                   />
                   {language.label}
-                </motion.button>
+                </MotionLink>
               </li>
             ))}
           </motion.ul>

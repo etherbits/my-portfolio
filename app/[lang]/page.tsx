@@ -11,7 +11,6 @@ export default async function Home({
   const dict = await getDictionary(lang);
   return (
     <div className="flex basis-full justify-between">
-      <div className="text-slate-50">{dict["home"]["hello"]}</div>
       <div className="flex h-full w-full flex-col items-center justify-between p-16 text-center">
         <div className="-w-full mt-32 flex flex-col items-center justify-center text-center">
           <Image

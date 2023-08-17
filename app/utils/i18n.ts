@@ -7,3 +7,7 @@ export function generateTranslator<SectionKey extends SectionKeys>(
     return section[key] ?? "";
   };
 }
+
+export type Translator<SectionKey extends SectionKeys> = ReturnType<
+  typeof generateTranslator<SectionKey>
+>;

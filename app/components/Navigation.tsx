@@ -4,6 +4,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { cn, getColorRGB } from "../utils/tailwind";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { generateTranslator } from "../utils/i18n";
 
 const links = [
@@ -14,9 +15,12 @@ const links = [
   { name: "contact", href: "/contact-me" },
 ] as const;
 
-const Navigation = ({ navDict }: any) => {
+export type NavigationProps = {
+  translator: 
+}
+
+const Navigation = ({ translator: t }: any) => {
   const pathname = "/" + usePathname().split("/").slice(2).join("/");
-  const t = generateTranslator<"navigation">(navDict);
   return (
     <nav>
       <ul className="flex gap-8 text-lg text-slate-400">

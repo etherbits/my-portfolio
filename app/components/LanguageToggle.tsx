@@ -18,6 +18,7 @@ const LanguageToggle = () => {
       style={{ backgroundColor: "rgba(0,0,0,0)" }}
       href={`/${currentLocale === "en" ? "ge" : "en"}`}
       whileHover={{ backgroundColor: getColorRGBA("neutral-800", 0.72) }}
+      title="Toggle Language Eng/Geo"
     >
       <Image
         src={currentLanguage.image}

@@ -28,7 +28,7 @@ const DesktopNavigation: React.FC<NavigationProps> = ({ navDict }) => {
   const t = generateTranslator<"navigation">(navDict);
   return (
     <nav className="hidden  md:block">
-      <ul className="flex items-center gap-4 whitespace-nowrap  text-slate-400  lg:text-lg lg:gap-8">
+      <ul className="flex items-center gap-4 whitespace-nowrap  text-slate-400  lg:gap-8 lg:text-lg">
         {navigationLinks.map((link, i) => (
           <motion.li
             initial={{ opacity: 0 }}
@@ -75,7 +75,6 @@ const MobileNavigation: React.FC<NavigationProps> = ({ navDict }) => {
             initial={{ opacity: 0, translateY: "-16px" }}
             animate={{ opacity: 1, translateY: "0" }}
             exit={{ opacity: 0, translateX: "16px" }}
-            transition={{ duration: 0.2 }}
             style={{ backgroundColor: getColorRGBA("neutral-950", 0.72) }}
           >
             <nav>
@@ -95,7 +94,6 @@ const MobileNavigation: React.FC<NavigationProps> = ({ navDict }) => {
                               ? getColorRGBA("neutral-900", 0.72)
                               : getColorRGBA("neutral-900", 0),
                         }}
-                        transition={{ delay: 0.2, duration: 0.2 }}
                         whileHover={{
                           backgroundColor: getColorRGBA("neutral-800", 0.72),
                         }}

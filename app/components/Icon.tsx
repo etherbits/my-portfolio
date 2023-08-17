@@ -5,8 +5,8 @@ export type IconName = keyof typeof icons;
 export type IconProps = {
   name: IconName;
   color: string | undefined;
-  size: string | number | undefined;
-  strokeWidth: string | number | undefined;
+  size?: string | number | undefined;
+  strokeWidth?: string | number | undefined;
 };
 
 const Icon: React.FC<IconProps> = ({ name, color, size, strokeWidth }) => {

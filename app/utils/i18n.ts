@@ -1,13 +1,9 @@
-import { Locale } from "@/middleware";
-import { getDictionary } from "../[lang]/dictionaries";
+import { DictionarySection, SectionKeys } from "../[lang]/dictionaries";
 
-export async function generateTranslator(locale: Locale, section: string) {
-  const dictionary = await getDictionary(locale);
-  if (!Object.keys(dictionary).includes(section)) return null;
-
-  const sectionDictionary = dictionary[section as keyof typeof dictionary];
-
-  return function translator(key: keyof typeof sectionDictionary) {
-    return sectionDictionary[key] ?? "";
+export function generateTranslator<SectionKey extends SectionKeys>(
+  section: DictionarySection<SectionKey>,
+) {
+  return function translator(key: keyof DictionarySection<SectionKey>) {
+    return section[key] ?? "";
   };
 }

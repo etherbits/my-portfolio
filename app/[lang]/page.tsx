@@ -2,13 +2,15 @@ import Image from "next/image";
 import Button from "@/app/components/Button";
 import RectLinks from "@/app/components/RectLinks";
 import { generateTranslator } from "../utils/i18n";
+import { getDictionary } from "./dictionaries";
 
 export default async function Home({
   params: { lang },
 }: {
   params: { lang: "en" | "ge" };
 }) {
-  const t = await generateTranslator(lang, "home");
+  const dict = await getDictionary(lang);
+  const t = generateTranslator<"home">(dict["home"]);
   return (
     <div className="flex basis-full justify-between">
       {t && (

@@ -9,7 +9,7 @@ import LanguageSelect from "./LanguageSelect";
 
 const MotionLink = motion(Link);
 
-const Header = () => {
+const Header = ({navDict}: any) => {
   return (
     <header className="grid grid-cols-[1fr_auto_1fr] items-center px-16 py-6">
       <MotionLink
@@ -26,7 +26,7 @@ const Header = () => {
       >
         NQ
       </MotionLink>
-      <Navigation />
+      <Navigation navDict={navDict}/>
       <LanguageSelect />
     </header>
   );

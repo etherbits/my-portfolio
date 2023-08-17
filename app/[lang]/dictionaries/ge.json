@@ -1,4 +1,11 @@
 {
+  "navigation": {
+    "home": "მთავარი",
+    "about": "ჩემს შესახებ",
+    "journey": "ჩემი გზა",
+    "projects": "პროქეტები",
+    "contact": "კონტაქტი"
+  },
   "home": {
     "intro_first_start": "სალამი! მე ვარ",
     "intro_first_name": "ნიკა",

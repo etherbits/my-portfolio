@@ -4,19 +4,19 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { cn, getColorRGB } from "../utils/tailwind";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { generateTranslator } from "../utils/i18n";
 
 const links = [
-  { name: "Home", href: "/" },
-  { name: "About Me", href: "/about-me" },
-  { name: "Journey", href: "/journey" },
-  { name: "Projects", href: "/projects" },
-  { name: "Contact Me", href: "/contact-me" },
-];
+  { name: "home", href: "/" },
+  { name: "about", href: "/about-me" },
+  { name: "journey", href: "/journey" },
+  { name: "projects", href: "/projects" },
+  { name: "contact", href: "/contact-me" },
+] as const;
 
-const Navigation = () => {
+const Navigation = ({ navDict }: any) => {
   const pathname = "/" + usePathname().split("/").slice(2).join("/");
-  const { lang } = useParams();
+  const t = generateTranslator<"navigation">(navDict);
   return (
     <nav>
       <ul className="flex gap-8 text-lg text-slate-400">
@@ -32,7 +32,7 @@ const Navigation = () => {
               href={link.href}
               className={cn({ "text-slate-200": pathname === link.href })}
             >
-              {link.name}
+              {t(link.name)}
             </Link>
           </motion.li>
         ))}

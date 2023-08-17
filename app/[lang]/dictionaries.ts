@@ -1,3 +1,4 @@
+import { Locale } from "@/middleware";
 import "server-only";
 
 const dictionaries = {
@@ -5,5 +6,15 @@ const dictionaries = {
   ge: () => import("./dictionaries/ge.json").then((module) => module.default),
 };
 
-export const getDictionary = async (locale: keyof typeof dictionaries) =>
-  dictionaries[locale]();
+type LocaleDictionaries = typeof dictionaries;
+
+export type Dictionary = Awaited<
+  ReturnType<LocaleDictionaries[keyof LocaleDictionaries]>
+>;
+export type SectionKeys = keyof Dictionary;
+
+export type DictionarySection<
+  SectionKey extends SectionKeys,
+> = Dictionary[SectionKey];
+
+export const getDictionary = async (locale: Locale) => dictionaries[locale]();

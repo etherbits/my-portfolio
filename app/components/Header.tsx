@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { getColorRGBA } from "../utils/tailwind";
 import LanguageSelect from "./LanguageSelect";
+import LanguageToggle from "./LanguageToggle";
 
 const MotionLink = motion(Link);
 
@@ -29,7 +30,7 @@ const Header: React.FC<Props> = ({ navDict }) => {
         NQ
       </MotionLink>
       <Navigation navDict={navDict} />
-      <LanguageSelect />
+      <LanguageToggle />
     </header>
   );
 };

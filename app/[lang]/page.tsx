@@ -21,7 +21,7 @@ export default async function Home({
               width={460}
               height={460}
               alt="profile"
-              className="mb-6 h-20 w-20 rounded-full md:h-40 md:w-40"
+              className="mb-6 h-20 w-20 rounded-full md:mt-[10vh] md:h-40 md:w-40"
             />
             <p className="mb-4 text-[26px] text-slate-200 md:text-[48px] ">
               {t("intro_first_start")}{" "}
@@ -50,7 +50,7 @@ export default async function Home({
             </Button>
           </div>
           <RectLinks size={36} gap={24} className="md:hidden" />
-          <RectLinks className="hidden md:flex" />
+          <RectLinks className="hidden md:flex md:mt-auto" />
         </div>
       )}
     </div>

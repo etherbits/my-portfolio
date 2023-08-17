@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import { cn, getColorRGBA } from "../utils/tailwind";
@@ -54,64 +54,46 @@ const MobileNavigation: React.FC<NavigationProps> = ({ navDict }) => {
   const pathname = "/" + usePathname().split("/").slice(2).join("/");
   const t = generateTranslator<"navigation">(navDict);
   const [isOpen, setIsOpen] = useState(false);
-  console.log(pathname);
 
   return (
     <div className="relative">
-      <motion.button
+      <button
         className={"rounded-md p-3  backdrop-blur-md"}
         onClick={() => setIsOpen((state) => !state)}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        whileHover={{ backgroundColor: getColorRGBA("neutral-900", 0.72) }}
         style={{ backgroundColor: getColorRGBA("neutral-950", 0.72) }}
       >
         <Icon name="Menu" color={getColorRGBA("slate-300")} />
-      </motion.button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            className="absolute right-0 top-[100%] z-20 mt-4  w-40 rounded-md text-slate-200  backdrop-blur-md"
-            initial={{ opacity: 0, translateY: "-16px" }}
-            animate={{ opacity: 1, translateY: "0" }}
-            exit={{ opacity: 0, translateX: "16px" }}
-            transition={{ duration: 0.2 }}
-            style={{ backgroundColor: getColorRGBA("neutral-950", 0.72) }}
-          >
-            <nav>
-              <ul>
-                {navigationLinks.map((link) => {
-                  return (
-                    <li key={link.name} className="flex w-full">
-                      <MotionLink
-                        href={link.href}
-                        className={"w-full rounded-md px-4 py-2"}
-                        initial={{
-                          backgroundColor: getColorRGBA("neutral-900", 0),
-                        }}
-                        animate={{
-                          backgroundColor:
-                            pathname === link.href
-                              ? getColorRGBA("neutral-900", 0.72)
-                              : getColorRGBA("neutral-900", 0),
-                        }}
-                        transition={{ delay: 0.2, duration: 0.2 }}
-                        whileHover={{
-                          backgroundColor: getColorRGBA("neutral-800", 0.72),
-                        }}
-                      >
-                        {t(link.name)}
-                      </MotionLink>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
-            <div className="mx-4 my-2 h-[2px] basis-[100%] rounded-full bg-white bg-gradient-to-r from-slate-400 to-slate-600" />
-            <LanguageToggle />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </button>
+      {isOpen && (
+        <div
+          className="absolute right-0 top-[100%] z-20 mt-4  w-40 rounded-md text-slate-200  backdrop-blur-md"
+          style={{ backgroundColor: getColorRGBA("neutral-950", 0.72) }}
+        >
+          <nav>
+            <ul>
+              {navigationLinks.map((link) => {
+                return (
+                  <li key={link.name} className="flex w-full">
+                    <MotionLink
+                      href={link.href}
+                      className={cn("w-full rounded-md px-4 py-2", {
+                        [`bg-[${getColorRGBA("neutral-950", 0.72)}]`]: pathname === link.href,
+                      })}
+                      whileHover={{
+                        backgroundColor: getColorRGBA("neutral-900", 0.72),
+                      }}
+                    >
+                      {t(link.name)}
+                    </MotionLink>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+          <div className="mx-4 my-2 h-[2px] basis-[100%] rounded-full bg-white bg-gradient-to-r from-slate-400 to-slate-600" />
+          <LanguageToggle />
+        </div>
+      )}
     </div>
   );
   {

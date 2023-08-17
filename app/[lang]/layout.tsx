@@ -7,6 +7,7 @@ import { cn } from "@/app/utils/tailwind";
 import { getDictionary } from "./dictionaries";
 import { Locale } from "@/middleware";
 import MobileNav from "../components/MobileNav";
+import { AnimatePresence } from "framer-motion";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 const firaGo = localFont({
@@ -61,8 +62,8 @@ export default async function RootLayout({
           { [firaGo.className]: lang === "ge" },
         )}
       >
-        <Header navDict={dict["navigation"]} />
-        <div className="pb-14">{children}</div>
+          <Header navDict={dict["navigation"]} />
+          <div className="pb-14">{children}</div>
       </body>
     </html>
   );

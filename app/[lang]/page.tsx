@@ -45,12 +45,6 @@ export default async function Home({
             <p className="mb-16 max-w-[320px] text-sm leading-9 text-slate-300 md:max-w-[600px] md:text-xl">
               {t("intro_paragraph")}
             </p>
-            <p className="mb-16 max-w-[320px] text-sm leading-9 text-slate-300 md:max-w-[600px] md:text-xl">
-              {t("intro_paragraph")}
-            </p>
-            <p className="mb-16 max-w-[320px] text-sm leading-9 text-slate-300 md:max-w-[600px] md:text-xl">
-              {t("intro_paragraph")}
-            </p>
             <Button className="mb-11 text-[16px] md:text-xl">
               {t("intro_button")}
             </Button>

@@ -2,13 +2,13 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { getColorRGB } from "../utils/tailwind";
+import { getColorRGBA } from "../utils/tailwind";
 import MotionIcon from "./MotionIcon";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Locale } from "@/middleware";
 
-const languages = {
+export const languages = {
   en: { label: "English", image: "/images/eng.png" },
   ge: { label: "ქართული", image: "/images/geo.png" },
 };
@@ -43,7 +43,7 @@ const LanguageSelect = () => {
       <motion.button
         ref={selectRef}
         className="ml-auto flex w-fit items-center bg-black  text-slate-400"
-        whileHover={{ color: getColorRGB("slate-300") }}
+        whileHover={{ color: getColorRGBA("slate-300") }}
         onClick={() => {
           setIsOpen((state) => !state);
         }}
@@ -59,7 +59,7 @@ const LanguageSelect = () => {
         <MotionIcon
           name="ChevronDown"
           size={16}
-          color={getColorRGB("slate-600")}
+          color={getColorRGBA("slate-600")}
           className="ml-[6px]"
           animate={{ rotateZ: isOpen ? "180deg" : "0deg" }}
         />
@@ -77,7 +77,7 @@ const LanguageSelect = () => {
                 <MotionLink
                   className="flex w-full items-center gap-3 rounded-lg px-3 py-[6px]"
                   whileHover={{
-                    backgroundColor: getColorRGB("neutral-800"),
+                    backgroundColor: getColorRGBA("neutral-800"),
                   }}
                   href={`/${key}`}
                 >

@@ -22,7 +22,7 @@ export function getColor(color: string) {
   return twColor[shade] as string;
 }
 
-export function getColorRGB(color: string) {
+export function getColorRGBA(color: string, alpha = 1) {
   const twColor = getColor(color);
 
   if (!twColor) return "";
@@ -30,9 +30,9 @@ export function getColorRGB(color: string) {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(twColor);
 
   return result
-    ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(
-        result[3],
-        16,
-      )})`
+    ? `rgba(${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(
+      result[3],
+      16,
+    )},${alpha})`
     : "";
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Icon, { IconName } from "./Icon";
-import { cn, getColorRGB } from "../utils/tailwind";
+import { cn, getColorRGBA } from "../utils/tailwind";
 
 type BaseLinkObj = {
   url: string;
@@ -61,7 +61,7 @@ const RectLinks: React.FC<Props> = ({ size = 48, gap = 44, className }) => {
               <Icon
                 name={link.vectorName}
                 size={~~(size / 2)}
-                color={getColorRGB("slate-500")}
+                color={getColorRGBA("slate-500")}
                 strokeWidth={1.5}
               />
             ) : (

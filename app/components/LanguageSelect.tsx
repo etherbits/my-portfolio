@@ -39,7 +39,7 @@ const LanguageSelect = () => {
   }, []);
 
   return (
-    <div className="relative ml-6">
+    <div className="relative ml-6 hidden md:block">
       <motion.button
         ref={selectRef}
         className="ml-auto flex w-fit items-center bg-black  text-slate-400"

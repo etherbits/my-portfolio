@@ -1,10 +1,10 @@
 {
   "navigation": {
     "home": "Home",
-    "about": "About Me",
+    "about": "About",
     "journey": "Journey",
     "projects": "Projects",
-    "contact": "Contact Me"
+    "contact": "Contact"
   },
   "home": {
     "intro_first_start": "Hello there! I'm",

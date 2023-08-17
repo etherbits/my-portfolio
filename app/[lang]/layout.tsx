@@ -6,6 +6,7 @@ import Header from "@/app/components/Header";
 import { cn } from "@/app/utils/tailwind";
 import { getDictionary } from "./dictionaries";
 import { Locale } from "@/middleware";
+import MobileNav from "../components/MobileNav";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 const firaGo = localFont({
@@ -55,13 +56,13 @@ export default async function RootLayout({
     <html lang={lang}>
       <body
         className={cn(
-          "flex max-h-screen flex-col tracking-wider ",
+          "flex flex-col tracking-wider text-slate-300",
           { [montserrat.className]: lang === "en" },
           { [firaGo.className]: lang === "ge" },
         )}
       >
         <Header navDict={dict["navigation"]} />
-        {children}
+        <div className="pb-14">{children}</div>
       </body>
     </html>
   );

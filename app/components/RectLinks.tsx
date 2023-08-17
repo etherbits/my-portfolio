@@ -39,31 +39,38 @@ const linkObjs: LinkObj[] = [
 ];
 
 type Props = {
-  size: number;
+  size?: number;
+  gap?: number;
+  className?: string;
 };
 
-const RectLinks: React.FC<Props> = ({ size }) => {
+const RectLinks: React.FC<Props> = ({ size = 48, gap = 44, className }) => {
   return (
-    <ul className="flex gap-11">
+    <ul className={cn("flex", className)} style={{ gap: `${gap}px` }}>
       {linkObjs.map((link) => (
         <li key={link.url}>
           <a
             href={link.url}
             className={cn(
-              "flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border border-slate-600 bg-neutral-950 hover:border-slate-300",
-              `w-[${size}px]`,
-              `h-[${size}px]`,
+              "flex items-center justify-center overflow-hidden rounded-lg border border-slate-600 bg-neutral-950 hover:border-slate-300",
             )}
+            style={{ width: `${size}px`, height: `${size}px` }}
             target="_blank"
           >
             {link.imgType === "vector" ? (
               <Icon
                 name={link.vectorName}
-                size={~~(size/2)}
+                size={~~(size / 2)}
                 color={getColorRGB("slate-500")}
+                strokeWidth={1.5}
               />
             ) : (
-              <Image src={link.imageSrc} width={size} height={size} alt="resume" />
+              <Image
+                src={link.imageSrc}
+                width={size}
+                height={size}
+                alt="resume"
+              />
             )}
           </a>
         </li>

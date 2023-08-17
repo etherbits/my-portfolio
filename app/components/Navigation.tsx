@@ -23,8 +23,8 @@ const Navigation: React.FC<NavigationProps> = ({ navDict }) => {
   const pathname = "/" + usePathname().split("/").slice(2).join("/");
   const t = generateTranslator<"navigation">(navDict);
   return (
-    <nav>
-      <ul className="flex gap-8 text-lg text-slate-400">
+    <nav className="hidden  md:block">
+      <ul className="flex items-center gap-4 whitespace-nowrap text-lg  text-slate-400 lg:gap-8">
         {links.map((link, i) => (
           <motion.li
             initial={{ opacity: 0 }}

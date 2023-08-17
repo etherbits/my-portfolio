@@ -14,8 +14,8 @@ export default async function Home({
   return (
     <div className="flex basis-full justify-between">
       {t && (
-        <div className="flex h-full w-full flex-col items-center justify-between p-16 text-center">
-          <div className="-w-full mt-32 flex flex-col items-center justify-center text-center">
+        <div className="flex h-full w-full flex-col items-center justify-between p-6 text-center md:p-16">
+          <div className="flex max-w-full flex-col items-center justify-center text-center">
             <Image
               src="https://github.com/etherbits.png"
               width={460}
@@ -23,31 +23,33 @@ export default async function Home({
               alt="profile"
               className="mb-12 h-40 w-40 rounded-full"
             />
-            <p className="mb-4 text-[48px] text-slate-200 ">
+            <p className="mb-4 text-[26px] text-slate-200 md:text-[48px] ">
               {t("intro_first_start")}{" "}
               <span className="text-blue-200">{t("intro_first_name")}</span>{" "}
               {t("intro_first_end")}
             </p>
             <div className="relative mb-8 w-full select-none">
               <p
-                className="whitespace-nowrap bg-gradient-to-br from-blue-200 to-slate-600 bg-clip-text text-center text-[64px] font-extrabold tracking-widest text-black"
+                className="bg-gradient-to-br from-blue-200 to-slate-600 bg-clip-text text-center text-[36px] font-extrabold tracking-widest text-black md:whitespace-nowrap md:text-[64px]"
                 style={{ WebkitTextStroke: "4px transparent" }}
               >
                 {t("intro_profession")}
               </p>
               <p
-                className="absolute left-[50%] top-0 z-[-1] translate-x-[-50%] translate-y-[9%] whitespace-nowrap bg-gradient-to-br from-blue-200 to-slate-600 bg-clip-text text-center text-[64px] font-extrabold tracking-widest text-black opacity-50"
+                className="absolute left-0 top-0 z-[-21] w-full translate-y-[12%] overflow-hidden bg-gradient-to-br from-blue-200 to-slate-600 bg-clip-text text-center text-[36px] font-extrabold tracking-widest text-black opacity-[60%] md:whitespace-nowrap md:text-[64px]"
                 style={{ WebkitTextStroke: "4px transparent" }}
               >
                 {t("intro_profession")}
               </p>
             </div>
-            <p className="mb-16 w-[600px] text-xl leading-9 text-slate-300">
+            <p className="mb-16 max-w-[320px] text-sm leading-9 text-slate-300 md:max-w-[600px] md:text-xl">
               {t("intro_paragraph")}
             </p>
-            <Button>{t("intro_button")}</Button>
+            <Button className="mb-11 text-[16px] md:text-xl">
+              {t("intro_button")}
+            </Button>
           </div>
-          <RectLinks />
+          <RectLinks size={32}/>
         </div>
       )}
     </div>

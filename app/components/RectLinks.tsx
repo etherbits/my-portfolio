@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Icon, { IconName } from "./Icon";
-import { getColorRGB } from "../utils/tailwind";
+import { cn, getColorRGB } from "../utils/tailwind";
 
 type BaseLinkObj = {
   url: string;
@@ -38,24 +38,32 @@ const linkObjs: LinkObj[] = [
   },
 ];
 
-const RectLinks = () => {
+type Props = {
+  size: number;
+};
+
+const RectLinks: React.FC<Props> = ({ size }) => {
   return (
     <ul className="flex gap-11">
       {linkObjs.map((link) => (
         <li key={link.url}>
           <a
             href={link.url}
-            className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border border-slate-600 bg-neutral-950 hover:border-slate-300"
+            className={cn(
+              "flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border border-slate-600 bg-neutral-950 hover:border-slate-300",
+              `w-[${size}px]`,
+              `h-[${size}px]`,
+            )}
             target="_blank"
           >
             {link.imgType === "vector" ? (
               <Icon
                 name={link.vectorName}
-                size={24}
+                size={~~(size/2)}
                 color={getColorRGB("slate-500")}
               />
             ) : (
-              <Image src={link.imageSrc} width={48} height={48} alt="resume" />
+              <Image src={link.imageSrc} width={size} height={size} alt="resume" />
             )}
           </a>
         </li>

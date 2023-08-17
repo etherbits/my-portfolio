@@ -5,7 +5,6 @@ import localFont from "next/font/local";
 import Header from "@/app/components/Header";
 import { cn } from "@/app/utils/tailwind";
 import { getDictionary } from "./dictionaries";
-import { generateTranslator } from "../utils/i18n";
 import { Locale } from "@/middleware";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
@@ -56,13 +55,12 @@ export default async function RootLayout({
     <html lang={lang}>
       <body
         className={cn(
-          "flex h-screen flex-col tracking-wider",
+          "flex max-h-screen flex-col tracking-wider ",
           { [montserrat.className]: lang === "en" },
           { [firaGo.className]: lang === "ge" },
         )}
       >
-        <Header navDict={dict["navigation"]}/>
-        {lang}
+        <Header navDict={dict["navigation"]} />
         {children}
       </body>
     </html>

@@ -6,12 +6,13 @@ export type IconProps = {
   name: IconName;
   color: string | undefined;
   size: string | number | undefined;
+  strokeWidth: string | number | undefined;
 };
 
-const Icon: React.FC<IconProps> = ({ name, color, size }) => {
+const Icon: React.FC<IconProps> = ({ name, color, size, strokeWidth }) => {
   const LucideIcon = icons[name];
 
-  return <LucideIcon color={color} size={size} />;
+  return <LucideIcon strokeWidth={strokeWidth} color={color} size={size} />;
 };
 
 export default Icon;

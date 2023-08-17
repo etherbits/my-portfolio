@@ -6,6 +6,7 @@ import { getColorRGB } from "../utils/tailwind";
 import MotionIcon from "./MotionIcon";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { Locale } from "@/middleware";
 
 const languages = {
   en: { label: "English", image: "/images/eng.png" },
@@ -17,7 +18,7 @@ const MotionLink = motion(Link);
 const LanguageSelect = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const currentLocale = pathname.split("/")[1] as "ge" | "en";
+  const currentLocale = pathname.split("/")[1] as Locale;
   const currentLanguage = languages[currentLocale];
   const selectRef = useRef(null);
 
@@ -38,7 +39,7 @@ const LanguageSelect = () => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative ml-6">
       <motion.button
         ref={selectRef}
         className="ml-auto flex w-fit items-center bg-black  text-slate-400"
@@ -54,7 +55,7 @@ const LanguageSelect = () => {
           alt="english flag"
           className="mr-3 h-4 w-4"
         />
-        {currentLanguage.label}
+        {currentLocale}
         <MotionIcon
           name="ChevronDown"
           size={16}

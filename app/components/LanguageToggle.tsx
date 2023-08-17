@@ -8,10 +8,17 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { getColorRGBA } from "../utils/tailwind";
 const MotionLink = motion(Link);
-const LanguageToggle = () => {
+
+type Props = {
+  type?: "compact" | "regular";
+};
+
+const LanguageToggle: React.FC<Props> = ({ type }) => {
   const pathname = usePathname();
   const currentLocale = pathname.split("/")[1] as Locale;
   const currentLanguage = languages[currentLocale];
+  const currentLabel =
+    type === "compact" ? currentLocale : currentLanguage.label;
   return (
     <MotionLink
       className="flex items-center gap-4 rounded-md px-4 py-2"
@@ -27,7 +34,7 @@ const LanguageToggle = () => {
         className="h-4 w-4"
         alt="language flag"
       />
-      {currentLanguage.label}
+      {currentLabel}
     </MotionLink>
   );
 };

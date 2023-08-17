@@ -4,8 +4,8 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import { cn, getColorRGB } from "../utils/tailwind";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { generateTranslator } from "../utils/i18n";
+import { DictionarySection } from "../[lang]/dictionaries";
 
 const links = [
   { name: "home", href: "/" },
@@ -16,11 +16,12 @@ const links = [
 ] as const;
 
 export type NavigationProps = {
-  translator: 
-}
+  navDict: DictionarySection<"navigation">;
+};
 
-const Navigation = ({ translator: t }: any) => {
+const Navigation: React.FC<NavigationProps> = ({ navDict }) => {
   const pathname = "/" + usePathname().split("/").slice(2).join("/");
+  const t = generateTranslator<"navigation">(navDict);
   return (
     <nav>
       <ul className="flex gap-8 text-lg text-slate-400">

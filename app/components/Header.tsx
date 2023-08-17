@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Navigation from "./Navigation";
+import Navigation, { NavigationProps } from "./Navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { getColorRGB } from "../utils/tailwind";
@@ -9,7 +9,9 @@ import LanguageSelect from "./LanguageSelect";
 
 const MotionLink = motion(Link);
 
-const Header = ({navDict}: any) => {
+type Props = NavigationProps;
+
+const Header: React.FC<Props> = ({ navDict }) => {
   return (
     <header className="grid grid-cols-[1fr_auto_1fr] items-center px-16 py-6">
       <MotionLink
@@ -26,7 +28,7 @@ const Header = ({navDict}: any) => {
       >
         NQ
       </MotionLink>
-      <Navigation navDict={navDict}/>
+      <Navigation navDict={navDict} />
       <LanguageSelect />
     </header>
   );

@@ -5,7 +5,7 @@ import { generateTranslator } from "../utils/i18n";
 import { getDictionary } from "./dictionaries";
 import { cn } from "../utils/tailwind";
 import { HTMLAttributes } from "react";
-import HomeWavesRight from "../components/waves/HomeWavesRight";
+import LineWaves from "../components/LineWaves";
 
 export default async function Home({
   params: { lang },
@@ -43,7 +43,7 @@ export default async function Home({
           <RectLinks className="hidden sm:mt-auto sm:flex" />
         </div>
       )}
-      <HomeWavesRight />
+      <LineWaves />
     </div>
   );
 }

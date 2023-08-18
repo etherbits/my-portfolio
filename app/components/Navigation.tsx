@@ -54,7 +54,6 @@ const MobileNavigation: React.FC<NavigationProps> = ({ navDict }) => {
   const pathname = "/" + usePathname().split("/").slice(2).join("/");
   const t = generateTranslator<"navigation">(navDict);
   const [isOpen, setIsOpen] = useState(false);
-  console.log(pathname);
 
   return (
     <div className="relative">

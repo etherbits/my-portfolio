@@ -15,7 +15,7 @@ export default async function Home({
   const dict = await getDictionary(lang);
   const t = generateTranslator<"home">(dict["home"]);
   return (
-    <div className="relative flex basis-full justify-between">
+    <div className="flex basis-full justify-between overflow-hidden">
       {t && (
         <div className="flex h-full w-full flex-col items-center justify-between p-6 text-center sm:px-8 sm:pb-16">
           <div className="flex max-w-full flex-col items-center justify-center text-center">

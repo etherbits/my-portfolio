@@ -8,7 +8,7 @@ const HomeWavesRight = () => {
       viewBox="0 0 1460 1068"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute bottom-0 right-0 w-[100%] translate-x-[50%] translate-y-[28%]"
+      className="fixed bottom-0 right-0 w-[100%] translate-x-[50%] translate-y-[28%] overflow-hidden"
     >
       <motion.path
         opacity="0.1"

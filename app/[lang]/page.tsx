@@ -5,6 +5,7 @@ import { generateTranslator } from "../utils/i18n";
 import { getDictionary } from "./dictionaries";
 import { cn } from "../utils/tailwind";
 import { HTMLAttributes } from "react";
+import HomeWavesRight from "../components/waves/HomeWavesRight";
 
 export default async function Home({
   params: { lang },
@@ -14,7 +15,7 @@ export default async function Home({
   const dict = await getDictionary(lang);
   const t = generateTranslator<"home">(dict["home"]);
   return (
-    <div className="flex basis-full justify-between">
+    <div className="relative flex basis-full justify-between">
       {t && (
         <div className="flex h-full w-full flex-col items-center justify-between p-6 text-center sm:px-8 sm:pb-16">
           <div className="flex max-w-full flex-col items-center justify-center text-center">
@@ -42,6 +43,7 @@ export default async function Home({
           <RectLinks className="hidden sm:mt-auto sm:flex" />
         </div>
       )}
+      <HomeWavesRight />
     </div>
   );
 }

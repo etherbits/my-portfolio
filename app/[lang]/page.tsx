@@ -45,12 +45,12 @@ export default async function Home({
       )}
       <LineWaves
         type="homeRight"
-        className="bottom-0 right-0 h-[100%] translate-x-[52%] translate-y-[28%]"
+        className="bottom-0 right-0 w-[98%] translate-x-[52%] translate-y-[28%]"
       />
       <LineWaves
         type="homeLeft"
         className="bottom-0 left-0 w-[84%] translate-x-[-50%] translate-y-[40%]"
-        transition={{delay: 1.3}}
+        transition={{ delay: 1.3 }}
       />
     </div>
   );

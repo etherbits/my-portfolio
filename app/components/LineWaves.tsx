@@ -33,11 +33,41 @@ const LineWaves: React.FC<Props> = ({
               key={i}
               d={line.d}
               initial={{ pathLength: 0.1, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: +(line.opacity ?? 1) }}
+              animate={{
+                pathLength: 1,
+                opacity: Math.min(1, (i + 1) / waveLines[type].lines.length),
+              }}
               transition={
                 {
                   delay: 0 + i * 0.01,
                   duration: 1.5 + i * 0.05,
+                  ...transition,
+                } as Transition
+              }
+              {...rest}
+            />
+          );
+        })}
+      {waveLines[type]?.lines &&
+        waveLines[type].lines.map((line, i) => {
+          return (
+            <motion.path
+              key={i}
+              d={line.d}
+              initial={{ pathLength: 0.1, opacity: 0 }}
+              animate={{
+                pathLength: 1,
+                opacity: [
+                  0,
+                  Math.min(1, (i + 1) / waveLines[type].lines.length),
+                  0,
+                ],
+              }}
+              transition={
+                {
+                  delay: 1.5 + i * 0.01,
+                  duration: 1.5 + i * 0.05,
+                  repeat: Infinity,
                   ...transition,
                 } as Transition
               }

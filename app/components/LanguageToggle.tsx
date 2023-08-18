@@ -21,7 +21,7 @@ const LanguageToggle: React.FC<Props> = ({ type }) => {
     type === "compact" ? currentLocale : currentLanguage.label;
   return (
     <MotionLink
-      className="flex items-center gap-4 rounded-md px-4 py-2"
+      className="flex items-center gap-4 rounded-md px-4 py-2 backdrop-blur-md"
       style={{ backgroundColor: "rgba(0,0,0,0)" }}
       href={`/${currentLocale === "en" ? "ge" : "en"}`}
       whileHover={{ backgroundColor: getColorRGBA("neutral-800", 0.72) }}

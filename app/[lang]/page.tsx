@@ -16,30 +16,30 @@ export default async function Home({
   return (
     <div className="flex basis-full justify-between">
       {t && (
-        <div className="flex h-full w-full flex-col items-center justify-between p-6 text-center md:px-8 md:pb-16">
+        <div className="flex h-full w-full flex-col items-center justify-between p-6 text-center sm:px-8 sm:pb-16">
           <div className="flex max-w-full flex-col items-center justify-center text-center">
             <Image
               src="https://github.com/etherbits.png"
               width={460}
               height={460}
               alt="profile"
-              className="mb-6 h-20 w-20 rounded-full md:mt-[7vh] md:h-40 md:w-40"
+              className="mb-6 h-20 w-20 rounded-full sm:mt-[3vh] sm:h-28 sm:w-28 md:mt-[7vh] md:h-40 md:w-40"
             />
-            <p className="mb-4 text-[26px] text-slate-200 md:text-clamp-3xl ">
+            <p className="mb-4 text-[26px] text-slate-200 sm:text-clamp-3xl">
               {t("intro_first_start")}{" "}
               <span className="text-blue-200">{t("intro_first_name")}</span>{" "}
               {t("intro_first_end")}
             </p>
             <ProfessionText>{t("intro_profession")}</ProfessionText>
-            <p className="mb-16 max-w-[320px] text-sm leading-9 text-slate-300  md:max-w-clamp-xs md:text-clamp-xl  md:leading-clamp-xl">
+            <p className="mb-16 max-w-[320px] text-sm leading-9 text-slate-300  sm:max-w-clamp-xs sm:text-clamp-xl  sm:leading-clamp-xl">
               {t("intro_paragraph")}
             </p>
-            <Button className="mb-11 text-[16px] md:text-xl">
+            <Button className="mb-11 text-[16px] sm:text-xl">
               {t("intro_button")}
             </Button>
           </div>
-          <RectLinks size={36} gap={24} className="md:hidden" />
-          <RectLinks className="hidden md:mt-auto md:flex" />
+          <RectLinks size={36} gap={24} className="sm:hidden" />
+          <RectLinks className="hidden sm:mt-auto sm:flex" />
         </div>
       )}
     </div>
@@ -53,7 +53,7 @@ type ProfessionProps = {
 
 const ProfessionText: React.FC<ProfessionProps> = ({ children, className }) => {
   const baseClassName: HTMLAttributes<HTMLParagraphElement>["className"] =
-    "bg-gradient-to-br w-full from-blue-200 to-slate-600 bg-clip-text text-center text-[32px] font-extrabold tracking-widest text-black md:whitespace-nowrap md:text-clamp-4xl";
+    "bg-gradient-to-br w-full from-blue-200 to-slate-600 bg-clip-text text-center text-[32px] font-extrabold tracking-widest text-black sm:whitespace-nowrap sm:text-clamp-4xl";
 
   return (
     <div className="relative z-[-1] mb-8 w-full select-none">

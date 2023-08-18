@@ -12,10 +12,10 @@ const config: Config = {
         "clamp-xl": "clamp(2rem, 2.25vw, 3rem)",
       },
       fontSize: {
-        "clamp-lg": "clamp(1.125rem, 1.25vw, 1.35rem)",
-        "clamp-xl": "clamp(1.25rem, 1.39vw, 1.5rem)",
-        "clamp-3xl": "clamp(3rem, 3.33vw, 3.6rem)",
-        "clamp-4xl": "clamp(4rem, 4.45vw, 4.2rem)",
+        "clamp-lg": "clamp(.9rem, 1.25vw, 1.35rem)",
+        "clamp-xl": "clamp(1rem, 1.39vw, 1.5rem)",
+        "clamp-3xl": "clamp(2.4rem, 3.33vw, 3.6rem)",
+        "clamp-4xl": "clamp(3.2rem, 4.45vw, 4.2rem)",
       },
       maxWidth: {
         "clamp-xs": "clamp(36rem, 45vw, 45rem)",

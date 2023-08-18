@@ -55,13 +55,13 @@ export default async function RootLayout({
     <html lang={lang}>
       <body
         className={cn(
-          "flex flex-col tracking-wider text-slate-300 md:h-screen",
+          "flex flex-col tracking-wider text-slate-300 sm:h-screen",
           { [montserrat.className]: lang === "en" },
           { [firaGo.className]: lang === "ge" },
         )}
       >
         <Header navDict={dict["navigation"]} />
-        <div className="flex md:basis-full">{children}</div>
+        <div className="flex sm:basis-full">{children}</div>
       </body>
     </html>
   );

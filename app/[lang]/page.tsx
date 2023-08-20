@@ -5,6 +5,7 @@ import { generateTranslator } from "../utils/i18n";
 import { getDictionary } from "./dictionaries";
 import LineWaves from "../components/LineWaves";
 import OutlinedText from "../components/OutlineText";
+import ProfileImage from "../components/ProfileImage";
 
 export default async function Home({
   params: { lang },
@@ -18,13 +19,7 @@ export default async function Home({
       {t && (
         <div className="flex h-full w-full flex-col items-center justify-between p-6 text-center sm:px-8 sm:pb-16">
           <div className="flex max-w-full flex-col items-center justify-center text-center">
-            <Image
-              src="https://github.com/etherbits.png"
-              width={460}
-              height={460}
-              alt="profile"
-              className="mb-6 h-20 w-20 rounded-full sm:mt-[3vh] sm:h-28 sm:w-28 md:mt-[7vh] md:h-40 md:w-40"
-            />
+            <ProfileImage className="mb-8 sm:mt-[3vh] sm:h-28 sm:w-28 md:mt-[7vh] md:h-40 md:w-40" />
             <p className="mb-4 text-[26px] text-slate-200 sm:text-clamp-3xl">
               {t("intro_first_start")}{" "}
               <span className="text-blue-200">{t("intro_first_name")}</span>{" "}

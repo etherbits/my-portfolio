@@ -18,15 +18,15 @@ export default async function Home({
     <div className="flex basis-full justify-between overflow-hidden">
       {t && (
         <div className="flex h-full w-full flex-col items-center justify-between p-6 text-center sm:px-8 sm:pb-16">
-          <div className="flex max-w-full flex-col items-center justify-center text-center">
-            <ProfileImage className="mb-8 sm:mt-[3vh] sm:h-28 sm:w-28 md:mt-[7vh] md:h-40 md:w-40" />
+          <div className="flex max-w-full flex-col items-center justify-center text-center sm:mt-[3vh] md:mt-[7vh]">
+            <ProfileImage className="mb-8 sm:h-28 sm:w-28 md:h-40 md:w-40" />
             <p className="mb-4 text-[26px] text-slate-200 sm:text-clamp-3xl">
               {t("intro_first_start")}{" "}
               <span className="text-blue-200">{t("intro_first_name")}</span>{" "}
               {t("intro_first_end")}
             </p>
             <OutlinedText dropCount={1}>{t("intro_profession")}</OutlinedText>
-            <p className="mb-16 max-w-[320px] text-sm leading-9 text-slate-300  sm:max-w-clamp-xs sm:text-clamp-xl  sm:leading-clamp-xl">
+            <p className="mb-16 max-w-[320px] text-sm mt-8 leading-9 text-slate-300  sm:max-w-clamp-xs sm:text-clamp-xl  sm:leading-clamp-xl">
               {t("intro_paragraph")}
             </p>
             <Button className="mb-11 text-[16px] sm:text-xl">

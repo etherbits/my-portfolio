@@ -16,7 +16,7 @@ const OutlinedText: React.FC<ProfessionProps> = ({
     "bg-gradient-to-br w-full from-blue-200 to-slate-600 bg-clip-text text-center text-[32px] font-extrabold tracking-widest text-black sm:whitespace-nowrap sm:text-clamp-4xl";
 
   return (
-    <div className="relative z-[-1] mb-8 w-full select-none">
+    <div className="relative z-[-1] w-full select-none">
       <p
         className={cn(baseClassName, className)}
         style={{ WebkitTextStroke: "4px transparent" }}

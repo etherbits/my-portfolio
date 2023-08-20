@@ -19,6 +19,7 @@ const config: Config = {
       },
       maxWidth: {
         "clamp-xs": "clamp(36rem, 45vw, 45rem)",
+        "clamp-2xl": "clamp(30rem, 48vw, 48rem)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

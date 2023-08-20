@@ -1,7 +1,6 @@
-import React from 'react'
+import OutlinedText from "@/app/components/OutlineText";
+import React from "react";
 
 export default function AboutMe() {
-  return (
-    <h1>About Me</h1>
-  )
+  return <OutlinedText>About Me</OutlinedText>;
 }

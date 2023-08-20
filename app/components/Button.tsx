@@ -3,7 +3,7 @@ import { cn } from "../utils/tailwind";
 
 type Props = {
   children: React.ReactNode;
-  className: HTMLAttributes<HTMLButtonElement>["className"];
+  className?: HTMLAttributes<HTMLButtonElement>["className"];
 };
 
 const Button: React.FC<Props> = ({ children, className }) => {

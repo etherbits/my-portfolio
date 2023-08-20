@@ -29,7 +29,7 @@ export default async function Home({
             <p className="mb-16 max-w-[320px] text-sm mt-8 leading-9 text-slate-300  sm:max-w-clamp-xs sm:text-clamp-xl  sm:leading-clamp-xl">
               {t("intro_paragraph")}
             </p>
-            <Button className="mb-11 text-[16px] sm:text-xl">
+            <Button className="mb-11 text-[16px] sm:clamp-xl">
               {t("intro_button")}
             </Button>
           </div>

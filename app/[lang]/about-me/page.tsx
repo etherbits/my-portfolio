@@ -1,14 +1,14 @@
+import Button from "@/app/components/Button";
 import OutlinedText from "@/app/components/OutlineText";
-import ProfileImage from "@/app/components/ProfileImage";
 import React from "react";
 
 export default function AboutMe() {
   return (
-    <div className="flex basis-full  justify-center overflow-hidden">
-      <main className="mt-[7vh] flex w-fit gap-10">
+    <div className="flex basis-full justify-center overflow-hidden px-8">
+      <main className="mt-[2vh] md:mt-[7vh] flex w-fit gap-10">
         <div>
           <OutlinedText className="mb-6 pl-1 text-left">About Me</OutlinedText>
-          <p className="max-w-clamp-2xl whitespace-pre-line text-clamp-lg">
+          <p className="mb-10 max-w-clamp-2xl whitespace-pre-line text-clamp-lg">
             Lorem ipsum dolor sit amet consectetur. Amet penatibus habitant quam
             ac aliquam. Pharetra ipsum quis eu diam in. Aliquam sit morbi sit
             blandit arcu viverra volutpat nulla sollicitudin.{"\n"}
@@ -27,6 +27,7 @@ export default function AboutMe() {
             tellus adipiscing id eu. Et volutpat ac neque sit cursus tempus
             hendrerit nec nam. Viverra ipsum odio a tellus.
           </p>
+          <Button className="sm:clamp-xl text-[16px]">View My Journey</Button>
         </div>
       </main>
     </div>

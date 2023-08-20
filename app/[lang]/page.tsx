@@ -31,7 +31,7 @@ export default async function Home({
               <span className="text-blue-200">{t("intro_first_name")}</span>{" "}
               {t("intro_first_end")}
             </p>
-            <ProfessionText>{t("intro_profession")}</ProfessionText>
+            <OutlinedText dropCount={1}>{t("intro_profession")}</OutlinedText>
             <p className="mb-16 max-w-[320px] text-sm leading-9 text-slate-300  sm:max-w-clamp-xs sm:text-clamp-xl  sm:leading-clamp-xl">
               {t("intro_paragraph")}
             </p>
@@ -59,9 +59,14 @@ export default async function Home({
 type ProfessionProps = {
   children: string;
   className?: string | undefined;
+  dropCount?: number | undefined;
 };
 
-const ProfessionText: React.FC<ProfessionProps> = ({ children, className }) => {
+const OutlinedText: React.FC<ProfessionProps> = ({
+  children,
+  className,
+  dropCount,
+}) => {
   const baseClassName: HTMLAttributes<HTMLParagraphElement>["className"] =
     "bg-gradient-to-br w-full from-blue-200 to-slate-600 bg-clip-text text-center text-[32px] font-extrabold tracking-widest text-black sm:whitespace-nowrap sm:text-clamp-4xl";
 
@@ -73,16 +78,27 @@ const ProfessionText: React.FC<ProfessionProps> = ({ children, className }) => {
       >
         {children}
       </p>
-      <p
-        className={cn(
-          baseClassName,
-          "absolute left-0 top-0 z-[-1] translate-y-[9%] opacity-60",
-          className,
-        )}
-        style={{ WebkitTextStroke: "4px transparent" }}
-      >
-        {children}
-      </p>
+
+      {dropCount &&
+        [...Array(dropCount)].map((_, i) => {
+          return (
+            <p
+              className={cn(
+                baseClassName,
+                "absolute left-0 top-0 z-[-1]",
+                className,
+              )}
+              key={i}
+              style={{
+                WebkitTextStroke: "4px transparent",
+                transform: `translateY(${12 * (i + 1)}%)`,
+                opacity: 1 - (i + 1) * 0.4,
+              }}
+            >
+              {children}
+            </p>
+          );
+        })}
     </div>
   );
 };

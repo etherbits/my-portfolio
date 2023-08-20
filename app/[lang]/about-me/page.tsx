@@ -6,9 +6,8 @@ export default function AboutMe() {
   return (
     <div className="flex basis-full  justify-center overflow-hidden">
       <main className="mt-[7vh] flex w-fit gap-10">
-        <ProfileImage className="mt-6 sm:h-28 sm:w-28 md:h-40 md:w-40" />
         <div>
-          <OutlinedText className="pl-1 text-left mb-6">About Me</OutlinedText>
+          <OutlinedText className="mb-6 pl-1 text-left">About Me</OutlinedText>
           <p className="max-w-clamp-2xl whitespace-pre-line text-clamp-lg">
             Lorem ipsum dolor sit amet consectetur. Amet penatibus habitant quam
             ac aliquam. Pharetra ipsum quis eu diam in. Aliquam sit morbi sit

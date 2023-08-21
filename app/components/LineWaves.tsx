@@ -57,7 +57,7 @@ const LineWaves: React.FC<Props> = ({
               initial={{
                 pathLength: 0.1,
                 opacity: 0,
-                stroke: getColorRGBA("slate-300"),
+                stroke: getColorRGBA("slate-400"),
               }}
               animate={{
                 pathLength: 1,

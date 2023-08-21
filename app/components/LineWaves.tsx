@@ -1,8 +1,8 @@
 "use client";
 import React, { ComponentProps } from "react";
-import { AnimationProps, MotionProps, Transition, motion } from "framer-motion";
+import { MotionProps, Transition, motion } from "framer-motion";
 import { waveLines } from "./waves";
-import { cn } from "../utils/tailwind";
+import { cn, getColorRGBA } from "../utils/tailwind";
 
 type Props = {
   type: keyof typeof waveLines;
@@ -54,9 +54,14 @@ const LineWaves: React.FC<Props> = ({
             <motion.path
               key={i}
               d={line.d}
-              initial={{ pathLength: 0.1, opacity: 0 }}
+              initial={{
+                pathLength: 0.1,
+                opacity: 0,
+                stroke: getColorRGBA("slate-300"),
+              }}
               animate={{
                 pathLength: 1,
+                stroke: getColorRGBA("blue-300"),
                 opacity: [
                   0,
                   Math.min(1, (i + 1) / waveLines[type].lines.length),
@@ -71,9 +76,6 @@ const LineWaves: React.FC<Props> = ({
                   ...transition,
                 } as Transition
               }
-              className={`${
-                Math.random() > 0.3 ? "stroke-blue-300 " : "stroke-blue-400"
-              } `}
               {...rest}
             />
           );

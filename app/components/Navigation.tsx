@@ -11,7 +11,6 @@ import LanguageToggle from "./LanguageToggle";
 
 export const navigationLinks = [
   { name: "home", icon: "Home", href: "/" },
-  { name: "about", icon: "User", href: "/about-me" },
   { name: "journey", icon: "Milestone", href: "/journey" },
   { name: "projects", icon: "Folder", href: "/projects" },
   { name: "contact", icon: "Mail", href: "/contact-me" },

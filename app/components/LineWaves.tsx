@@ -71,7 +71,7 @@ const LineWaves: React.FC<Props> = ({
                   ...transition,
                 } as Transition
               }
-              className="stroke-slate-500"
+              className="stroke-blue-300"
               {...rest}
             />
           );

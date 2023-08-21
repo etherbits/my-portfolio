@@ -27,7 +27,7 @@ const DesktopNavigation: React.FC<NavigationProps> = ({ navDict }) => {
   const t = generateTranslator<"navigation">(navDict);
   return (
     <nav className="hidden  md:block">
-      <ul className="flex items-center gap-4 whitespace-nowrap  text-slate-400  lg:gap-8 md:text-clamp-lg">
+      <ul className="flex items-center gap-4 whitespace-nowrap  text-slate-400  md:text-clamp-lg lg:gap-8">
         {navigationLinks.map((link, i) => (
           <motion.li
             initial={{ opacity: 0 }}

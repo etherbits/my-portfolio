@@ -16,4 +16,6 @@ export type SectionKeys = keyof Dictionary;
 export type DictionarySection<SectionKey extends SectionKeys> =
   Dictionary[SectionKey];
 
+type test = DictionarySection<"journey">['journey_start']
+
 export const getDictionary = async (locale: Locale) => dictionaries[locale]();

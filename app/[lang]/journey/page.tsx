@@ -22,10 +22,11 @@ export default async function Journey({
       <main>
         <ul>
           {journeys.map((journey) => {
+            const journeyDict = t(journey.id);
             return (
               <li key={journey.id}>
-                <h3>{t(journey.id).title}</h3>
-                <p>{t(journey.id).body}</p>
+                <h3>{journeyDict.title}</h3>
+                <p>{journeyDict.body}</p>
               </li>
             );
           })}

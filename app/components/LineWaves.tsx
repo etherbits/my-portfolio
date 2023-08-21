@@ -71,7 +71,7 @@ const LineWaves: React.FC<Props> = ({
                   ...transition,
                 } as Transition
               }
-              className="stroke-blue-300"
+              className={ `${Math.random() > .3 ? "stroke-blue-300 " : "stroke-blue-400" } `}
               {...rest}
             />
           );

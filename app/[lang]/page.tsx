@@ -6,11 +6,12 @@ import { getDictionary } from "./dictionaries";
 import LineWaves from "../components/LineWaves";
 import OutlinedText from "../components/OutlineText";
 import ProfileImage from "../components/ProfileImage";
+import { Locale } from "@/middleware";
 
 export default async function Home({
   params: { lang },
 }: {
-  params: { lang: "en" | "ge" };
+  params: { lang: Locale };
 }) {
   const dict = await getDictionary(lang);
   const t = generateTranslator<"home">(dict["home"]);

@@ -13,8 +13,7 @@ export type Dictionary = Awaited<
 >;
 export type SectionKeys = keyof Dictionary;
 
-export type DictionarySection<
-  SectionKey extends SectionKeys,
-> = Dictionary[SectionKey];
+export type DictionarySection<SectionKey extends SectionKeys> =
+  Dictionary[SectionKey];
 
 export const getDictionary = async (locale: Locale) => dictionaries[locale]();

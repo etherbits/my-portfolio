@@ -22,7 +22,7 @@ const LineWaves: React.FC<Props> = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={cn(
-        "pointer-events-none fixed z-[-2] overflow-hidden stroke-slate-600 stroke-[1.5px]",
+        "pointer-events-none fixed z-[-2] overflow-hidden stroke-slate-700 stroke-[1.5px]",
         className,
       )}
     >
@@ -71,7 +71,9 @@ const LineWaves: React.FC<Props> = ({
                   ...transition,
                 } as Transition
               }
-              className={ `${Math.random() > .3 ? "stroke-blue-300 " : "stroke-blue-400" } `}
+              className={`${
+                Math.random() > 0.3 ? "stroke-blue-300 " : "stroke-blue-400"
+              } `}
               {...rest}
             />
           );

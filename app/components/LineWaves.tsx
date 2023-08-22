@@ -32,7 +32,7 @@ const LineWaves: React.FC<Props> = ({
             <motion.path
               key={i}
               d={line.d}
-              initial={{ pathLength: 0.1, opacity: 0 }}
+              initial={{ pathLength: 0, opacity: 0 }}
               animate={{
                 pathLength: 1,
                 opacity: Math.min(1, (i + 1) / waveLines[type].lines.length),
@@ -55,7 +55,7 @@ const LineWaves: React.FC<Props> = ({
               key={i}
               d={line.d}
               initial={{
-                pathLength: 0.1,
+                pathLength: 0,
                 opacity: 0,
                 stroke: getColorRGBA("slate-400"),
               }}

@@ -1,29 +1,65 @@
+"use client";
+
 import React, { HTMLAttributes } from "react";
-import { cn } from "../utils/tailwind";
+import { cn, getColorRGBA } from "../utils/tailwind";
+import { MotionProps, motion } from "framer-motion";
 
 type Props = {
   children: React.ReactNode;
   className?: HTMLAttributes<HTMLButtonElement>["className"];
+  buttonClassName?: HTMLAttributes<HTMLButtonElement>["className"];
+} & HTMLAttributes<HTMLButtonElement> &
+  MotionProps;
+
+const variants = {
+  rest: {
+    translateY: "0%",
+    scale: "1",
+    borderColor: getColorRGBA("slate-400"),
+  },
+  hover: {
+    translateY: "-5%",
+    scale: "1.02",
+    borderColor: getColorRGBA("slate-200"),
+  },
+  tap: {
+    translateY: "20%",
+    scale: ".95",
+    borderColor: getColorRGBA("blue-200"),
+  },
 };
 
-const Button: React.FC<Props> = ({ children, className }) => {
+const Button: React.FC<Props> = ({
+  children,
+  className,
+  buttonClassName,
+  ...rest
+}) => {
   return (
-    <div
-      className={cn(
-        "relative flex w-fit rounded-[4px] border border-slate-600 px-5 py-3 text-xl tracking-wider text-red-500 text-transparent",
-        className,
-      )}
+    <motion.div
+      className={cn("relative", className)}
+      whileTap={"tap"}
+      whileHover={"hover"}
+      initial="rest"
+      animate="rest"
     >
-      {children}
-      <button
+      <motion.button
         className={cn(
-          "absolute left-0 top-[-10px] block w-fit scale-[1.06] whitespace-nowrap rounded-[4px] border border-slate-300 bg-black px-5 py-3 text-xl tracking-wider text-slate-300 ",
-          className,
+          `block  w-fit whitespace-nowrap rounded-[4px] border 
+          bg-black px-5 py-3 text-xl tracking-wider text-slate-300`,
+          buttonClassName,
         )}
+        variants={variants}
+        transition={{ duration: 0.1 }}
+        {...rest}
       >
         {children}
-      </button>
-    </div>
+      </motion.button>
+      <div
+        className={`absolute left-0 top-[20%] z-[-1] h-full
+          w-full  scale-95 rounded-[4px] border opacity-30`}
+      />
+    </motion.div>
   );
 };
 

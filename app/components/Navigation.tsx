@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { cn, getColorRGBA } from "../utils/tailwind";
 import Link from "next/link";
@@ -54,8 +54,27 @@ const MobileNavigation: React.FC<NavigationProps> = ({ navDict }) => {
   const t = generateTranslator<"navigation">(navDict);
   const [isOpen, setIsOpen] = useState(false);
 
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    function closeOnOutsideClick(e: MouseEvent) {
+      if (!navRef.current || !e.target) return;
+      const targetNode = e.target as Node;
+      const parentNode = navRef.current as Node;
+
+      if (parentNode.contains(targetNode)) return;
+
+      setIsOpen(false);
+    }
+    window.addEventListener("click", closeOnOutsideClick);
+
+    return () => {
+      window.removeEventListener("click", closeOnOutsideClick);
+    };
+  }, []);
+
   return (
-    <div className="relative">
+    <div className="relative" ref={navRef}>
       <motion.button
         className={"rounded-md p-3  backdrop-blur-md"}
         onClick={() => setIsOpen((state) => !state)}
@@ -83,6 +102,7 @@ const MobileNavigation: React.FC<NavigationProps> = ({ navDict }) => {
                       <MotionLink
                         href={link.href}
                         className={"w-full rounded-md px-4 py-2"}
+                        onClick={() => setIsOpen((state) => !state)}
                         initial={{
                           backgroundColor: getColorRGBA("neutral-900", 0),
                         }}

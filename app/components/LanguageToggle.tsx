@@ -1,7 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { languages } from "./LanguageSelect";
 import { Locale } from "@/middleware";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,6 +10,11 @@ const MotionLink = motion(Link);
 
 type Props = {
   type?: "compact" | "regular";
+};
+
+export const languages = {
+  en: { label: "English", image: "/images/eng.png" },
+  ge: { label: "ქართული", image: "/images/geo.png" },
 };
 
 const LanguageToggle: React.FC<Props> = ({ type }) => {

@@ -25,6 +25,7 @@ const LineWaves: React.FC<Props> = ({
         "pointer-events-none fixed z-[-2] overflow-hidden stroke-slate-700 stroke-[1.5px]",
         className,
       )}
+      preserveAspectRatio="none"
     >
       {waveLines[type]?.lines &&
         waveLines[type].lines.map((line, i) => {

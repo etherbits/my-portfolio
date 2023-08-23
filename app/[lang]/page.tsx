@@ -27,10 +27,10 @@ export default async function Home({
               {t("intro_first_end")}
             </p>
             <OutlinedText dropCount={1}>{t("intro_profession")}</OutlinedText>
-            <p className="mb-16 max-w-[320px] text-sm mt-8 leading-9 text-slate-300  sm:max-w-clamp-xs sm:text-clamp-xl  sm:leading-clamp-xl">
+            <p className="mb-16 mt-8 max-w-[320px] text-sm leading-9 text-slate-300  sm:max-w-clamp-xs sm:text-clamp-xl  sm:leading-clamp-xl">
               {t("intro_paragraph")}
             </p>
-            <Button className="mb-11 text-[16px] sm:clamp-xl">
+            <Button className="sm:clamp-xl mb-11 text-[16px]">
               {t("intro_button")}
             </Button>
           </div>
@@ -40,11 +40,11 @@ export default async function Home({
       )}
       <LineWaves
         type="homeRight"
-        className="bottom-0 right-0 w-[98%] translate-x-[52%] translate-y-[28%]"
+        className="bottom-0 right-0 h-[38%] w-[100%] translate-x-[52%] translate-y-[28%] md:h-[104%] 2xl:h-[132%]"
       />
       <LineWaves
         type="homeLeft"
-        className="bottom-0 left-0 w-[84%] translate-x-[-50%] translate-y-[40%]"
+        className="bottom-0 left-0 h-[30%] w-[60%] translate-x-[-46%] translate-y-[36%] md:h-[70%] 2xl:h-[96%]"
         transition={{ delay: 1.3 }}
       />
     </div>

@@ -7,6 +7,7 @@ import LineWaves from "../components/LineWaves";
 import OutlinedText from "../components/OutlineText";
 import ProfileImage from "../components/ProfileImage";
 import { Locale } from "@/middleware";
+import Link from "next/link";
 
 export default async function Home({
   params: { lang },
@@ -30,12 +31,11 @@ export default async function Home({
             <p className="mb-16 mt-8 max-w-[320px] text-sm leading-9 text-slate-300  sm:max-w-clamp-xs sm:text-clamp-xl  sm:leading-clamp-xl">
               {t("intro_paragraph")}
             </p>
-            <Button
-              containerClassName="mb-11"
-              className="sm:clamp-xl text-[16px]"
-            >
-              {t("intro_button")}
-            </Button>
+            <Link href="/journey" className="mb-11">
+              <Button className="sm:clamp-xl text-[16px]">
+                {t("intro_button")}
+              </Button>
+            </Link>
           </div>
           <RectLinks size={36} gap={24} className="sm:hidden" />
           <RectLinks className="hidden sm:mt-auto sm:flex" />

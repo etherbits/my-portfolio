@@ -30,7 +30,10 @@ export default async function Home({
             <p className="mb-16 mt-8 max-w-[320px] text-sm leading-9 text-slate-300  sm:max-w-clamp-xs sm:text-clamp-xl  sm:leading-clamp-xl">
               {t("intro_paragraph")}
             </p>
-            <Button className="sm:clamp-xl mb-11 text-[16px]">
+            <Button
+              containerClassName="mb-11"
+              className="sm:clamp-xl text-[16px]"
+            >
               {t("intro_button")}
             </Button>
           </div>

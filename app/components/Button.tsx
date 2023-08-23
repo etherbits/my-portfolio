@@ -7,7 +7,7 @@ import { MotionProps, motion } from "framer-motion";
 type Props = {
   children: React.ReactNode;
   className?: HTMLAttributes<HTMLButtonElement>["className"];
-  buttonClassName?: HTMLAttributes<HTMLButtonElement>["className"];
+  containerClassName?: HTMLAttributes<HTMLButtonElement>["className"];
 } & HTMLAttributes<HTMLButtonElement> &
   MotionProps;
 
@@ -32,12 +32,12 @@ const variants = {
 const Button: React.FC<Props> = ({
   children,
   className,
-  buttonClassName,
+  containerClassName,
   ...rest
 }) => {
   return (
     <motion.div
-      className={cn("relative", className)}
+      className={cn("relative", containerClassName)}
       whileTap={"tap"}
       whileHover={"hover"}
       initial="rest"
@@ -47,7 +47,7 @@ const Button: React.FC<Props> = ({
         className={cn(
           `block  w-fit whitespace-nowrap rounded-[4px] border 
           bg-black px-5 py-3 text-xl tracking-wider text-slate-300`,
-          buttonClassName,
+          className,
         )}
         variants={variants}
         transition={{ duration: 0.1 }}

@@ -7,7 +7,7 @@ import { cn, getColorRGBA } from "../utils/tailwind";
 type Props = {
   type: keyof typeof waveLines;
   className?: ComponentProps<"svg">["className"];
-  transition?: Transition;
+  transition?: Transition & { duration?: number };
 } & MotionProps;
 
 const LineWaves: React.FC<Props> = ({
@@ -16,6 +16,9 @@ const LineWaves: React.FC<Props> = ({
   transition,
   ...rest
 }) => {
+  const delay = transition?.delay ?? 0;
+  const delayIncrement = 0.05;
+  const duration = transition?.duration ?? 1;
   return (
     <motion.svg
       viewBox={waveLines[type].viewBox}
@@ -40,9 +43,8 @@ const LineWaves: React.FC<Props> = ({
               }}
               transition={
                 {
-                  delay: 0 + i * 0.01,
-                  duration: 2 + i * 0.05,
-                  ...transition,
+                  delay: delay + i * delayIncrement,
+                  duration: duration,
                 } as Transition
               }
               {...rest}
@@ -62,7 +64,7 @@ const LineWaves: React.FC<Props> = ({
               }}
               animate={{
                 pathLength: 1,
-                stroke: getColorRGBA("blue-300"),
+                stroke: getColorRGBA("blue-400"),
                 opacity: [
                   0,
                   Math.min(1, (i + 1) / waveLines[type].lines.length),
@@ -71,10 +73,14 @@ const LineWaves: React.FC<Props> = ({
               }}
               transition={
                 {
-                  delay: 2 + i * 0.01,
-                  duration: 2 + i * 0.05,
+                  delay:
+                    1 +
+                    delay +
+                    1.5 * duration +
+                    i * delayIncrement,
+                  repeatDelay: duration * 1.5,
+                  duration: duration * 1.5,
                   repeat: Infinity,
-                  ...transition,
                 } as Transition
               }
               {...rest}

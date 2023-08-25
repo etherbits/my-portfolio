@@ -35,6 +35,8 @@ const LanguageToggle: React.FC<Props> = ({ type }) => {
       whileHover={{ backgroundColor: getColorRGBA("neutral-800", 0.72) }}
       title="Toggle Language Eng/Geo"
       prefetch={false}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
     >
       <Image
         src={currentLanguage.image}

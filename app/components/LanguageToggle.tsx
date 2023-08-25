@@ -18,18 +18,23 @@ export const languages = {
 };
 
 const LanguageToggle: React.FC<Props> = ({ type }) => {
-  const pathname = usePathname();
-  const currentLocale = pathname.split("/")[1] as Locale;
+  const splitPathname = usePathname().split("/");
+  const currentLocale = splitPathname[1] as Locale;
   const currentLanguage = languages[currentLocale];
-  const currentLabel =
-    type === "compact" ? currentLocale : currentLanguage.label;
+
+  const generateURL = () =>{
+    splitPathname[1] = currentLocale === "en" ? "ge" : "en";
+    return splitPathname.join('/')
+  }
+
   return (
     <MotionLink
       className="flex items-center gap-4 rounded-md px-4 py-2 backdrop-blur-md"
       style={{ backgroundColor: "rgba(0,0,0,0)" }}
-      href={`/${currentLocale === "en" ? "ge" : "en"}`}
+      href={generateURL()}
       whileHover={{ backgroundColor: getColorRGBA("neutral-800", 0.72) }}
       title="Toggle Language Eng/Geo"
+      prefetch={false}
     >
       <Image
         src={currentLanguage.image}
@@ -38,7 +43,7 @@ const LanguageToggle: React.FC<Props> = ({ type }) => {
         className="h-4 w-4"
         alt="language flag"
       />
-      {currentLabel}
+      {type === "compact" ? currentLocale : currentLanguage.label}
     </MotionLink>
   );
 };

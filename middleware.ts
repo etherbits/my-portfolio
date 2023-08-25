@@ -4,29 +4,41 @@ export type Locale = "en" | "ge";
 
 let locales: Locale[] = ["en", "ge"];
 
-// Get the preferred locale, similar to above or using a library
-function getLocale(request: any) {
-  return "en";
-}
+import { cookies } from "next/headers";
 
+// Get the preferred locale, similar to above or using a library
 export function middleware(request: any) {
+  const cookieStore = cookies();
   // Check if there is any supported locale in the pathname
   const pathname = request.nextUrl.pathname;
-  const pathnameIsMissingLocale = locales.every(
-    (locale) =>
-      !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
-  );
+  let pathLocale = "en";
+  const pathnameIsMissingLocale = locales.every((locale) => {
+    if (!pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`) {
+      return true;
+    }
+    pathLocale = locale;
+    return false;
+  });
 
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
-    const locale = getLocale(request);
+    const locale = cookieStore.get("locale")?.value ?? "en";
 
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
-    return NextResponse.redirect(
+    const res = NextResponse.redirect(
       new URL(`/${locale}/${pathname}`, request.url),
     );
+
+    res.cookies.set("locale", "en");
+    return res;
   }
+
+  const res = NextResponse.next();
+
+  res.cookies.set("locale", pathLocale);
+
+  return res;
 }
 
 export const config = {

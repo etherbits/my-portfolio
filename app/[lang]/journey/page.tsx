@@ -3,7 +3,6 @@ import { getDictionary } from "../dictionaries";
 import { generateTranslator } from "@/app/utils/i18n";
 import { Locale } from "@/middleware";
 import { cn } from "@/app/utils/tailwind";
-import Button from "@/app/components/Button";
 
 const journeys = [
   { id: "journey_start", date: "2017" },

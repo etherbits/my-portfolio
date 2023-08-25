@@ -37,7 +37,7 @@ const Button: React.FC<Props> = ({
 }) => {
   return (
     <motion.div
-      className={cn("relative", containerClassName)}
+      className={cn("relative w-fit", containerClassName)}
       whileTap={"tap"}
       whileHover={"hover"}
       initial="rest"

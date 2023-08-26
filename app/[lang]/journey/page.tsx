@@ -3,7 +3,7 @@ import { getDictionary } from "../dictionaries";
 import { generateTranslator } from "@/app/utils/i18n";
 import { Locale } from "@/middleware";
 import { cn } from "@/app/utils/tailwind";
-import Button from '@/app/components/Button'
+import Button from "@/app/components/Button";
 
 const journeys = [
   { id: "journey_start", date: "2017" },
@@ -26,7 +26,7 @@ export default async function Journey({
           {journeys.map((journey, i) => {
             const journeyDict = t(journey.id);
             return (
-              <li key={journey.id} className="relative">
+              <li key={journey.id} className="relative pb-4">
                 <section
                   className={cn(
                     "flex w-[46%] flex-col rounded-xl bg-gradient-to-r from-neutral-950 to-neutral-900 px-6 py-4",
@@ -46,10 +46,14 @@ export default async function Journey({
                 <div className="absolute left-[50%] top-[87.5%] h-[25%] w-[4px] translate-x-[-50%] rounded-full bg-slate-700" />
                 <div className="absolute left-[50%] top-[125%] h-[25%] w-[4px] translate-x-[-50%] rounded-full bg-slate-700" />
                 <div className="absolute left-[50%] top-[50%] h-5 w-5 translate-x-[-50%] translate-y-[-50%] rounded-full bg-blue-300" />
+                {i === journeys.length - 1 && (
+                  <Button containerClassName="absolute left-[50%] top-[162.5%] translate-x-[-50%]">
+                    View My Projects
+                  </Button>
+                )}
               </li>
             );
           })}
-          <Button containerClassName="m-auto mt-[150px]">View My Projects</Button>
         </ul>
       </main>
     </div>

@@ -15,7 +15,7 @@ type Props = NavigationProps;
 
 const Header: React.FC<Props> = ({ navDict }) => {
   return (
-    <header className="sticky top-0 grid grid-cols-[1fr_1fr] items-center justify-between bg-gradient-to-t from-[#00000000] to-[#00000000] px-6 py-3 backdrop-blur-md md:grid-cols-[1fr_auto_1fr] md:px-10 md:py-6">
+    <header className="sticky top-0 grid z-1 grid-cols-[1fr_1fr] items-center justify-between bg-gradient-to-t from-[#00000000] to-[#00000000] px-6 py-3 backdrop-blur-md md:grid-cols-[1fr_auto_1fr] md:px-10 md:py-6">
       <MotionLink
         href="/"
         className={cn(

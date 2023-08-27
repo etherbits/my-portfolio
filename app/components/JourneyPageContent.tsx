@@ -38,7 +38,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                     "my-auto flex h-fit w-full flex-col rounded-xl bg-gradient-to-r from-neutral-950 to-neutral-900 px-6 py-4 md:w-[46%]",
                     {
                       "md:ml-auto": isOdd,
-                      "md:from-neutral-900 md:to-neutral-950": i % 2 !== 0,
+                      "from-neutral-900 to-neutral-950": isOdd,
                     },
                   )}
                   initial={{
@@ -46,7 +46,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                     translateX: (isOdd ? "-" : "") + "16px",
                   }}
                   animate={{ opacity: 1, translateX: "0" }}
-                  transition={{delay: .25 * i}}
+                  transition={{ delay: 0.25 * i }}
                 >
                   <div className="mb-2 flex items-center justify-between gap-2">
                     <h3 className="text-clamp-xl">{journeyCardDict.title}</h3>

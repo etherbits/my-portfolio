@@ -31,7 +31,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
         <OutlinedText>Journey</OutlinedText>
       </motion.div>
       <main className="w-full md:w-clamp-card-container">
-        <ul className="mb-14 mt-[4vh] flex w-[100%] flex-col items-center gap-6 md:grid md:[grid-auto-rows:1fr]">
+        <ul className="mb-14 mt-[4vh] flex w-[100%] flex-col items-center gap-6 md:gap-0 md:grid md:[grid-auto-rows:1fr]">
           {journeys.map((journey, i) => {
             const journeyCardDict = t(journey.id);
             const isOdd = i % 2 !== 0;
@@ -82,7 +82,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                     <p className="text-clamp-rg">{journeyCardDict.body}</p>
                   </motion.section>
                 </motion.div>
-                <div className="absolute left-[0] top-[50%] hidden h-5 w-5 translate-x-[-50%] translate-y-[-50%] rounded-full bg-blue-300 md:left-[50%] md:block" />
+                <div className="absolute left-[50%] top-[50%] hidden h-5 w-5 translate-x-[-50%] translate-y-[-50%] rounded-full bg-blue-300 md:block" />
                 <div
                   className={cn(
                     "absolute left-[50%] top-[50%] z-[-1] hidden h-[100%] w-1 translate-x-[-50%] flex-col justify-between md:left-[50%] md:flex",
@@ -100,11 +100,11 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
               </li>
             );
           })}
-          <div className="relative grid h-full md:grid-rows-[1fr_1fr] justify-center">
+          <div className="relative grid h-full justify-center md:grid-rows-[1fr_1fr]">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{once: true}}
+              viewport={{ once: true }}
               className="mt-8 md:row-start-2 md:row-end-3"
             >
               <Button className="sm:clamp-xl text-[16px]">

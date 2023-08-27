@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Icon, { IconName } from "./Icon";
 import { cn, getColorRGBA } from "../utils/tailwind";
-import { MotionProps, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 
 type BaseLinkObj = {
   url: string;
@@ -43,7 +43,7 @@ type Props = {
   size?: number;
   gap?: number;
   className?: string;
-  itemDelayIncrement: number;
+  itemDelayIncrement?: number;
 };
 
 const RectLinks: React.FC<Props> = ({

@@ -22,7 +22,13 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
 
   return (
     <>
-      <OutlinedText>Journey</OutlinedText>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.25 }}
+      >
+        <OutlinedText>Journey</OutlinedText>
+      </motion.div>
       <main className="w-full md:w-clamp-card-container">
         <ul className="mt-[3vh] grid w-[100%] items-center [grid-auto-rows:1fr]">
           {journeys.map((journey, i) => {
@@ -46,7 +52,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                     translateX: (isOdd ? "-" : "") + "16px",
                   }}
                   animate={{ opacity: 1, translateX: "0" }}
-                  transition={{ delay: 0.25 * i }}
+                  transition={{ delay: 0.25 * (i + 1), duration: 0.25 }}
                 >
                   <div className="mb-2 flex items-center justify-between gap-2">
                     <h3 className="text-clamp-xl">{journeyCardDict.title}</h3>
@@ -73,9 +79,15 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
             );
           })}
           <li className="relative grid h-full grid-rows-[1fr_1fr] justify-center">
-            <Button containerClassName="md:row-start-2 md:row-end-3 mt-8">
-              View My Projects
-            </Button>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.25 }}
+            >
+              <Button containerClassName="md:row-start-2 md:row-end-3 mt-8">
+                View My Projects
+              </Button>
+            </motion.div>
           </li>
         </ul>
       </main>

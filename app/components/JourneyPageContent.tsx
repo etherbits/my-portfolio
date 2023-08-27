@@ -12,6 +12,15 @@ const journeys = [
   { id: "journey_start", date: "2017" },
   { id: "journey_web_focus", date: "2019" },
   { id: "journey_profession_intro", date: "2021" },
+  { id: "journey_start", date: "2017" },
+  { id: "journey_web_focus", date: "2019" },
+  { id: "journey_profession_intro", date: "2021" },
+  { id: "journey_start", date: "2017" },
+  { id: "journey_web_focus", date: "2019" },
+  { id: "journey_profession_intro", date: "2021" },
+  { id: "journey_start", date: "2017" },
+  { id: "journey_web_focus", date: "2019" },
+  { id: "journey_profession_intro", date: "2021" },
 ] as const;
 
 type Props = {
@@ -31,7 +40,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
         <OutlinedText>Journey</OutlinedText>
       </motion.div>
       <main className="w-full md:w-clamp-card-container">
-        <ul className="mb-14 mt-[4vh] flex w-[100%] flex-col items-center gap-6 md:gap-0 md:grid md:[grid-auto-rows:1fr]">
+        <ul className="mb-14 mt-[4vh] flex w-[100%] flex-col items-center gap-6 md:grid md:gap-0 md:[grid-auto-rows:1fr]">
           {journeys.map((journey, i) => {
             const journeyCardDict = t(journey.id);
             const isOdd = i % 2 !== 0;
@@ -50,7 +59,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                     opacity: 1,
                     translateX: "0",
                   }}
-                  transition={{ delay: 0.25 * (i + 1), duration: 0.25 }}
+                  transition={{ delay: 0.2 + 0.6 * i, duration: 0.2 }}
                 >
                   <motion.section
                     className={cn(
@@ -73,7 +82,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                     }}
                     viewport={{ once: true }}
                     whileInView={{ opacity: 1, translateX: "0" }}
-                    transition={{ duration: 0.25 }}
+                    transition={{ duration: 0.2 }}
                   >
                     <div className="mb-2 flex items-center justify-between gap-2">
                       <h3 className="text-clamp-xl">{journeyCardDict.title}</h3>
@@ -82,21 +91,53 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                     <p className="text-clamp-rg">{journeyCardDict.body}</p>
                   </motion.section>
                 </motion.div>
-                <div className="absolute left-[50%] top-[50%] hidden h-5 w-5 translate-x-[-50%] translate-y-[-50%] rounded-full bg-blue-300 md:block" />
-                <div
-                  className={cn(
-                    "absolute left-[50%] top-[50%] z-[-1] hidden h-[100%] w-1 translate-x-[-50%] flex-col justify-between md:left-[50%] md:flex",
-                  )}
+                <motion.div
+                // initial={{
+                //   opacity: 0,
+                // }}
+                // animate={{
+                //   opacity: 1,
+                // }}
+                // transition={{ delay: i*0.25, duration: 0.25 }}
                 >
-                  {[...Array(3)].map((_, i) => {
-                    return (
-                      <div
-                        key={i}
-                        className="h-[24%] w-full rounded-full bg-slate-600"
-                      />
-                    );
-                  })}
-                </div>
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      transform: "scale(0) translateX(-50%) translateY(-50%)",
+                    }}
+                    animate={{
+                      opacity: 1,
+                      transform: "scale(1) translateX(-50%) translateY(-50%)",
+                    }}
+                    transition={{ duration: 0.2, delay: 0.6 * i }}
+                    className="absolute left-[50%] top-[50%] hidden h-5 w-5 translate-x-[-50%] translate-y-[-50%] rounded-full bg-blue-300 [transform-origin:0_0] md:block"
+                  />
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      delay: 0.4 + i * 0.6,
+                    }}
+                    className={cn(
+                      "absolute left-[50%] top-[50%] z-[-1] hidden h-[100%] w-1 translate-x-[-50%] flex-col justify-between md:left-[50%] md:flex",
+                    )}
+                  >
+                    {[...Array(3)].map((_, j) => {
+                      return (
+                        <motion.div
+                          key={j}
+                          className="h-[24%] w-full rounded-full bg-slate-600"
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          transition={{
+                            delay: (0.2 / 3) * j,
+                            duration: 0.2 / 3,
+                          }}
+                        />
+                      );
+                    })}
+                  </motion.div>
+                </motion.div>
               </li>
             );
           })}

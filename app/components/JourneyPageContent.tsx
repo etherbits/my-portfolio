@@ -42,7 +42,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
               >
                 <motion.section
                   className={cn(
-                    "my-auto flex h-fit w-full flex-col rounded-xl bg-gradient-to-r px-6 py-4 backdrop-blur-sm md:backdrop-blur-lg md:w-[46%]",
+                    "my-auto flex h-fit w-full flex-col rounded-xl bg-gradient-to-r px-6 py-4 backdrop-blur-md md:backdrop-blur-lg md:w-[46%]",
                     {
                       "md:ml-auto": isOdd,
                     },

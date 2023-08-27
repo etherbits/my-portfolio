@@ -42,17 +42,18 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
               >
                 <motion.section
                   className={cn(
-                    "my-auto flex h-fit w-full flex-col rounded-xl bg-gradient-to-r from-neutral-950 to-neutral-900 px-6 py-4 backdrop-blur-lg md:w-[46%]",
+                    "my-auto flex h-fit w-full flex-col rounded-xl bg-gradient-to-r px-6 py-4 backdrop-blur-sm md:backdrop-blur-lg md:w-[46%]",
                     {
                       "md:ml-auto": isOdd,
-                      "from-neutral-900 to-neutral-950": isOdd,
                     },
                   )}
                   style={{
-                    background: `linear-gradient(to right,${getColorRGBA(
-                      "neutral-950",
-                      0.7,
-                    )},${getColorRGBA("neutral-900", 0.9)} )`,
+                    background: `linear-gradient(${
+                      isOdd ? "to left" : "to right"
+                    },${getColorRGBA("neutral-900", 0.3)},${getColorRGBA(
+                      "neutral-800",
+                      0.3,
+                    )} )`,
                   }}
                   initial={{
                     opacity: 0,
@@ -99,7 +100,11 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
       </main>
       <LineWaves
         type="journeyLeft"
-        className="bottom-0 left-0 w-[140%] translate-x-[-61%] translate-y-[20%] "
+        className="bottom-0 left-0 w-[140%] translate-x-[-61%] translate-y-[24%] max-h-[200%]"
+      />
+      <LineWaves
+        type="journeyRight"
+        className="bottom-0 right-0 max-h-[100%] w-[69%] translate-x-[34%] translate-y-[10%]"
       />
     </>
   );

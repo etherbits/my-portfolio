@@ -54,7 +54,7 @@ const HomePageContent: React.FC<Props> = ({ homeDict }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2, duration: 0.5 }}
-            href="/journey"
+            href="/projects"
             className="mb-11"
           >
             <Button className="sm:clamp-xl text-[16px]">

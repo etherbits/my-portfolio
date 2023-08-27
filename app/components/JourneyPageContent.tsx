@@ -38,7 +38,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
             return (
               <li
                 key={journey.id}
-                className="relative z-[-1] flex h-full flex-col justify-center py-4"
+                className="relative z-[-1] flex h-full flex-col justify-center py-2"
               >
                 <motion.section
                   className={cn(
@@ -51,7 +51,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                     background: `linear-gradient(${
                       isOdd ? "to left" : "to right"
                     },${getColorRGBA("neutral-900", 0.3)},${getColorRGBA(
-                      "neutral-800",
+                      "neutral-700",
                       0.3,
                     )} )`,
                   }}

@@ -11,7 +11,7 @@ export default async function Journey({
 
   return (
     <div className="mt-[2vh] flex w-full flex-col items-center px-8">
-    <JourneyPageContent journeyDict={dict['journey']}/>
+      <JourneyPageContent journeyDict={dict["journey"]} />
     </div>
   );
 }

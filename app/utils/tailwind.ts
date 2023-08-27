@@ -18,7 +18,6 @@ export function getColor(color: string) {
   const twColor = colors[label];
 
   if (typeof twColor === "string") return twColor;
-
   return twColor[shade] as string;
 }
 

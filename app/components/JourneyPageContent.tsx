@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import OutlinedText from "@/app/components/OutlineText";
-import { cn } from "@/app/utils/tailwind";
+import { cn, getColorRGBA } from "@/app/utils/tailwind";
 import Button from "@/app/components/Button";
 import { generateTranslator } from "../utils/i18n";
 import { DictionarySection } from "../[lang]/dictionaries";
 import { motion } from "framer-motion";
+import LineWaves from "./LineWaves";
 
 const journeys = [
   { id: "journey_start", date: "2017" },
@@ -41,12 +42,18 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
               >
                 <motion.section
                   className={cn(
-                    "my-auto flex h-fit w-full flex-col rounded-xl bg-gradient-to-r from-neutral-950 to-neutral-900 px-6 py-4 md:w-[46%]",
+                    "my-auto flex h-fit w-full flex-col rounded-xl bg-gradient-to-r from-neutral-950 to-neutral-900 px-6 py-4 backdrop-blur-lg md:w-[46%]",
                     {
                       "md:ml-auto": isOdd,
                       "from-neutral-900 to-neutral-950": isOdd,
                     },
                   )}
+                  style={{
+                    background: `linear-gradient(to right,${getColorRGBA(
+                      "neutral-950",
+                      0.7,
+                    )},${getColorRGBA("neutral-900", 0.9)} )`,
+                  }}
                   initial={{
                     opacity: 0,
                     translateX: (isOdd ? "-" : "") + "16px",
@@ -83,14 +90,17 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.25 }}
+              className="mt-8 md:row-start-2 md:row-end-3"
             >
-              <Button containerClassName="md:row-start-2 md:row-end-3 mt-8">
-                View My Projects
-              </Button>
+              <Button>View My Projects</Button>
             </motion.div>
           </li>
         </ul>
       </main>
+      <LineWaves
+        type="journeyLeft"
+        className="bottom-0 left-0 w-[140%] translate-x-[-61%] translate-y-[20%] "
+      />
     </>
   );
 };

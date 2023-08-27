@@ -13,16 +13,11 @@ const OutlinedText: React.FC<ProfessionProps> = ({
   dropCount,
 }) => {
   const baseClassName: HTMLAttributes<HTMLParagraphElement>["className"] =
-    "bg-gradient-to-br w-full from-blue-200 to-slate-600 bg-clip-text text-center text-[32px] font-extrabold tracking-widest text-black sm:whitespace-nowrap sm:text-clamp-4xl";
+    "bg-gradient-to-br w-full from-blue-200 [-webkit-text-stroke:2px_transparent] md:[-webkit-text-stroke:4px_transparent]  to-slate-600 bg-clip-text text-center text-[32px] font-extrabold tracking-widest text-black sm:whitespace-nowrap sm:text-clamp-4xl";
 
   return (
     <div className="relative z-[-1] w-full select-none">
-      <p
-        className={cn(baseClassName, className)}
-        style={{ WebkitTextStroke: "4px transparent" }}
-      >
-        {children}
-      </p>
+      <p className={cn(baseClassName, className)}>{children}</p>
 
       {dropCount &&
         [...Array(dropCount)].map((_, i) => {
@@ -35,7 +30,6 @@ const OutlinedText: React.FC<ProfessionProps> = ({
               )}
               key={i}
               style={{
-                WebkitTextStroke: "4px transparent",
                 transform: `translateY(${12 * (i + 1)}%)`,
                 opacity: 1 - (i + 1) * 0.4,
               }}

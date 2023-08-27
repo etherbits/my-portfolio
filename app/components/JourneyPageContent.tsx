@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
 import OutlinedText from "@/app/components/OutlineText";
-import { cn, getColorRGBA } from "@/app/utils/tailwind";
+import { cn } from "@/app/utils/tailwind";
 import Button from "@/app/components/Button";
 import { generateTranslator } from "../utils/i18n";
 import { DictionarySection } from "../[lang]/dictionaries";
+import { motion } from "framer-motion";
 
 const journeys = [
   { id: "journey_start", date: "2017" },
@@ -26,26 +27,33 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
         <ul className="mt-[3vh] grid w-[100%] items-center [grid-auto-rows:1fr]">
           {journeys.map((journey, i) => {
             const journeyCardDict = t(journey.id);
+            const isOdd = i % 2 !== 0;
             return (
               <li
                 key={journey.id}
                 className="relative z-[-1] flex h-full flex-col justify-center py-4"
               >
-                <section
+                <motion.section
                   className={cn(
                     "my-auto flex h-fit w-full flex-col rounded-xl bg-gradient-to-r from-neutral-950 to-neutral-900 px-6 py-4 md:w-[46%]",
                     {
-                      "md:ml-auto": i % 2 !== 0,
+                      "md:ml-auto": isOdd,
                       "md:from-neutral-900 md:to-neutral-950": i % 2 !== 0,
                     },
                   )}
+                  initial={{
+                    opacity: 0,
+                    translateX: (isOdd ? "-" : "") + "16px",
+                  }}
+                  animate={{ opacity: 1, translateX: "0" }}
+                  transition={{delay: .25 * i}}
                 >
                   <div className="mb-2 flex items-center justify-between gap-2">
                     <h3 className="text-clamp-xl">{journeyCardDict.title}</h3>
                     <span className="text-clamp-sm">{journey.date}</span>
                   </div>
                   <p className="text-clamp-rg">{journeyCardDict.body}</p>
-                </section>
+                </motion.section>
                 <div className="absolute left-[0] top-[50%] hidden h-5 w-5 translate-x-[-50%] translate-y-[-50%] rounded-full bg-blue-300 md:left-[50%] md:block" />
                 <div
                   className={cn(

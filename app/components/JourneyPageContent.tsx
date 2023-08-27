@@ -31,7 +31,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
         <OutlinedText>Journey</OutlinedText>
       </motion.div>
       <main className="w-full md:w-clamp-card-container">
-        <ul className="mb-8 mt-[4vh] flex w-[100%] flex-col items-center gap-6 md:grid md:[grid-auto-rows:1fr]">
+        <ul className="mb-14 mt-[4vh] flex w-[100%] flex-col items-center gap-6 md:grid md:[grid-auto-rows:1fr]">
           {journeys.map((journey, i) => {
             const journeyCardDict = t(journey.id);
             const isOdd = i % 2 !== 0;
@@ -100,7 +100,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
               </li>
             );
           })}
-          <li className="relative grid h-full grid-rows-[1fr_1fr] justify-center">
+          <div className="relative grid h-full md:grid-rows-[1fr_1fr] justify-center">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -111,7 +111,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                 View My Projects
               </Button>
             </motion.div>
-          </li>
+          </div>
         </ul>
       </main>
       <LineWaves

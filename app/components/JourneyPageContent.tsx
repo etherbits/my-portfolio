@@ -1,12 +1,13 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import OutlinedText from "@/app/components/OutlineText";
 import { cn, getColorRGBA } from "@/app/utils/tailwind";
 import Button from "@/app/components/Button";
 import { generateTranslator } from "../utils/i18n";
 import { DictionarySection } from "../[lang]/dictionaries";
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
 import LineWaves from "./LineWaves";
+import { useInView } from "react-intersection-observer";
 
 const journeys = [
   { id: "journey_start", date: "2017" },
@@ -29,6 +30,18 @@ type Props = {
 
 const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
   const t = generateTranslator<"journey">(journeyDict);
+  const itemRefs = useRef<HTMLLIElement[]>([]);
+  const [scope, animate] = useAnimate();
+  const [visibleAmount, setVisibleAmount] = useState(0);
+
+  useEffect(() => {
+      const tempItems = itemRefs.current.slice(0, visibleAmount)
+      tempItems.forEach(el => {
+        animate(el, {opacity: .5}, {duration: 1, delay: 1})
+          })
+
+    console.log(visibleAmount)
+  }, [scope, animate, itemRefs, visibleAmount]);
 
   return (
     <>
@@ -39,15 +52,21 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
       >
         <OutlinedText>Journey</OutlinedText>
       </motion.div>
-      <main className="w-full md:w-clamp-card-container">
+      <main className="w-full md:w-clamp-card-container" ref={scope}>
         <ul className="mb-14 mt-[4vh] flex w-[100%] flex-col items-center gap-6 md:grid md:gap-0 md:[grid-auto-rows:1fr]">
           {journeys.map((journey, i) => {
             const journeyCardDict = t(journey.id);
             const isOdd = i % 2 !== 0;
             return (
-              <li
+              <motion.li
                 key={journey.id}
                 className="relative z-[-1] flex h-full flex-col justify-center md:py-2"
+                ref={(el) => el && (itemRefs.current[i] = el)}
+                    onViewportEnter={() => {
+                      setVisibleAmount((currAmount) =>
+                        Math.max(currAmount, i + 1),
+                      );
+                    }}
               >
                 <motion.div
                   initial={{
@@ -59,7 +78,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                     opacity: 1,
                     translateX: "0",
                   }}
-                  transition={{ delay: 0.2 + 0.6 * i, duration: 0.2 }}
+                  transition={{ delay: 0.25, duration: 0.25 }}
                 >
                   <motion.section
                     className={cn(
@@ -82,7 +101,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                     }}
                     viewport={{ once: true }}
                     whileInView={{ opacity: 1, translateX: "0" }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.25 }}
                   >
                     <div className="mb-2 flex items-center justify-between gap-2">
                       <h3 className="text-clamp-xl">{journeyCardDict.title}</h3>
@@ -91,15 +110,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                     <p className="text-clamp-rg">{journeyCardDict.body}</p>
                   </motion.section>
                 </motion.div>
-                <motion.div
-                // initial={{
-                //   opacity: 0,
-                // }}
-                // animate={{
-                //   opacity: 1,
-                // }}
-                // transition={{ delay: i*0.25, duration: 0.25 }}
-                >
+                <motion.div>
                   <motion.div
                     initial={{
                       opacity: 0,
@@ -109,15 +120,10 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                       opacity: 1,
                       transform: "scale(1) translateX(-50%) translateY(-50%)",
                     }}
-                    transition={{ duration: 0.2, delay: 0.6 * i }}
+                    transition={{ duration: 0.25 }}
                     className="absolute left-[50%] top-[50%] hidden h-5 w-5 translate-x-[-50%] translate-y-[-50%] rounded-full bg-blue-300 [transform-origin:0_0] md:block"
                   />
                   <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{
-                      delay: 0.4 + i * 0.6,
-                    }}
                     className={cn(
                       "absolute left-[50%] top-[50%] z-[-1] hidden h-[100%] w-1 translate-x-[-50%] flex-col justify-between md:left-[50%] md:flex",
                     )}
@@ -126,19 +132,19 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
                       return (
                         <motion.div
                           key={j}
-                          className="h-[24%] w-full rounded-full bg-slate-600"
-                          initial={{ opacity: 0 }}
-                          whileInView={{ opacity: 1 }}
+                          className="h-[24%] w-full rounded-full bg-slate-600 [transform-origin:-100%_0]"
+                          initial={{ opacity: 0, scaleY: "0%" }}
+                          whileInView={{ opacity: 1, scaleY: "100%" }}
                           transition={{
-                            delay: (0.2 / 3) * j,
-                            duration: 0.2 / 3,
+                            delay: (0.25 / 3) * j,
+                            duration: 0.25 / 3,
                           }}
                         />
                       );
                     })}
                   </motion.div>
                 </motion.div>
-              </li>
+              </motion.li>
             );
           })}
           <div className="relative grid h-full justify-center md:grid-rows-[1fr_1fr]">

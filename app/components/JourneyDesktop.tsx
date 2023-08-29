@@ -50,7 +50,7 @@ const JourneyDesktop: React.FC<Props> = ({
     };
   };
   return (
-    <main className="w-full md:w-clamp-card-container" ref={scope}>
+    <>
       <ul className="mb-14 mt-[4vh] flex w-[100%] flex-col items-center gap-6 md:grid md:gap-0 md:[grid-auto-rows:1fr]">
         {journeys.map((journey, i) => {
           const journeyCardDict = t(journey.id);
@@ -136,7 +136,7 @@ const JourneyDesktop: React.FC<Props> = ({
           </motion.div>
         </div>
       </ul>
-    </main>
+    </>
   );
 };
 

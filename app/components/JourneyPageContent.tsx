@@ -5,17 +5,8 @@ import { FunctionQueue } from "@/app/utils/animation";
 import { DictionarySection } from "../[lang]/dictionaries";
 import { motion, useAnimate } from "framer-motion";
 import OutlinedText from "./OutlineText";
-import Button from "./Button";
 import JourneyDesktopList from "./JourneyDesktop";
 import JourneyMobileList from "./JourneyMobile";
-
-export const journeys = [
-  { id: "journey_start", date: "2017" },
-  { id: "journey_web_focus", date: "2019" },
-  { id: "journey_profession_intro", date: "2021" },
-  { id: "journey_start", date: "2017" },
-  { id: "journey_web_focus", date: "2019" },
-] as const;
 
 type Props = {
   journeyDict: DictionarySection<"journey">;
@@ -38,7 +29,6 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
     funcQueue.enqueue(() => animationFunc(el));
   };
 
-  console.log(animatedElements)
   return (
     <>
       <main className="w-full md:w-clamp-card-container" ref={scope}>

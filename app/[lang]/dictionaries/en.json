@@ -15,17 +15,23 @@
     "intro_button": "View My Projects"
   },
   "journey": {
-    "journey_start": {
-      "title": "Sparks of Passion",
-      "body": "In 2017, my curiosity blossomed, marking the origins of my journey. Computers, technology, and the world of programming fascinated me deeply. I admired programmers who built my favorite software and games. This is when I started to learn how to write software and acquired my passion for creating things."
+    "cards": {
+      "journey_start": {
+        "title": "Sparks of Passion",
+        "body": "In 2017, my curiosity blossomed, marking the origins of my journey. Computers, technology, and the world of programming fascinated me deeply. I admired programmers who built my favorite software and games. This is when I started to learn how to write software and acquired my passion for creating things.",
+        "date": "2017"
+      },
+      "journey_web_focus": {
+        "title": "Surge of Expertise",
+        "body": "During 2019-2020, my journey evolved. Leveraging the vast knowledge on the internet, I honed my focus on web development, propelling my progress. Amidst the pandemic, I embarked on a significant project – crafting a class management website for my mother's work. This endeavor propelled me even further.",
+        "date": "2019"
+      },
+      "journey_profession_intro": {
+        "title": "Professional Beginnings",
+        "body": "In 2021, I delved into freelancing, familiarizing myself with client collaboration. Later, from 2022 to 2023, an exciting Unilab internship introduced me to a modern work environment. Working closely in small teams, we developed websites for Ilia State University. This endeavor greatly honed my collaborative skills.",
+        "date": "2021"
+      }
     },
-    "journey_web_focus": {
-      "title": "Surge of Expertise",
-      "body": "During 2019-2020, my journey evolved. Leveraging the vast knowledge on the internet, I honed my focus on web development, propelling my progress. Amidst the pandemic, I embarked on a significant project – crafting a class management website for my mother's work. This endeavor propelled me even further."
-    },
-    "journey_profession_intro": {
-      "title": "Professional Beginnings",
-      "body": "In 2021, I delved into freelancing, familiarizing myself with client collaboration. Later, from 2022 to 2023, an exciting Unilab internship introduced me to a modern work environment. Working closely in small teams, we developed websites for Ilia State University. This endeavor greatly honed my collaborative skills."
-    }
+    "button": "Contact Me"
   }
 }

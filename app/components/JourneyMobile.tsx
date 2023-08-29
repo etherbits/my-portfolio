@@ -3,7 +3,6 @@ import { cn, getColorRGBA } from "@/app/utils/tailwind";
 import { generateTranslator } from "../utils/i18n";
 import { DictionarySection } from "../[lang]/dictionaries";
 import { animate, motion } from "framer-motion";
-import { journeys } from "./JourneyPageContent";
 import Button from "./Button";
 
 export type JourneyCardListProps = {
@@ -21,6 +20,7 @@ const JourneyMobileList: React.FC<JourneyCardListProps> = ({
   animate,
 }) => {
   const t = generateTranslator<"journey">(journeyDict);
+  const journeys = t("cards");
 
   const generateItemAnimationFunc = () => {
     return (el: Element) => {
@@ -37,13 +37,12 @@ const JourneyMobileList: React.FC<JourneyCardListProps> = ({
   };
   return (
     <ul className="mb-14 mt-[4vh] flex w-[100%] flex-col items-center gap-6">
-      {journeys.map((journey, i) => {
-        const journeyCardDict = t(journey.id);
+      {Object.entries(journeys).map(([id, journey], i) => {
         const isOdd = i % 2 !== 0;
         return (
           <motion.li
             id={`journey-card-${i}`}
-            key={journey.id}
+            key={id}
             className="relative z-[-1] flex h-full flex-col justify-center"
             ref={(el) => el && (el = el)}
             onViewportEnter={(entry) => {
@@ -69,10 +68,10 @@ const JourneyMobileList: React.FC<JourneyCardListProps> = ({
               }}
             >
               <div className="mb-2 flex items-center justify-between gap-2">
-                <h3 className="text-clamp-xl">{journeyCardDict.title}</h3>
+                <h3 className="text-clamp-xl">{journey.title}</h3>
                 <span className="text-clamp-sm">{journey.date}</span>
               </div>
-              <p className="text-clamp-rg">{journeyCardDict.body}</p>
+              <p className="text-clamp-rg">{journey.body}</p>
             </motion.section>
             <div>
               <motion.div
@@ -114,7 +113,7 @@ const JourneyMobileList: React.FC<JourneyCardListProps> = ({
             );
           }}
         >
-          <Button className="text-[16px]">View My Projects</Button>
+          <Button className="text-[16px]">{t("button") as string}</Button>
         </motion.div>
       </div>
     </ul>

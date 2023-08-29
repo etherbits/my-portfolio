@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo, useState } from "react";
 import OutlinedText from "@/app/components/OutlineText";
 import { cn, getColorRGBA } from "@/app/utils/tailwind";
 import Button from "@/app/components/Button";
@@ -7,6 +7,7 @@ import { generateTranslator } from "../utils/i18n";
 import { DictionarySection } from "../[lang]/dictionaries";
 import { Segment, motion, useAnimate } from "framer-motion";
 import LineWaves from "./LineWaves";
+import { FuncQueue } from "@/app/utils/animation";
 
 const journeys = [
   { id: "journey_start", date: "2017" },
@@ -19,36 +20,6 @@ const journeys = [
 type Props = {
   journeyDict: DictionarySection<"journey">;
 };
-
-class FuncQueue {
-  queue: Function[];
-
-  constructor() {
-    this.queue = [];
-  }
-
-  async enqueue(f: Function) {
-    this.queue.push(f);
-    if (this.isOnlyHead()) {
-      this.runHead();
-    }
-  }
-
-  async runHead() {
-    if (this.isEmpty()) return;
-    await this.queue[0]();
-    this.queue.shift();
-    this.runHead();
-  }
-
-  isOnlyHead() {
-    return this.queue.length === 1;
-  }
-
-  isEmpty() {
-    return this.queue.length === 0;
-  }
-}
 
 const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
   const t = generateTranslator<"journey">(journeyDict);

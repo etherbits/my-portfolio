@@ -7,7 +7,7 @@ import { generateTranslator } from "../utils/i18n";
 import { DictionarySection } from "../[lang]/dictionaries";
 import { Segment, motion, useAnimate } from "framer-motion";
 import LineWaves from "./LineWaves";
-import { FuncQueue } from "@/app/utils/animation";
+import { FunctionQueue } from "@/app/utils/animation";
 
 const journeys = [
   { id: "journey_start", date: "2017" },
@@ -24,7 +24,7 @@ type Props = {
 const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
   const t = generateTranslator<"journey">(journeyDict);
   const [scope, animate] = useAnimate();
-  const funcQueue = useMemo(() => new FuncQueue(), []);
+  const funcQueue = useMemo(() => new FunctionQueue(), []);
   const [animatedElements, setAnimatedElements] = useState<string[]>([]);
 
   const viewportEnterEnqueue = (

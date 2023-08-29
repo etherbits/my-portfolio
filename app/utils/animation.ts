@@ -1,4 +1,4 @@
-export class FuncQueue {
+export class FunctionQueue {
   queue: Function[];
 
   constructor() {

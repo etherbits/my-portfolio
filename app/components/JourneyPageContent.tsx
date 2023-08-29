@@ -6,8 +6,8 @@ import { DictionarySection } from "../[lang]/dictionaries";
 import { motion, useAnimate } from "framer-motion";
 import OutlinedText from "./OutlineText";
 import Button from "./Button";
-import JourneyDesktop from "./JourneyDesktop";
-import JourneyMobile from "./JourneyMobile";
+import JourneyDesktopList from "./JourneyDesktop";
+import JourneyMobileList from "./JourneyMobile";
 
 export const journeys = [
   { id: "journey_start", date: "2017" },
@@ -38,6 +38,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
     funcQueue.enqueue(() => animationFunc(el));
   };
 
+  console.log(animatedElements)
   return (
     <>
       <main className="w-full md:w-clamp-card-container" ref={scope}>
@@ -48,29 +49,19 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
         >
           <OutlinedText>Journey</OutlinedText>
         </motion.div>
-
-        <div className="flex w-full justify-center">
-          <JourneyMobile
+        <div className="hidden w-full justify-center md:flex">
+          <JourneyDesktopList
             journeyDict={journeyDict}
             viewportEnterEnqueue={viewportEnterEnqueue}
             animate={animate}
           />
         </div>
-
-        <div className="relative grid h-full justify-center ">
-          <motion.div
-            initial={{ opacity: 0 }}
-            className="mt-8 "
-            onViewportEnter={(entry) => {
-              viewportEnterEnqueue(entry, (el: Element) =>
-                animate(el, { opacity: 1 }, { duration: 1 }),
-              );
-            }}
-          >
-            <Button className="sm:clamp-sm text-[16px]">
-              View My Projects
-            </Button>
-          </motion.div>
+        <div className="flex w-full justify-center md:hidden">
+          <JourneyMobileList
+            journeyDict={journeyDict}
+            viewportEnterEnqueue={viewportEnterEnqueue}
+            animate={animate}
+          />
         </div>
       </main>
       <LineWaves

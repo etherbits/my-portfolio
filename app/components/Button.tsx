@@ -46,7 +46,7 @@ const Button: React.FC<Props> = ({
       <motion.button
         className={cn(
           `block  w-fit whitespace-nowrap rounded-[4px] border 
-          bg-black px-5 py-3 text-xl tracking-wider text-slate-300`,
+          bg-black px-5 py-3 tracking-wider text-slate-300`,
           className,
         )}
         variants={variants}

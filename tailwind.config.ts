@@ -16,6 +16,7 @@ const config: Config = {
         "clamp-rg": "clamp(.8rem, 1.11vw, 1.20rem)",
         "clamp-lg": "clamp(.9rem, 1.25vw, 1.35rem)",
         "clamp-xl": "clamp(1rem, 1.39vw, 1.5rem)",
+        "clamp-asd": "clamp(1rem, 1.39vw, 1.5rem)",
         "clamp-3xl": "clamp(2.4rem, 3.33vw, 3.6rem)",
         "clamp-4xl": "clamp(3.2rem, 4.45vw, 4.2rem)",
       },

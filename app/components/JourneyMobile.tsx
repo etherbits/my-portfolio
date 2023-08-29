@@ -4,8 +4,9 @@ import { generateTranslator } from "../utils/i18n";
 import { DictionarySection } from "../[lang]/dictionaries";
 import { animate, motion } from "framer-motion";
 import { journeys } from "./JourneyPageContent";
+import Button from "./Button";
 
-type Props = {
+export type JourneyCardListProps = {
   journeyDict: DictionarySection<"journey">;
   animate: typeof animate;
   viewportEnterEnqueue: (
@@ -14,7 +15,7 @@ type Props = {
   ) => void;
 };
 
-const JourneyMobile: React.FC<Props> = ({
+const JourneyMobileList: React.FC<JourneyCardListProps> = ({
   journeyDict,
   viewportEnterEnqueue,
   animate,
@@ -102,8 +103,22 @@ const JourneyMobile: React.FC<Props> = ({
           </motion.li>
         );
       })}
+      <div className="relative grid h-full justify-center">
+        <motion.div
+          id="journey-button"
+          initial={{ opacity: 0 }}
+          className="mt-8"
+          onViewportEnter={(entry) => {
+            viewportEnterEnqueue(entry, (el: Element) =>
+              animate(el, { opacity: 1 }, { duration: 1 }),
+            );
+          }}
+        >
+          <Button className="text-[16px]">View My Projects</Button>
+        </motion.div>
+      </div>
     </ul>
   );
 };
 
-export default JourneyMobile;
+export default JourneyMobileList;

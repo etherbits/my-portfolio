@@ -34,16 +34,18 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
         {projects.map((project) => {
           const projectDict = (t("items") as any)[project.id];
           return (
-            <li key={project.id} className="flex w-fit flex-col items-center ">
+            <li key={project.id} className="flex w-fit flex-col ">
               <Image
                 src="/images/unispace-laptop.png"
                 width={1022}
                 height={632}
                 alt="unispace screen"
-                className="w-[90%]"
+                className="mx-auto mb-8 w-[90%]"
               />
-              <h3 className="mb-4">{projectDict["title"]}</h3>
-              <p className="mb-4">{projectDict["body"]}</p>
+              <h3 className="mb-4 text-xl font-medium">
+                {projectDict["title"]}
+              </h3>
+              <p className="mb-4 text-sm">{projectDict["body"]}</p>
               <ul className="mb-8 flex max-w-full flex-wrap gap-3 text-[12px] text-slate-300">
                 {project.tags.map((tag) => (
                   <li
@@ -55,7 +57,9 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                 ))}
               </ul>
               <div className="ml-auto flex items-center gap-8">
-                <Button className="text-sm">{projectsDict["button"]}</Button>
+                {project.hasPage && (
+                  <Button className="text-sm">{projectsDict["button"]}</Button>
+                )}
                 <Image
                   src="/images/github.webp"
                   width={42}

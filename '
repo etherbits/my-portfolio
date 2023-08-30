@@ -28,7 +28,7 @@ const projects = [
       type: "webpage",
       href: "https://tiny-pegasus-d8c812.netlify.app/",
     },
-    disclamer: "* Does not support mobile for now.",
+    disclamer: "Does not support mobile for now.",
   },
   {
     id: "sandro",
@@ -197,12 +197,12 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                   </motion.li>
                 ))}
               </ul>
-                {project.disclamer && <motion.p className="text-slate-400 mb-6 text-sm text-right">{project.disclamer}</motion.p>}
               <motion.div
                 className="ml-auto flex items-center gap-8"
                 variants={buttonContainerVariants}
                 custom={project.tags.length}
               >
+                {project.disclamer && <p>{project.disclamer}</p>}
                 {project.button.type !== "none" && (
                   <div>
                     <Link href={project.button.href}>

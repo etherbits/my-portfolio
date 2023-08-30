@@ -19,7 +19,7 @@
     "items": {
       "unispace": {
         "title": "UniSpace",
-        "body": "During 2019-2020, my journey evolved. Leveraging the vast knowledge on the internet, I honed my focus on web development, propelling my progress. Amidst the pandemic, I embarked on a significant project – crafting a class management website for my mother's work. This endeavor propelled me even further."
+        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, and gives the students the ability to overview courses and enroll."
       }
     },
     "button": "View Webpage"

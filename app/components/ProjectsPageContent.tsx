@@ -35,13 +35,22 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
           const projectDict = (t("items") as any)[project.id];
           return (
             <li key={project.id} className="flex w-fit flex-col ">
-              <Image
-                src="/images/unispace-laptop.png"
-                width={1022}
-                height={632}
-                alt="unispace screen"
-                className="mx-auto mb-8 w-[90%]"
-              />
+              <div className="relative">
+                <Image
+                  src="/images/unispace-laptop.png"
+                  width={1022}
+                  height={632}
+                  alt="unispace screen"
+                  className="mx-auto mb-8 w-[90%]"
+                />
+                <Image
+                  src="/images/laptop-blob.svg"
+                  width={70}
+                  height={198}
+                  alt="blob"
+                  className="absolute left-[10%] top-1/2 z-[-1] h-[60%] w-1/2 translate-y-[-50%] blur-[64px]"
+                />
+              </div>
               <h3 className="mb-4 text-xl font-medium">
                 {projectDict["title"]}
               </h3>

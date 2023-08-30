@@ -50,7 +50,7 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                 {project.tags.map((tag) => (
                   <li
                     key={tag}
-                    className="border-1 rounded-[4px] border border-slate-300 px-2 py-1"
+                    className="border-1 rounded-[4px] border border-slate-400 px-2 py-1"
                   >
                     {tag}
                   </li>

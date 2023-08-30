@@ -57,6 +57,50 @@ const blobVariants = {
   hidden: { opacity: 0, scale: 0 },
 };
 
+const titleVariants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.25,
+      delay: 0.25,
+    },
+  },
+  hidden: { opacity: 0 },
+};
+
+const descriptionVariants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.25,
+      delay: 0.5,
+    },
+  },
+  hidden: { opacity: 0 },
+};
+
+const tagVariants = {
+  visible: (i: number) => ({
+    opacity: 1,
+    transition: {
+      duration: 0.25,
+      delay: 0.5 + 0.25 * i,
+    },
+  }),
+  hidden: { opacity: 0 },
+};
+
+const buttonContainerVariants = {
+  visible: (tagCount: number) => ({
+    opacity: 1,
+    transition: {
+      duration: 0.25,
+      delay: 0.75 + 0.25 * tagCount,
+    },
+  }),
+  hidden: { opacity: 0 },
+};
+
 const MotionImage = motion(Image);
 
 const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
@@ -102,21 +146,32 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                   variants={blobVariants}
                 />
               </div>
-              <h3 className="mb-4 text-xl font-medium">
+              <motion.h3
+                className="mb-4 text-xl font-medium"
+                variants={titleVariants}
+              >
                 {projectDict["title"]}
-              </h3>
-              <p className="mb-4 text-sm">{projectDict["body"]}</p>
+              </motion.h3>
+              <motion.p className="mb-4 text-sm" variants={descriptionVariants}>
+                {projectDict["body"]}
+              </motion.p>
               <ul className="mb-8 flex max-w-full flex-wrap gap-3 text-[12px] text-slate-300">
-                {project.tags.map((tag) => (
-                  <li
+                {project.tags.map((tag, j) => (
+                  <motion.li
                     key={tag}
                     className="border-1 rounded-[4px] border border-slate-400 px-2 py-1"
+                    variants={tagVariants}
+                    custom={j}
                   >
                     {tag}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-              <div className="ml-auto flex items-center gap-8">
+              <motion.div
+                className="ml-auto flex items-center gap-8"
+                variants={buttonContainerVariants}
+                custom={project.tags.length}
+              >
                 {project.hasPage && (
                   <Button className="text-sm">{projectsDict["button"]}</Button>
                 )}
@@ -127,7 +182,7 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                   alt="github link"
                   className="border-1 h-10 w-10 rounded-md border border-slate-600"
                 />
-              </div>
+              </motion.div>
             </motion.li>
           );
         })}

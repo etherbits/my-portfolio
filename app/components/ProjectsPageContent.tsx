@@ -28,11 +28,11 @@ const projects = [
       type: "webpage",
       href: "https://tiny-pegasus-d8c812.netlify.app/",
     },
-    disclamer: "* Does not support mobile for now.",
+    disclamer: "* Does not support mobile for now",
   },
   {
     id: "sandro",
-    image: "/images/ebase-laptop.png",
+    image: "/images/sandro-laptop.png",
     tags: ["React", "Javascript", "SASS", "Framer Motion", "React Router"],
     button: {
       type: "webpage",
@@ -52,7 +52,7 @@ const projects = [
   },
   {
     id: "octopus",
-    image: "/images/ebase-laptop.png",
+    image: "/images/octopus-laptop.png",
     tags: ["React", "Typescript", "NextJS", "SASS", "PostgreSQL", "Prisma"],
     button: {
       type: "none",

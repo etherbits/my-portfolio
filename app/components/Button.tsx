@@ -56,7 +56,7 @@ const Button: React.FC<Props> = ({
         {children}
       </motion.button>
       <div
-        className={`absolute left-0 top-[20%] z-[-1] h-full
+        className={`absolute left-0 top-[15%] z-[-1] h-full
           w-full  scale-95 rounded-[4px] border opacity-30`}
       />
     </motion.div>

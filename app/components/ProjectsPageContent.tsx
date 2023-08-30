@@ -53,14 +53,7 @@ const projects = [
   {
     id: "octopus",
     image: "/images/octopus-laptop.png",
-    tags: [
-      "Tauri",
-      "React",
-      "Typescript",
-      "Zustand",
-      "Tailwind",
-      "Rust",
-    ],
+    tags: ["Tauri", "React", "Typescript", "Zustand", "Tailwind", "Rust"],
     button: {
       type: "none",
     },
@@ -218,7 +211,13 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                   <div>
                     <Link href={project.button.href}>
                       <Button className="text-sm">
-                        {projectsDict["button"]}
+                        {
+                          t(
+                            project.button.type === "webpage"
+                              ? "webpage_button"
+                              : "demo_button",
+                          ) as string
+                        }
                       </Button>
                     </Link>
                   </div>

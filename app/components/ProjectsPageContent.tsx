@@ -38,7 +38,7 @@ const projects = [
       type: "webpage",
       href: "https://quiet-brioche-e9ce8b.netlify.app/",
     },
-    disclamer: null
+    disclamer: null,
   },
   {
     id: "ebase",
@@ -48,16 +48,23 @@ const projects = [
       type: "demo",
       href: "https://www.youtube.com/watch?v=yp5Uso8klBg",
     },
-    disclamer: null
+    disclamer: null,
   },
   {
     id: "octopus",
     image: "/images/octopus-laptop.png",
-    tags: ["React", "Typescript", "NextJS", "SASS", "PostgreSQL", "Prisma"],
+    tags: [
+      "Tauri",
+      "React",
+      "Typescript",
+      "Zustand",
+      "Tailwind",
+      "Rust",
+    ],
     button: {
       type: "none",
     },
-    disclamer: null
+    disclamer: null,
   },
 ] as const;
 
@@ -197,7 +204,11 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                   </motion.li>
                 ))}
               </ul>
-                {project.disclamer && <motion.p className="text-slate-400 mb-6 text-sm text-right">{project.disclamer}</motion.p>}
+              {project.disclamer && (
+                <motion.p className="mb-6 text-right text-sm text-slate-400">
+                  {project.disclamer}
+                </motion.p>
+              )}
               <motion.div
                 className="ml-auto flex items-center gap-8"
                 variants={buttonContainerVariants}

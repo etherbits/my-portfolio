@@ -108,7 +108,9 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
 
   return (
     <>
+    <motion.div initial={{opacity: 0}} animate={{opacity: 1}}>
       <OutlinedText>Projects</OutlinedText>
+    </motion.div>
       <ul className="my-9 flex flex-col items-center gap-24 px-8">
         {projects.map((project, i) => {
           const isOdd = i % 2 === 0;

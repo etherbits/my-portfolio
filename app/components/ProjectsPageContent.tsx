@@ -5,6 +5,7 @@ import { generateTranslator } from "../utils/i18n";
 import OutlinedText from "./OutlineText";
 import Image from "next/image";
 import Button from "./Button";
+import { cn } from "@/app/utils/tailwind";
 
 type Props = {
   projectsDict: DictionarySection<"projects">;
@@ -13,6 +14,7 @@ type Props = {
 const projects = [
   {
     id: "unispace",
+    image: "/images/unispace-laptop.png",
     tags: [
       "React",
       "Javascript",
@@ -23,24 +25,37 @@ const projects = [
     ],
     hasPage: true,
   },
-];
+  {
+    id: "ebase",
+    image: "/images/ebase-laptop.png",
+    tags: [
+      "React",
+      "Typescript",
+      "NextJS",
+      "SASS",
+      "PostgreSQL",
+      "Prisma",
+    ],
+    hasPage: false,
+  },
+] as const;
 
 const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
   const t = generateTranslator<"projects">(projectsDict);
   return (
     <>
       <OutlinedText>Projects</OutlinedText>
-      <ul className="my-9 flex flex-col items-center gap-8 px-8">
-        {projects.map((project) => {
+      <ul className="my-9 flex flex-col items-center gap-24 px-8">
+        {projects.map((project, i) => {
           const projectDict = (t("items") as any)[project.id];
           return (
             <li key={project.id} className="flex w-fit flex-col ">
-              <div className="relative">
+              <div className="relative z-[-1]">
                 <Image
-                  src="/images/unispace-laptop.png"
+                  src={project.image}
                   width={1022}
                   height={632}
-                  alt="unispace screen"
+                  alt={projectDict.title}
                   className="mx-auto mb-8 w-[90%]"
                 />
                 <Image
@@ -48,7 +63,11 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                   width={70}
                   height={198}
                   alt="blob"
-                  className="absolute left-[10%] top-1/2 z-[-1] h-[60%] w-1/2 translate-y-[-50%] blur-[64px]"
+                  className={cn(
+                    "absolute top-1/2 z-[-1] h-[60%] w-1/2 translate-y-[-50%] blur-[64px]",
+                    { "left-[10%]": i % 2 === 0 },
+                    { "right-[10%]": i % 2 !== 0 },
+                  )}
                 />
               </div>
               <h3 className="mb-4 text-xl font-medium">

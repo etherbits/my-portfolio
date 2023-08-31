@@ -157,7 +157,7 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
               transition={{ duration: 1 }}
               viewport={{ once: true }}
             >
-              <div className="relative z-[-1]">
+              <div className="relative">
                 <MotionImage
                   src={project.image}
                   width={1022}

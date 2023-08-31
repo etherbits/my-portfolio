@@ -28,6 +28,7 @@ const projects = [
       type: "webpage",
       href: "https://tiny-pegasus-d8c812.netlify.app/",
     },
+    repoHref: "https://github.com/etherbits/unilab-internal-system",
     disclamer: "* Does not support mobile for now",
   },
   {
@@ -38,6 +39,7 @@ const projects = [
       type: "webpage",
       href: "https://quiet-brioche-e9ce8b.netlify.app/",
     },
+    repoHref: "https://github.com/etherbits/react-Web-edition-of-Sandro-s-book",
     disclamer: null,
   },
   {
@@ -48,6 +50,7 @@ const projects = [
       type: "demo",
       href: "https://www.youtube.com/watch?v=yp5Uso8klBg",
     },
+    repoHref: "https://github.com/etherbits/ebase",
     disclamer: null,
   },
   {
@@ -57,6 +60,7 @@ const projects = [
     button: {
       type: "none",
     },
+    repoHref: "https://github.com/etherbits/octopus",
     disclamer: null,
   },
 ] as const;
@@ -222,6 +226,7 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                     </Link>
                   </div>
                 )}
+                    <Link href={project.repoHref}>
                 <Image
                   src="/images/github.webp"
                   width={42}
@@ -229,6 +234,7 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                   alt="github link"
                   className="border-1 h-10 w-10 rounded-md border border-slate-600"
                 />
+                </Link>
               </motion.div>
             </motion.li>
           );

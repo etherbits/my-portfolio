@@ -20,8 +20,8 @@ const HomePageContent: React.FC<Props> = ({ homeDict }) => {
   const t = generateTranslator<"home">(homeDict);
   return (
     <>
-      <div className="flex h-full w-full flex-col items-center justify-between p-6 text-center sm:px-8 sm:pb-16">
-        <div className="flex max-w-full flex-col items-center justify-center text-center sm:mt-[3vh] md:mt-[7vh]">
+      <div className="flex h-full w-full flex-grow flex-col items-center justify-between p-6 sm:px-8 sm:pb-16">
+        <div className="flex  max-w-full flex-col items-center justify-center text-center sm:mt-[3vh] md:mt-[7vh]">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <ProfileImage className="mb-8 sm:h-28 sm:w-28 md:h-40 md:w-40" />
           </motion.div>
@@ -63,7 +63,7 @@ const HomePageContent: React.FC<Props> = ({ homeDict }) => {
           </MotionLink>
         </div>
         <RectLinks size={36} gap={24} className="sm:hidden" />
-        <RectLinks className="hidden sm:mt-auto sm:flex" />
+        <RectLinks className="hidden sm:flex" />
       </div>
 
       <LineWaves

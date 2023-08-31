@@ -53,7 +53,7 @@ const RectLinks: React.FC<Props> = ({
   itemDelayIncrement,
 }) => {
   return (
-    <motion.ul className={cn("flex", className)} style={{ gap: `${gap}px` }}>
+    <motion.ul className={cn("flex w-fit", className)} style={{ gap: `${gap}px` }}>
       {linkObjs.map((link, i) => (
         <motion.li
           key={link.url}

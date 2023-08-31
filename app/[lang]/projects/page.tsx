@@ -9,8 +9,8 @@ export default async function Home({
 }) {
   const dict = await getDictionary(lang);
   return (
-    <main className="flex flex-col items-center basis-full justify-between overflow-hidden">
+    <div className="flex flex-col items-center basis-full justify-between overflow-auto">
       <ProjectsPageContent projectsDict={dict["projects"]} />
-    </main>
+    </div>
   );
 }

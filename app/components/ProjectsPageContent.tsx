@@ -154,8 +154,7 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
               className="flex w-fit flex-col"
               initial={"hidden"}
               whileInView={"visible"}
-              transition={{ duration: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-25%" }}
             >
               <div className="relative">
                 <MotionImage

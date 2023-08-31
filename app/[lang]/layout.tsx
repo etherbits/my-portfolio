@@ -55,7 +55,7 @@ export default async function RootLayout({
     <html lang={lang}>
       <body
         className={cn(
-          "flex flex-col tracking-wider text-slate-300 sm:min-h-screen",
+          "flex flex-col overflow-x-hidden tracking-wider text-slate-300 sm:min-h-screen",
           { [montserrat.className]: lang === "en" },
           { [firaGo.className]: lang === "ge" },
         )}

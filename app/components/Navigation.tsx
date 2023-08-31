@@ -80,19 +80,19 @@ const MobileNavigation: React.FC<NavigationProps> = ({ navDict }) => {
         onClick={() => setIsOpen((state) => !state)}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        whileHover={{ backgroundColor: getColorRGBA("neutral-900", 0.72) }}
-        style={{ backgroundColor: getColorRGBA("neutral-950", 0.72) }}
+        whileHover={{ backgroundColor: getColorRGBA("neutral-900", 0.6) }}
+        style={{ backgroundColor: getColorRGBA("neutral-950", 0.6) }}
       >
         <Icon name="Menu" color={getColorRGBA("slate-300")} />
       </motion.button>
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute right-0 top-[100%] z-20 mt-4  w-40 rounded-md text-slate-200  backdrop-blur-md"
+            className="absolute right-0 top-[100%] z-20 mt-4  w-40 rounded-md text-slate-200  backdrop-blur-lg"
             initial={{ opacity: 0, translateY: "-16px" }}
             animate={{ opacity: 1, translateY: "0" }}
             exit={{ opacity: 0, translateX: "16px" }}
-            style={{ backgroundColor: getColorRGBA("neutral-950", 0.72) }}
+            style={{ backgroundColor: getColorRGBA("neutral-950", 0.6) }}
           >
             <nav>
               <ul>
@@ -109,11 +109,11 @@ const MobileNavigation: React.FC<NavigationProps> = ({ navDict }) => {
                         animate={{
                           backgroundColor:
                             pathname === link.href
-                              ? getColorRGBA("neutral-900", 0.72)
+                              ? getColorRGBA("neutral-900", 0.6)
                               : getColorRGBA("neutral-900", 0),
                         }}
                         whileHover={{
-                          backgroundColor: getColorRGBA("neutral-800", 0.72),
+                          backgroundColor: getColorRGBA("neutral-800", 0.6),
                         }}
                       >
                         {t(link.name)}
@@ -123,7 +123,7 @@ const MobileNavigation: React.FC<NavigationProps> = ({ navDict }) => {
                 })}
               </ul>
             </nav>
-            <div className="mx-4 my-2 h-[2px] basis-[100%] rounded-full bg-white bg-gradient-to-r from-slate-400 to-slate-600" />
+            <div className="mx-4 my-2 h-[1px] basis-[100%] rounded-full bg-white bg-gradient-to-r from-neutral-800 to-neutral-900" />
             <LanguageToggle />
           </motion.div>
         )}

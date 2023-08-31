@@ -22,21 +22,21 @@ const LanguageToggle: React.FC<Props> = ({ type }) => {
   const currentLocale = splitPathname[1] as Locale;
   const currentLanguage = languages[currentLocale];
 
-  const generateURL = () =>{
+  const generateURL = () => {
     splitPathname[1] = currentLocale === "en" ? "ge" : "en";
-    return splitPathname.join('/')
-  }
+    return splitPathname.join("/");
+  };
 
   return (
     <MotionLink
-      className="flex items-center gap-4 rounded-md px-4 py-2 backdrop-blur-md"
+      className="flex items-center gap-4 rounded-md px-4 py-2"
       style={{ backgroundColor: "rgba(0,0,0,0)" }}
       href={generateURL()}
-      whileHover={{ backgroundColor: getColorRGBA("neutral-800", 0.72) }}
+      whileHover={{ backgroundColor: getColorRGBA("neutral-800", 0.6) }}
       title="Toggle Language Eng/Geo"
       prefetch={false}
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
     >
       <Image
         src={currentLanguage.image}

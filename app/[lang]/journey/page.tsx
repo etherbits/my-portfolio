@@ -10,8 +10,6 @@ export default async function Journey({
   const dict = await getDictionary(lang);
 
   return (
-    <div className="mt-[2vh] flex w-full flex-col items-center px-8">
       <JourneyPageContent journeyDict={dict["journey"]} />
-    </div>
   );
 }

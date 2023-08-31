@@ -201,40 +201,42 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                   </motion.li>
                 ))}
               </ul>
-              {project.disclamer && (
-                <motion.p className="mb-6 text-right text-sm text-slate-400">
-                  {project.disclamer}
-                </motion.p>
-              )}
               <motion.div
-                className="ml-auto flex items-center gap-8"
+                className="flex flex-col"
                 variants={buttonContainerVariants}
                 custom={project.tags.length}
               >
-                {project.button.type !== "none" && (
-                  <div>
-                    <Link href={project.button.href}>
-                      <Button className="text-sm">
-                        {
-                          t(
-                            project.button.type === "webpage"
-                              ? "webpage_button"
-                              : "demo_button",
-                          ) as string
-                        }
-                      </Button>
-                    </Link>
-                  </div>
+                {project.disclamer && (
+                  <motion.p className="mb-6 text-right text-sm text-slate-400">
+                    {project.disclamer}
+                  </motion.p>
                 )}
-                    <Link href={project.repoHref}>
-                <Image
-                  src="/images/github.webp"
-                  width={42}
-                  height={42}
-                  alt="github link"
-                  className="border-1 h-10 w-10 rounded-md border border-slate-600"
-                />
-                </Link>
+                <motion.div className="ml-auto flex items-center gap-8">
+                  {project.button.type !== "none" && (
+                    <div>
+                      <Link href={project.button.href}>
+                        <Button className="text-sm">
+                          {
+                            t(
+                              project.button.type === "webpage"
+                                ? "webpage_button"
+                                : "demo_button",
+                            ) as string
+                          }
+                        </Button>
+                      </Link>
+                    </div>
+                  )}
+                  <Link href={project.repoHref}>
+                    <Image
+                      src="/images/github.webp"
+                      width={42}
+                      height={42}
+                      alt="github link"
+                      className="border-1 h-10 w-10 rounded-md border border-slate-600"
+                    />
+                  </Link>
+                </motion.div>
               </motion.div>
             </motion.li>
           );

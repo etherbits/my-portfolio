@@ -143,7 +143,7 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <OutlinedText className="md:text-clamp-3xl">My Projects</OutlinedText>
       </motion.div>
-      <ul className="my-9 md:my-[8vh] flex flex-col items-center gap-24 md:gap-[8vh] px-8">
+      <ul className="my-9 flex flex-col items-center gap-24 px-8 md:my-[8vh] md:gap-[8vh]">
         {projects.map((project, i) => {
           const isOdd = i % 2 !== 0;
           const projectDict = (t("items") as any)[project.id];
@@ -159,7 +159,7 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
               whileInView={"visible"}
               viewport={{ once: true, margin: "-22%" }}
             >
-              <div className="relative md:h-fit md:basis-[clamp(24rem,44%,44rem)]">
+              <div className="relative md:h-fit md:basis-[clamp(24rem,46%,46rem)]">
                 <MotionImage
                   src={project.image}
                   width={1022}
@@ -182,20 +182,20 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                   variants={blobVariants}
                 />
               </div>
-              <div className="flex flex-col md:basis-[clamp(24rem,40%,44rem)] ">
+              <div className="flex flex-col md:basis-[clamp(24rem,44%,44rem)] ">
                 <motion.h3
-                  className="mb-4 text-clamp-xl text-xl font-medium"
+                  className="mb-4 md:mb-8 text-xl font-medium md:text-clamp-xl"
                   variants={titleVariants}
                 >
                   {projectDict["title"]}
                 </motion.h3>
                 <motion.p
-                  className="mb-4 text-sm md:text-clamp-rg md:leading-[160%]"
+                  className="mb-4 md:mb-8 text-sm md:text-clamp-rg md:leading-[160%]"
                   variants={descriptionVariants}
                 >
                   {projectDict["body"]}
                 </motion.p>
-                <ul className="mb-8 flex max-w-full flex-wrap gap-3 text-[0.75rem] text-slate-300 md:text-clamp-xm">
+                <ul className="mb-8 md:mb-10 flex max-w-full flex-wrap gap-3 text-[0.75rem] text-slate-300 md:text-clamp-xm">
                   {project.tags.map((tag, j) => (
                     <motion.li
                       key={tag}

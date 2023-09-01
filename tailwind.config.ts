@@ -12,6 +12,7 @@ const config: Config = {
         "clamp-xl": "clamp(2rem, 2.25vw, 3rem)",
       },
       fontSize: {
+        "clamp-xm": "clamp(.6rem, 0.8vw, 0.9rem)",
         "clamp-sm": "clamp(.7rem, 0.97vw, 1.05rem)",
         "clamp-rg": "clamp(.8rem, 1.11vw, 1.20rem)",
         "clamp-lg": "clamp(.9rem, 1.25vw, 1.35rem)",

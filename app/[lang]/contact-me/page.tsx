@@ -1,6 +1,7 @@
 import { getDictionary } from "../dictionaries";
 import { Locale } from "@/middleware";
 import ProjectsPageContent from "@/app/components/ProjectsPageContent";
+import Input from "@/app/components/Input";
 
 export default async function Home({
   params: { lang },
@@ -9,6 +10,9 @@ export default async function Home({
 }) {
   const dict = await getDictionary(lang);
   return (
-  <div>contact me</div>
+    <div>
+      <Input icon="User" inputProps={{ name: "Name",type:"text", placeholder: "Andrew Smith" }} />
+      <Input icon="Mail" inputProps={{ name: "E-Mail", type:"email", placeholder: "Andrew Smith" }} />
+    </div>
   );
 }

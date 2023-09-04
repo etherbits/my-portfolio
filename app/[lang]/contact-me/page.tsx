@@ -11,8 +11,24 @@ export default async function Home({
   const dict = await getDictionary(lang);
   return (
     <div className="flex flex-col items-center p-8">
-      <Input icon="User" inputProps={{ name: "Name",type:"text", placeholder: "Andrew Smith" }} />
-      <Input icon="Mail" inputProps={{ name: "E-Mail", type:"email", placeholder: "Andrew Smith" }} />
+      <form className="flex flex-col gap-4">
+        <Input
+          icon="User"
+          inputProps={{
+            name: "Name",
+            type: "text",
+            placeholder: "Andrew Smith",
+          }}
+        />
+        <Input
+          icon="Mail"
+          inputProps={{
+            name: "E-Mail",
+            type: "email",
+            placeholder: "Andrew Smith",
+          }}
+        />
+      </form>
     </div>
   );
 }

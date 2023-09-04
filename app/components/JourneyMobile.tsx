@@ -4,6 +4,7 @@ import { generateTranslator } from "../utils/i18n";
 import { DictionarySection } from "../[lang]/dictionaries";
 import { animate, motion } from "framer-motion";
 import Button from "./Button";
+import Link from "next/link";
 
 export type JourneyCardListProps = {
   journeyDict: DictionarySection<"journey">;
@@ -13,6 +14,8 @@ export type JourneyCardListProps = {
     animationFunc: Function,
   ) => void;
 };
+
+const MotionLink = motion(Link);
 
 const JourneyMobileList: React.FC<JourneyCardListProps> = ({
   journeyDict,
@@ -103,7 +106,8 @@ const JourneyMobileList: React.FC<JourneyCardListProps> = ({
         );
       })}
       <div className="relative grid h-full justify-center">
-        <motion.div
+        <MotionLink
+          href="/contact-me"
           id="journey-button"
           initial={{ opacity: 0 }}
           className="mt-8"
@@ -114,7 +118,7 @@ const JourneyMobileList: React.FC<JourneyCardListProps> = ({
           }}
         >
           <Button className="text-[16px]">{t("button") as string}</Button>
-        </motion.div>
+        </MotionLink>
       </div>
     </ul>
   );

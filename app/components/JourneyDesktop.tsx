@@ -4,6 +4,9 @@ import Button from "@/app/components/Button";
 import { generateTranslator } from "../utils/i18n";
 import { Segment, motion } from "framer-motion";
 import { JourneyCardListProps } from "./JourneyMobile";
+import Link from "next/link";
+
+const MotionLink = motion(Link)
 
 const JourneyDesktopList: React.FC<JourneyCardListProps> = ({
   journeyDict,
@@ -116,7 +119,8 @@ const JourneyDesktopList: React.FC<JourneyCardListProps> = ({
           );
         })}
         <div className="relative grid h-full grid-rows-[1fr_1fr] justify-center">
-          <motion.div
+          <MotionLink
+          href="/contact-me"
             id="desktop-journey-button"
             initial={{ opacity: 0 }}
             className="row-start-2 row-end-3 mt-8"
@@ -127,7 +131,7 @@ const JourneyDesktopList: React.FC<JourneyCardListProps> = ({
             }}
           >
             <Button className="text-clamp-lg">{t("button") as string}</Button>
-          </motion.div>
+          </MotionLink>
         </div>
       </ul>
     </>

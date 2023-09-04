@@ -13,9 +13,10 @@ export default async function Home({
   return (
     <div className="flex flex-col items-center gap-8 px-8 py-4">
       <OutlinedText>Get In Touch</OutlinedText>
-      <form className="flex flex-col gap-6">
+      <form className="flex flex-col gap-6 w-full">
         <Input
           icon="User"
+          className="w-full"
           inputProps={{
             name: "Name",
             type: "text",
@@ -30,6 +31,13 @@ export default async function Home({
             placeholder: "ExampleMail@gmail.com",
           }}
         />
+        <label className="w-full">
+          Message
+          <textarea
+            className="w-full rounded-[4px] border border-slate-500 bg-transparent px-4 py-3 text-slate-300 placeholder:text-slate-400"
+            placeholder="I would like to get in touch..."
+          />
+        </label>
       </form>
     </div>
   );

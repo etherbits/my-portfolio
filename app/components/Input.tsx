@@ -1,25 +1,26 @@
 import React, { HTMLProps } from "react";
 import Icon, { IconName } from "./Icon";
 import { cn } from "../utils/tailwind";
+import { MotionProps, motion } from "framer-motion";
 
 type Props = {
   icon: IconName;
-  name?: string;
   inputProps?: HTMLProps<HTMLInputElement>;
   inputContainer?: HTMLProps<HTMLDivElement>;
-} & HTMLProps<HTMLLabelElement>;
+  className?: HTMLLabelElement["className"];
+} & MotionProps;
 
 const Input: React.FC<Props> = ({
   icon,
-  name,
   inputProps,
   inputContainer,
+  className,
   ...rest
 }) => {
   return (
-    <label
+    <motion.label
       {...rest}
-      className={cn("flex w-fit flex-col gap-3", rest.className)}
+      className={cn("flex w-fit flex-col gap-3", className)}
     >
       {inputProps?.name}
       <div
@@ -36,12 +37,12 @@ const Input: React.FC<Props> = ({
         <input
           {...inputProps}
           className={cn(
-            "w-full bg-transparent py-3 pl-3 pr-4 text-slate-300 outline-none placeholder:text-slate-400 text-ellipsis",
+            "w-full text-ellipsis bg-transparent py-3 pl-3 pr-4 text-slate-300 outline-none placeholder:text-slate-400",
             inputProps?.className,
           )}
         />
       </div>
-    </label>
+    </motion.label>
   );
 };
 

@@ -12,8 +12,8 @@ export default async function Home({
   const dict = await getDictionary(lang);
   return (
     <div className="flex flex-col items-center gap-8 px-8 py-4">
-      <OutlinedText>Contact Me</OutlinedText>
-      <form className="flex flex-col gap-4">
+      <OutlinedText>Get In Touch</OutlinedText>
+      <form className="flex flex-col gap-6">
         <Input
           icon="User"
           inputProps={{
@@ -27,7 +27,7 @@ export default async function Home({
           inputProps={{
             name: "E-Mail",
             type: "email",
-            placeholder: "Andrew Smith",
+            placeholder: "ExampleMail@gmail.com",
           }}
         />
       </form>

@@ -10,7 +10,7 @@ export default async function Home({
 }) {
   const dict = await getDictionary(lang);
   return (
-    <div>
+    <div className="flex flex-col items-center p-8">
       <Input icon="User" inputProps={{ name: "Name",type:"text", placeholder: "Andrew Smith" }} />
       <Input icon="Mail" inputProps={{ name: "E-Mail", type:"email", placeholder: "Andrew Smith" }} />
     </div>

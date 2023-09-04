@@ -36,7 +36,7 @@ const Input: React.FC<Props> = ({
         <input
           {...inputProps}
           className={cn(
-            "w-full bg-transparent py-3 pl-3 pr-4 text-slate-300 outline-none placeholder:text-slate-400",
+            "w-full bg-transparent py-3 pl-3 pr-4 text-slate-300 outline-none placeholder:text-slate-400 text-ellipsis",
             inputProps?.className,
           )}
         />

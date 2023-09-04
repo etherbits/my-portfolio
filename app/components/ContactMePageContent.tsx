@@ -51,7 +51,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
         <ul className="flex flex-col gap-4">
           <li className="flex items-center gap-3">
             <Icon name="Mail" className="stroke-slate-400" size={20} />
-            <span>nika.qvrivishviliwork@gmail.com</span>
+            <span className="break-all">nika.qvrivishviliwork@gmail.com</span>
           </li>
           <li className="flex items-center gap-3">
             <Icon name="Phone" className="stroke-slate-400" size={20} />

@@ -16,9 +16,9 @@ type Props = {
 const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
   const t = generateTranslator<"contact">(contactDict);
   return (
-    <div className="flex flex-col gap-8 px-8 py-4">
+    <div className="flex flex-col px-8 py-4">
       <OutlinedText>Get In Touch</OutlinedText>
-      <form className="flex w-full flex-col items-end gap-6">
+      <form className="flex w-full flex-col items-end gap-6 my-11">
         <Input
           icon="User"
           className="w-full"
@@ -58,8 +58,8 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
             <span>(+995) 595-33-29-42</span>
           </li>
         </ul>
-      </section>
       <RectLinks size={32} gap={16} />
+      </section>
     </div>
   );
 };

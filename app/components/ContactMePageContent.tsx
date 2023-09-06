@@ -21,32 +21,20 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <OutlinedText>Get In Touch</OutlinedText>
       </motion.div>
-      <form
-        className="my-11 flex w-full flex-col items-end gap-6"
-      >
+      <form className="my-11 flex w-full flex-col items-end gap-6">
         <Input
           icon="User"
           className="w-full"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.25, delay: 0.25 }}
-          inputProps={{
-            name: "Name",
-            type: "text",
-            placeholder: "Andrew Smith",
-          }}
+          name="Name"
+          type="text"
+          placeholder="Andrew Smith"
         />
         <Input
           icon="Mail"
           className="w-full"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.25, delay: 0.5 }}
-          inputProps={{
-            name: "E-Mail",
-            type: "email",
-            placeholder: "ExampleMail@gmail.com",
-          }}
+          name="E-Mail"
+          type="email"
+          placeholder="ExampleMail@gmail.com"
         />
         <motion.label
           initial={{ opacity: 0 }}

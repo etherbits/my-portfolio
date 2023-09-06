@@ -13,12 +13,13 @@ export type EmailData = {
 
 export async function sendContactMail(data: ContactMeFormSchema) {
   return sendMail({
-    from: data.email,
-    to: "delivered@resend.dev",
+    from: "onboarding@resend.dev",
+    to: "nika.qvrivishviliwork@gmail.com",
     subject: "portfolio contact",
     html: `
       <div>
-        <p>sender: ${data.name}</p>
+        <p>sender name: ${data.name}</p>
+        <p>sender email: ${data.email}</p>
         <p>${data.message}</p>
       </div>`,
   });

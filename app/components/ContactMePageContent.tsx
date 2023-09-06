@@ -8,6 +8,8 @@ import { DictionarySection } from "../[lang]/dictionaries";
 import { motion } from "framer-motion";
 import Icon from "./Icon";
 import Input from "./Input";
+import { sendMail } from "../lib/email";
+
 
 type Props = {
   contactDict: DictionarySection<"contact">;
@@ -53,7 +55,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
         >
           Message
           <textarea
-            className="min-h-[20vh] w-full outline-none focus:border-slate-300 rounded-[4px] border border-slate-500 bg-transparent px-4 py-3 text-sm text-slate-300 placeholder:text-slate-400"
+            className="min-h-[20vh] w-full rounded-[4px] border border-slate-500 bg-transparent px-4 py-3 text-sm text-slate-300 outline-none placeholder:text-slate-400 focus:border-slate-300"
             placeholder="I would like to get in touch..."
           />
         </motion.label>
@@ -62,7 +64,14 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.25, delay: 1 }}
         >
-          <Button>Send Message</Button>
+          <Button
+            onClick={async (e) => {
+              e.preventDefault()
+              sendMail()
+            }}
+          >
+            Send Message
+          </Button>
         </motion.div>
       </form>
       <motion.section

@@ -72,7 +72,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
         className="flex w-fit flex-col items-start gap-6"
       >
         <h4>Contact Info</h4>
-        <ul className="mb-4 flex flex-col gap-4">
+        <ul className="mb-4 flex flex-col gap-4 text-sm">
           <li className="flex items-center gap-3">
             <Icon name="Mail" className="stroke-slate-400" size={20} />
             <span className="break-all">nika.qvrivishviliwork@gmail.com</span>

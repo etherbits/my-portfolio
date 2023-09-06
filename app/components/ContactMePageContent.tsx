@@ -53,7 +53,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
         >
           Message
           <textarea
-            className="min-h-[20vh] w-full rounded-[4px] border border-slate-500 bg-transparent px-4 py-3 text-sm text-slate-300 placeholder:text-slate-400"
+            className="min-h-[20vh] w-full outline-none focus:border-slate-300 rounded-[4px] border border-slate-500 bg-transparent px-4 py-3 text-sm text-slate-300 placeholder:text-slate-400"
             placeholder="I would like to get in touch..."
           />
         </motion.label>
@@ -82,7 +82,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
             <span>(+995) 595-33-29-42</span>
           </li>
         </ul>
-        <RectLinks size={32} gap={16} />
+        <RectLinks animationDelay={1.5} size={36} className="gap-6" />
       </motion.section>
     </div>
   );

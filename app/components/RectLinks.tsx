@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Icon, { IconName } from "./Icon";
 import { cn, getColorRGBA } from "../utils/tailwind";
-import {  motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 type BaseLinkObj = {
   url: string;
@@ -41,25 +41,28 @@ const linkObjs: LinkObj[] = [
 
 type Props = {
   size?: number;
-  gap?: number;
   className?: string;
+  animationDelay: number;
   itemDelayIncrement?: number;
 };
 
 const RectLinks: React.FC<Props> = ({
   size = 48,
-  gap = 44,
   className,
-  itemDelayIncrement,
+  animationDelay,
+  itemDelayIncrement = 0.25,
 }) => {
   return (
-    <motion.ul className={cn("flex w-fit", className)} style={{ gap: `${gap}px` }}>
+    <motion.ul className={cn("flex w-fit gap-11", className)}>
       {linkObjs.map((link, i) => (
         <motion.li
           key={link.url}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2.5 + (itemDelayIncrement ?? 0.25 )* i }}
+          transition={{
+            delay: animationDelay + itemDelayIncrement * i,
+            duration: 0.25,
+          }}
         >
           <a
             href={link.url}

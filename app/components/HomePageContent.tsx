@@ -62,8 +62,8 @@ const HomePageContent: React.FC<Props> = ({ homeDict }) => {
             </Button>
           </MotionLink>
         </div>
-        <RectLinks size={36} gap={24} className="sm:hidden" />
-        <RectLinks className="hidden sm:flex" />
+        <RectLinks animationDelay={2.5} size={36} className="gap-6 sm:hidden" />
+        <RectLinks animationDelay={2.5} className="hidden sm:flex" />
       </div>
 
       <LineWaves

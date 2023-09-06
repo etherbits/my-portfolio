@@ -9,12 +9,20 @@ import { motion } from "framer-motion";
 import Icon from "./Icon";
 import Input from "./Input";
 import { sendMail } from "../lib/email";
+import { useForm } from "react-hook-form";
 
 type Props = {
   contactDict: DictionarySection<"contact">;
 };
 
 const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
   const t = generateTranslator<"contact">(contactDict);
   return (
     <div className="flex flex-col px-8 py-4">
@@ -25,16 +33,18 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
         <Input
           icon="User"
           className="w-full"
-          name="Name"
           type="text"
+          label="Name"
           placeholder="Andrew Smith"
+          {...register("name")}
         />
         <Input
           icon="Mail"
           className="w-full"
-          name="E-Mail"
           type="email"
+          label="E-Mail"
           placeholder="ExampleMail@gmail.com"
+          {...register("email")}
         />
         <motion.label
           initial={{ opacity: 0 }}

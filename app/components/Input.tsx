@@ -5,12 +5,14 @@ import { motion } from "framer-motion";
 
 type Props = {
   icon: IconName;
+  label: string;
   className?: HTMLLabelElement["className"];
   containerClassName?: HTMLDivElement;
 } & InputHTMLAttributes<HTMLInputElement> & HTMLProps<HTMLInputElement>
 
 const Input: React.FC<Props> = ({
   icon,
+  label,
   containerClassName,
   ...inputProps
 }) => {
@@ -18,7 +20,7 @@ const Input: React.FC<Props> = ({
     <div
       className={cn("flex w-full flex-col gap-3", containerClassName)}
     >
-      <motion.label>{inputProps.name}</motion.label>
+      <motion.label>{label}</motion.label>
       <div
         className={cn(
           "group flex w-full items-center gap-3 overflow-hidden rounded-[4px] border border-slate-500 bg-transparent pl-4 focus-within:border-slate-300",

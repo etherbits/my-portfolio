@@ -8,11 +8,12 @@ import { DictionarySection } from "../[lang]/dictionaries";
 import { motion } from "framer-motion";
 import Icon from "./Icon";
 import Input from "./Input";
-import { sendMail } from "../lib/email";
+import { sendContactMail } from "../lib/email";
 import { useForm } from "react-hook-form";
 import { contactMeSchema } from "../schemas/contact-me";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import TextArea from "./TextArea";
 
 type Props = {
   contactDict: DictionarySection<"contact">;
@@ -24,12 +25,11 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<ContactMeFormSchema>({ resolver: zodResolver(contactMeSchema) });
 
-  const onSubmit = (data: ContactMeFormSchema) => console.log("data: ", data);
-  console.log(errors);
+  const onSubmit = (data: ContactMeFormSchema) => sendContactMail(data);
+
   const t = generateTranslator<"contact">(contactDict);
   return (
     <div className="flex flex-col px-8 py-4">
@@ -60,19 +60,13 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
           register={register}
           errors={errors}
         />
-        <motion.label
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.25, delay: 0.75 }}
-          className="flex w-full flex-col gap-3"
-        >
-          Message
-          <textarea
-            className="min-h-[20vh] w-full rounded-[4px] border border-slate-500 bg-transparent px-4 py-3 text-sm text-slate-300 outline-none placeholder:text-slate-400 focus:border-slate-300"
-            placeholder="I would like to get in touch..."
-            {...register("message")}
-          />
-        </motion.label>
+        <TextArea
+          label="message"
+          name="message"
+          placeholder="I would like to get in touch..."
+          register={register}
+          errors={errors}
+        />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

@@ -1,5 +1,6 @@
 "use server";
 import { Resend } from "resend";
+import { ContactMeFormSchema } from "../components/ContactMePageContent";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -7,16 +8,24 @@ export type EmailData = {
   from: string;
   to: string;
   subject: string;
-  message: string;
+  html: string;
 };
 
-export async function sendMail(data: EmailData) {
-  const res = await resend.emails.send({
-    from: data.from,
-    to: data.to,
-    subject: data.subject,
-    html: `<p>${data.message}</p>`,
+export async function sendContactMail(data: ContactMeFormSchema) {
+  return sendMail({
+    from: data.email,
+    to: "nika.qvrivishviliwork@gmail.com",
+    subject: "portfolio contact",
+    html: `
+      <div>
+        <p>sender: ${data.name}</p>
+        <p>${data.message}</p>
+      </div>`,
   });
+}
 
-  console.log(res);
+async function sendMail(data: EmailData) {
+  const res = await resend.emails.send(data);
+
+  return res;
 }

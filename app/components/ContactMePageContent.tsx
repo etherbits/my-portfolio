@@ -10,10 +10,15 @@ import Icon from "./Icon";
 import Input from "./Input";
 import { sendMail } from "../lib/email";
 import { useForm } from "react-hook-form";
+import { contactMeSchema } from "../schemas/contact-me";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
 type Props = {
   contactDict: DictionarySection<"contact">;
 };
+
+export type ContactMeFormSchema = z.infer<typeof contactMeSchema>;
 
 const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
   const {
@@ -21,22 +26,29 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm<ContactMeFormSchema>({ resolver: zodResolver(contactMeSchema) });
 
+  const onSubmit = (data: ContactMeFormSchema) => console.log("data: ", data);
+  console.log(errors);
   const t = generateTranslator<"contact">(contactDict);
   return (
     <div className="flex flex-col px-8 py-4">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <OutlinedText>Get In Touch</OutlinedText>
       </motion.div>
-      <form className="my-11 flex w-full flex-col items-end gap-6">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="my-11 flex w-full flex-col items-end gap-6"
+      >
         <Input
           icon="User"
           className="w-full"
           type="text"
           label="Name"
           placeholder="Andrew Smith"
-          {...register("name")}
+          name="name"
+          register={register}
+          errors={errors}
         />
         <Input
           icon="Mail"
@@ -44,7 +56,9 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
           type="email"
           label="E-Mail"
           placeholder="ExampleMail@gmail.com"
-          {...register("email")}
+          name="email"
+          register={register}
+          errors={errors}
         />
         <motion.label
           initial={{ opacity: 0 }}
@@ -54,9 +68,9 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
         >
           Message
           <textarea
-            name="Message"
             className="min-h-[20vh] w-full rounded-[4px] border border-slate-500 bg-transparent px-4 py-3 text-sm text-slate-300 outline-none placeholder:text-slate-400 focus:border-slate-300"
             placeholder="I would like to get in touch..."
+            {...register("message")}
           />
         </motion.label>
         <motion.div

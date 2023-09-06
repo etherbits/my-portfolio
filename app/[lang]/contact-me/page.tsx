@@ -9,6 +9,6 @@ export default async function Home({
 }) {
   const dict = await getDictionary(lang);
   return (
-  <ContactMePageContent contactDict={dict['contact']}/>
+    <ContactMePageContent contactDict={dict['contact']} />
   );
 }

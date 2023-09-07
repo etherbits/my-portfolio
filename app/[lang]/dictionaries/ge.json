@@ -18,8 +18,20 @@
     "title": "Projects",
     "items": {
       "unispace": {
-        "title": "unispace",
-        "body": "During 2019-2020, my journey evolved. Leveraging the vast knowledge on the internet, I honed my focus on web development, propelling my progress. Amidst the pandemic, I embarked on a significant project – crafting a class management website for my mother's work. This endeavor propelled me even further."
+        "title": "UniSpace",
+        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll.UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University)."
+      },
+      "sandro": {
+        "title": "Sandro's Books",
+        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll."
+      },
+      "ebase": {
+        "title": "E-Base",
+        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll."
+      },
+      "octopus": {
+        "title": "Octopus",
+        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll."
       }
     },
     "webpage_button": "View Webpage",

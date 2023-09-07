@@ -11,7 +11,7 @@
     "intro_first_name": "Nika",
     "intro_first_end": "a",
     "intro_profession": "Web Developer",
-    "intro_paragraph": "I build responsive, performant, and inclusive web solutions utilizing leading web technologies with the goal of delivering seamless digital experiences.",
+    "intro_paragraph": "I build responsive, optimized, and inclusive web solutions utilizing leading web technologies with the goal of delivering seamless digital experiences.",
     "intro_button": "View My Projects"
   },
   "projects": {
@@ -19,19 +19,19 @@
     "items": {
       "unispace": {
         "title": "UniSpace",
-        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll.UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University)."
+        "body": "UniSpace is a dedicated platform designed for both lecturers and students of UniLab, an accelerated program affiliated with Ilia State University. This platform empowers lecturers with course and participant management capabilities, while also granting students the convenience of accessing course information and enrolling. Along with a fellow developer, Mindia Arabuli, I was entrusted with crafting the front-end of the website, adhering closely to the finalized UI/UX designs provided by our design team. Additionally, we maintained open communication with our back-end development counterparts to ensure seamless API compatibility."
       },
       "sandro": {
         "title": "Sandro's Books",
-        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll."
+        "body": "Sandro's Books is a website dedicated to showcasing audiobooks authored by UniLab's director, Sandro Asatiani. The catalog features a diverse range of topics, with an integrated audio player that offers all the standard user functionalities. My colleague, Mindia Arabuli, and I were responsible for modernizing the existing codebase into a React Single Page Application (SPA). We also introduced new features, including playback capabilities and dynamic routing. Throughout this process, we worked closely with the UI/UX design team to bring the envisioned product to life."
       },
       "ebase": {
         "title": "E-Base",
-        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll."
+        "body": "E-Base is a web application for managing TV shows and movies, conceived as my final project for Harvard University's CS50 course. The application retrieves data from The Movie Database (TMDB) and enables users to curate their own media list linked to their account. As the sole developer, I assumed responsibility for both the front-end and back-end development of this project."
       },
       "octopus": {
         "title": "Octopus",
-        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll."
+        "body": "Octopus is a desktop application designed to streamline music organization and playback. It leverages the cross-platform capabilities of web technologies for the front-end interface, complemented by Rust on the back-end for seamless OS communication. Octopus integrates with a Jellyfin server, a Software Media System enabling users to host and manage their content, to retrieve metadata, and access audio streams. As the sole developer, I am working on its ongoing development."
       }
     },
     "webpage_button": "View Webpage",
@@ -57,7 +57,5 @@
     },
     "button": "Contact Me"
   },
-  "contact": {
-
-  }
+  "contact": {}
 }

@@ -12,30 +12,30 @@
     "intro_first_end": "",
     "intro_profession": "ვებ დეველოპერი",
     "intro_paragraph": "მე ვაწყობ რესპონსიულ, ჩქარ და ინკლუზიურ ქსელურ პროგრამებს მოწინავე ვებ ტექნოლოგიების გამოყენებით, სასიამოვნო ციფრული გამოცდილებების შესაქმნელად",
-    "intro_button": "მეტი ჩემს შესახებ"
+    "intro_button": "ნახე ჩემი პროექტები"
   },
   "projects": {
-    "title": "Projects",
+    "title": "ჩემი პროექტები",
     "items": {
       "unispace": {
         "title": "UniSpace",
-        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll.UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University)."
+        "body": "Unispace-ი არის პლატფორმა UniLab-ის (ილიას სახელმწიფო უნივერსიტეტის პროფესიული აქსელერაციის პროგრამა) ლექტორებისა და სტუდენტებისთვის. ეს პლატფორმა აძლევს ლექტორებს შესაძლებლობას, რომ კურსების და მონაწილეების მენეჯმენტი შეძლონ. პარალელურად სტუდენტებს აძლევს საშვალებას მოიძიონ ინფორმაცია კურსებზე და გაწევრიანდნენ. მე და კიდევ ერთ დეველოპერს, მინდია არაბულს, დაგვავალეს საიტის front-end-ის აწყობა, UI/UX გუნდებიდან მიღებული დიზაინების მიხედვით. ასევე, მჭიდრო კავშირი გვქონდა back-end დეველოპერებთან, რათა ისეთი API გაგვეწერა, რომელიც front-ს მოერგებოდა."
       },
       "sandro": {
         "title": "Sandro's Books",
-        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll."
+        "body": "სანდროს წიგნები საიტია შექმნილი უნილაბის დირექტორის, სანდრო ასათიანის, აუდიო წიგნებისთვის. საიტის კატალოგი შემოიფარგლება სხვადახვა საკითხით და შეიცავს ინტერგრირებულ audio player-ს, რომელსაც ყველა მოსალოდნელი ფუნქციონალი გააჩნია. მე მევალებოდა არსებული კოდის ბაზის თანამედროვე React Single Page Application (SPA)-ზე გადაწერა. ასევე ახალი ფუნქციონალიც დავამატეთ, როგორიცაა playback და dynamic routing-ი. ამ პროცესის განმავლობაში, UI/UX დიზაინერებთან მჭიდროდ ვმუშაობდით, რათა ჩანაფიქრთან რაც შეიძლება ახლო პროდუქტი შეგვექმნა."
       },
       "ebase": {
         "title": "E-Base",
-        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll."
+        "body": "E-Base-ი არის ვებ აპლიკაცია სერიალებისა და ფილმების მენეჯმენტისთვის. ის პროექტი შევქმენი ჰარვარდის უნივერსიტეტის CS50-ის კურსის ფინალური ეტაპის გადასალახად. აპლიკაცია იღებს მონაცემებს The Movie Database (TMDB)-დან და მომხმარებლებს აძლევს შესაძლებლობას გააკონტროლოს საკუთარი მედია, რომელიც მიბმულია თავიანთ ანგარიშზ და მომხმარებლებს აძლევს შესაძლებლობას გააკონტროლოს საკუთარი მედია, რომელიც მიბმულია თავიანთ ანგარიშზე. როგორც სოლო დეველოპერი, მე ვაკონტროლებდი როგორც ამ პროექტის front-end-ს ასევე back-end-ს."
       },
       "octopus": {
         "title": "Octopus",
-        "body": "UniSpace is a website for lecturers and the students participating in UniLab (An acceleration program of Ilia State University). It gives the lecturers the ability to manage courses and paticipants, while giving the students the ability to overview courses and enroll."
+        "body": "Octopus-ი არის დესკტოპ აპლიკაცია შექმნილი, რათა მუსიკის ორგანიზაცია და მოსმენა მომხმარებელს გაუადვილოს. ის იყენებს web ტექნოლოგიების cross-platform შესაძლებლობებს front-end-ისთვის, ბექზე კი Rust-ის მეშვეობით ოპერატიულ სისტემასთან მყარდება კავშირი. Octopus-ი ინტერგრირდება Jellyfin-ის სერვერთან (მედიას ჰოსტინგის და მენეჯმენტის პროგრამა), რათა საჭირო მონაცემები მოიპოვოს და წვდომა ჰქონდეს audio stream-ებზე. მხოლოდ მე ვმუშაობ ამ პროექტზე, და ის ჯერ კიდევ დეველოპმენტის ფასაშია"
       }
     },
-    "webpage_button": "View Webpage",
-    "demo_button": "View Demo"
+    "webpage_button": "საიტის მონახულება",
+    "demo_button": "დემონსტრაციის ნახვა"
   },
   "journey": {
     "cards": {

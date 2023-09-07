@@ -15,7 +15,7 @@
     "intro_button": "View My Projects"
   },
   "projects": {
-    "title": "Projects",
+    "title": "My Projects",
     "items": {
       "unispace": {
         "title": "UniSpace",

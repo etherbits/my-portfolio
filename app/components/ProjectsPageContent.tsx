@@ -141,7 +141,9 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
   return (
     <>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        <OutlinedText className="md:text-clamp-3xl">My Projects</OutlinedText>
+        <OutlinedText className="md:text-clamp-3xl">
+          {t("title") as string}
+        </OutlinedText>
       </motion.div>
       <ul className="my-9 flex flex-col items-center gap-24 px-8 md:my-[8vh] md:gap-[8vh]">
         {projects.map((project, i) => {
@@ -184,18 +186,18 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
               </div>
               <div className="flex flex-col md:basis-[clamp(24rem,44%,44rem)] ">
                 <motion.h3
-                  className="mb-4 md:mb-8 text-xl font-medium md:text-clamp-xl"
+                  className="mb-4 text-xl font-medium md:mb-8 md:text-clamp-xl"
                   variants={titleVariants}
                 >
                   {projectDict["title"]}
                 </motion.h3>
                 <motion.p
-                  className="mb-4 md:mb-8 text-sm md:text-clamp-rg md:leading-[160%]"
+                  className="mb-4 text-sm md:mb-8 md:text-clamp-rg md:leading-[160%]"
                   variants={descriptionVariants}
                 >
                   {projectDict["body"]}
                 </motion.p>
-                <ul className="mb-8 md:mb-10 flex max-w-full flex-wrap gap-3 text-[0.75rem] text-slate-300 md:text-clamp-xm">
+                <ul className="mb-8 flex max-w-full flex-wrap gap-3 text-[0.75rem] text-slate-300 md:mb-10 md:text-clamp-xm">
                   {project.tags.map((tag, j) => (
                     <motion.li
                       key={tag}

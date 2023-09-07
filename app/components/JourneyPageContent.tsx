@@ -30,7 +30,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
     funcQueue.enqueue(() => animationFunc(el));
   };
 
-  const t = generateTranslator<"journey">(journeyDict)
+  const t = generateTranslator<"journey">(journeyDict);
   return (
     <>
       <div className="flex flex-col items-center p-8">
@@ -40,7 +40,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.25 }}
           >
-            <OutlinedText>{t("title")}</OutlinedText>
+            <OutlinedText>{t("title") as string}</OutlinedText>
           </motion.div>
           <div className="hidden w-full justify-center md:flex">
             <JourneyDesktopList

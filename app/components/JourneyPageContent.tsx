@@ -7,6 +7,7 @@ import { motion, useAnimate } from "framer-motion";
 import OutlinedText from "./OutlineText";
 import JourneyDesktopList from "./JourneyDesktop";
 import JourneyMobileList from "./JourneyMobile";
+import { generateTranslator } from "../utils/i18n";
 
 type Props = {
   journeyDict: DictionarySection<"journey">;
@@ -29,6 +30,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
     funcQueue.enqueue(() => animationFunc(el));
   };
 
+  const t = generateTranslator<"journey">(journeyDict)
   return (
     <>
       <div className="flex flex-col items-center p-8">
@@ -38,7 +40,7 @@ const JourneyPageContent: React.FC<Props> = ({ journeyDict }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.25 }}
           >
-            <OutlinedText>Journey</OutlinedText>
+            <OutlinedText>{t("title")}</OutlinedText>
           </motion.div>
           <div className="hidden w-full justify-center md:flex">
             <JourneyDesktopList

@@ -38,6 +38,7 @@
     "demo_button": "View Demo"
   },
   "journey": {
+    "title": "Journey",
     "cards": {
       "journey_start": {
         "title": "Sparks of Passion",

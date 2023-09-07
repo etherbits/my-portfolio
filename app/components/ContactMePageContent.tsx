@@ -34,7 +34,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
   return (
     <div className="flex flex-col px-8 py-4">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-        <OutlinedText>Get In Touch</OutlinedText>
+        <OutlinedText>{t("title")}</OutlinedText>
       </motion.div>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -44,8 +44,8 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
           icon="User"
           className="w-full"
           type="text"
-          label="Name"
-          placeholder="Andrew Smith"
+          label={t("input_label")}
+          placeholder={t("input_placeholder")}
           name="name"
           register={register}
           errors={errors}
@@ -54,16 +54,16 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
           icon="Mail"
           className="w-full"
           type="email"
-          label="E-Mail"
-          placeholder="ExampleMail@gmail.com"
+          label={t("email_label")}
+          placeholder={t("email_placeholder")}
           name="email"
           register={register}
           errors={errors}
         />
         <TextArea
-          label="message"
+          label={t("message_label")}
           name="message"
-          placeholder="I would like to get in touch..."
+          placeholder={t("message_placeholder")}
           register={register}
           errors={errors}
         />
@@ -72,7 +72,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.25, delay: 1 }}
         >
-          <Button>Send Message</Button>
+          <Button>{t("button")}</Button>
         </motion.div>
       </form>
       <motion.section
@@ -81,7 +81,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
         transition={{ duration: 0.25, delay: 1.25 }}
         className="flex w-fit flex-col items-start gap-6"
       >
-        <h4>Contact Info</h4>
+        <h4>{t("contact_info_title")}</h4>
         <ul className="mb-4 flex flex-col gap-4 text-sm">
           <li className="flex items-center gap-3">
             <Icon name="Mail" className="stroke-slate-400" size={20} />

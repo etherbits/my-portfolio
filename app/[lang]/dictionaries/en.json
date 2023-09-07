@@ -57,5 +57,15 @@
     },
     "button": "Contact Me"
   },
-  "contact": {}
+  "contact": {
+    "title": "Get In Touch",
+    "input_label": "Name",
+    "input_placeholder": "Andrew Smith",
+    "email_label": "E-Mail",
+    "email_placeholder": "ExampleMail@gmail.com",
+    "message_label": "message",
+    "message_placeholder": "I would like to get in touch...",
+    "button": "Send Message",
+    "contact_info_title": "Contact Info"
+  }
 }

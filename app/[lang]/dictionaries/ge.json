@@ -58,6 +58,14 @@
     "button": "დამეკონტაქტე"
   },
   "contact": {
-
+    "title": "შევხმიანდეთ",
+    "input_label": "სახელი",
+    "input_placeholder": "გიორგი ბერიძე",
+    "email_label": "ელ-ფოსტა",
+    "email_placeholder": "ExampleMail@gmail.com",
+    "message_label": "მესიჯი",
+    "message_placeholder": "მოდი შევხმიანდეთ...",
+    "button": "მესიჯის გაგზავნა",
+    "contact_info_title": "დამატებითი ინფორმაცია"
   }
 }

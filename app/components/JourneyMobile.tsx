@@ -117,7 +117,7 @@ const JourneyMobileList: React.FC<JourneyCardListProps> = ({
             );
           }}
         >
-          <Button className="text-[16px]">{t("button") as string}</Button>
+          <Button className="text-base">{t("button") as string}</Button>
         </MotionLink>
       </div>
     </ul>

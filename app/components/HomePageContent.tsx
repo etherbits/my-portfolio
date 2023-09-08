@@ -57,7 +57,7 @@ const HomePageContent: React.FC<Props> = ({ homeDict }) => {
             href="/projects"
             className="mb-11"
           >
-            <Button className="sm:clamp-xl text-[16px]">
+            <Button className="sm:clamp-xl text-base">
               {t("intro_button")}
             </Button>
           </MotionLink>

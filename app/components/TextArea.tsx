@@ -28,7 +28,7 @@ const TextArea: React.FC<Props> = ({
       <textarea
         {...textAreaProps}
         className={cn(
-          `min-h-[20vh] w-full rounded-[4px] border border-slate-500 bg-transparent px-4 py-3 text-sm text-slate-300 outline-none placeholder:text-slate-400 focus:border-slate-300`,
+          `min-h-[20vh] md:text-base -full rounded-[4px] border border-slate-500 bg-transparent px-4 py-3 text-sm text-slate-300 outline-none placeholder:text-slate-400 focus:border-slate-300`,
           textAreaProps.className,
         )}
         {...register("message")}

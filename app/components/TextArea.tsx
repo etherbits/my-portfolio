@@ -1,17 +1,14 @@
 import React, { HTMLProps, TextareaHTMLAttributes } from "react";
 import { cn } from "../utils/tailwind";
-import { motion } from "framer-motion";
-import { FieldErrors, UseFormRegister } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
 import { ContactMeFormSchema } from "./ContactMePageContent";
+import InputWrapper, { InputWrapperProps } from "./InputWrapper";
 
 type Props = {
-  label: string;
   register: UseFormRegister<ContactMeFormSchema>;
-  errors: FieldErrors<ContactMeFormSchema>;
-  containerClassName?: HTMLDivElement["className"];
-  name: keyof ContactMeFormSchema;
 } & TextareaHTMLAttributes<HTMLInputElement> &
-  HTMLProps<HTMLTextAreaElement>;
+  HTMLProps<HTMLTextAreaElement> &
+  Omit<InputWrapperProps, "children">;
 
 const TextArea: React.FC<Props> = ({
   label,
@@ -22,10 +19,12 @@ const TextArea: React.FC<Props> = ({
   ...textAreaProps
 }) => {
   return (
-    <div className={cn("flex w-full flex-col gap-3", containerClassName)}>
-      <motion.label className="flex w-full flex-col gap-3">
-        Message
-      </motion.label>
+    <InputWrapper
+      label={label}
+      name={name}
+      errors={errors}
+      containerClassName={containerClassName}
+    >
       <textarea
         {...textAreaProps}
         className={cn(
@@ -34,8 +33,7 @@ const TextArea: React.FC<Props> = ({
         )}
         {...register("message")}
       />
-      <p className="text-sm text-red-500">{errors[name]?.message}</p>
-    </div>
+    </InputWrapper>
   );
 };
 

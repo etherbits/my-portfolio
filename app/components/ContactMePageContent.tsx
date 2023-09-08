@@ -36,10 +36,10 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <OutlinedText>{t("title")}</OutlinedText>
       </motion.div>
-      <main className="md:w-[720px]">
+      <main className="py-11 md:w-[720px] md:py-16">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="my-11 flex w-full flex-col items-end gap-6"
+          className="flex w-full flex-col items-end gap-6"
         >
           <div className="w-full md:flex md:gap-8">
             <Input

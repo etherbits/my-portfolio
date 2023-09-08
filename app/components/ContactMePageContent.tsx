@@ -46,8 +46,8 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
               icon="User"
               className="w-full"
               type="text"
-              label={t("input_label")}
-              placeholder={t("input_placeholder")}
+              label={t("name_label")}
+              placeholder={t("name_placeholder")}
               name="name"
               register={register}
               errors={errors}

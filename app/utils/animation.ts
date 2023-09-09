@@ -40,4 +40,8 @@ export class AnimationOrchestrator {
     this.currentDelay += duration;
     return transition;
   }
+
+  getCurrentDelay() {
+    return this.currentDelay;
+  }
 }

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import RectLinks from "./RectLinks";
 import Button from "./Button";
 import OutlinedText from "./OutlineText";
@@ -14,6 +14,7 @@ import { contactMeSchema } from "../schemas/contact-me";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import TextArea from "./TextArea";
+import { AnimationOrchestrator } from "../utils/animation";
 
 type Props = {
   contactDict: DictionarySection<"contact">;
@@ -31,9 +32,16 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
   const onSubmit = (data: ContactMeFormSchema) => sendContactMail(data);
 
   const t = generateTranslator<"contact">(contactDict);
+
+  const { orchestrate } = useMemo(() => new AnimationOrchestrator(), []);
+
   return (
     <div className="flex flex-col px-8 py-4 md:items-center">
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={orchestrate(250)}
+      >
         <OutlinedText>{t("title")}</OutlinedText>
       </motion.div>
       <main className="py-11 md:w-[720px] md:py-16">

@@ -1,4 +1,4 @@
-import React, { HTMLProps, InputHTMLAttributes } from "react";
+import React, { HTMLProps, InputHTMLAttributes, forwardRef } from "react";
 import Icon, { IconName } from "./Icon";
 import { cn } from "../utils/tailwind";
 import { UseFormRegister } from "react-hook-form";
@@ -13,21 +13,17 @@ type Props = {
   InputHTMLAttributes<HTMLInputElement> &
   Omit<InputWrapperProps, "children">;
 
-const Input: React.FC<Props> = ({
-  icon,
-  label,
-  register,
-  errors,
-  containerClassName,
-  name,
-  ...inputProps
-}) => {
+const Input = forwardRef<HTMLDivElement, Props>(function Input(
+  { icon, label, register, errors, containerClassName, name, ...inputProps },
+  ref,
+) {
   return (
     <InputWrapper
       label={label}
       errors={errors}
       name={name}
       containerClassName={containerClassName}
+      ref={ref}
     >
       <div
         className={cn(
@@ -49,6 +45,6 @@ const Input: React.FC<Props> = ({
       </div>
     </InputWrapper>
   );
-};
+});
 
 export default Input;

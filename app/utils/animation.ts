@@ -36,7 +36,8 @@ export class AnimationOrchestrator {
   }
 
   orchestrate(duration: number) {
+    const transition = { duration, delay: this.currentDelay };
     this.currentDelay += duration;
-    return { duration, delay: this.currentDelay };
+    return transition;
   }
 }

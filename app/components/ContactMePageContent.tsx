@@ -32,20 +32,21 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
     formState: { errors },
   } = useForm<ContactMeFormSchema>({ resolver: zodResolver(contactMeSchema) });
 
-  const onSubmit = (data: ContactMeFormSchema) => sendContactMail(data);
-
   const t = generateTranslator<"contact">(contactDict);
 
   const orchestrator = useMemo(() => new AnimationOrchestrator(), []);
-
   const orchestrate = (duration: number) => orchestrator.orchestrate(duration);
+
+  const onSubmit = (data: ContactMeFormSchema) => sendContactMail(data);
+
+  const animationDuration = 0.25;
 
   return (
     <div className="flex flex-col px-8 py-4 md:items-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={orchestrate(0.25)}
+        transition={orchestrate(animationDuration)}
       >
         <OutlinedText>{t("title")}</OutlinedText>
       </motion.div>
@@ -66,7 +67,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
               errors={errors}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={orchestrate(0.25)}
+              transition={orchestrate(animationDuration)}
             />
             <MotionInput
               icon="Mail"
@@ -79,7 +80,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
               errors={errors}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={orchestrate(0.25)}
+              transition={orchestrate(animationDuration)}
             />
           </div>
           <MotionTextArea
@@ -90,12 +91,12 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
             errors={errors}
             initial={{ opacity: 0, border: "red" }}
             animate={{ opacity: 1 }}
-            transition={orchestrate(0.25)}
+            transition={orchestrate(animationDuration)}
           />
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={orchestrate(0.25)}
+            transition={orchestrate(animationDuration)}
           >
             <Button>{t("button")}</Button>
           </motion.div>
@@ -103,7 +104,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={orchestrate(0.25)}
+          transition={orchestrate(animationDuration)}
           className="flex w-fit flex-col items-start gap-6"
         >
           <h4>{t("contact_info_title")}</h4>

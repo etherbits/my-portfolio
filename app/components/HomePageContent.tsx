@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import LineWaves from "./LineWaves";
 import RectLinks from "./RectLinks";
 import Link from "next/link";
@@ -9,6 +9,7 @@ import { generateTranslator } from "../utils/i18n";
 import { DictionarySection } from "../[lang]/dictionaries";
 import ProfileImage from "./ProfileImage";
 import { motion } from "framer-motion";
+import { AnimationOrchestrator } from "../utils/animation";
 
 const MotionLink = motion(Link);
 
@@ -18,17 +19,27 @@ type Props = {
 
 const HomePageContent: React.FC<Props> = ({ homeDict }) => {
   const t = generateTranslator<"home">(homeDict);
+
+  const orchestrator = useMemo(() => new AnimationOrchestrator(0), []);
+  const orchestrate = (duration: number) => orchestrator.orchestrate(duration);
+
+  const animationDuration = 0.5
+
   return (
     <>
       <div className="flex h-full w-full flex-grow flex-col items-center justify-between p-6 sm:px-8 sm:pb-16">
         <div className="flex  max-w-full flex-col items-center justify-center text-center sm:mt-[3vh] md:mt-[7vh]">
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={orchestrate(animationDuration)}
+          >
             <ProfileImage className="mb-8 sm:h-28 sm:w-28 md:h-40 md:w-40" />
           </motion.div>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
+            transition={orchestrate(animationDuration)}
             className="mb-4 text-[26px] text-slate-200 sm:text-clamp-3xl"
           >
             {t("intro_first_start")}{" "}
@@ -38,14 +49,14 @@ const HomePageContent: React.FC<Props> = ({ homeDict }) => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
+            transition={orchestrate(animationDuration)}
           >
             <OutlinedText dropCount={1}>{t("intro_profession")}</OutlinedText>
           </motion.div>
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
+            transition={orchestrate(animationDuration)}
             className="mb-16 mt-8 max-w-[320px] text-sm leading-9 text-slate-300  sm:max-w-clamp-xs sm:text-clamp-xl  sm:leading-clamp-xl"
           >
             {t("intro_paragraph")}
@@ -53,7 +64,7 @@ const HomePageContent: React.FC<Props> = ({ homeDict }) => {
           <MotionLink
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 0.5 }}
+            transition={orchestrate(animationDuration)}
             href="/projects"
             className="mb-11"
           >
@@ -62,8 +73,15 @@ const HomePageContent: React.FC<Props> = ({ homeDict }) => {
             </Button>
           </MotionLink>
         </div>
-        <RectLinks animationDelay={2.5} size={36} className="gap-6 sm:hidden" />
-        <RectLinks animationDelay={2.5} className="hidden sm:flex" />
+        <RectLinks
+          animationDelay={orchestrator.getCurrentDelay()}
+          size={36}
+          className="gap-6 sm:hidden"
+        />
+        <RectLinks
+          animationDelay={orchestrator.getCurrentDelay()}
+          className="hidden sm:flex"
+        />
       </div>
 
       <LineWaves

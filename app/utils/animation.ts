@@ -30,9 +30,11 @@ export class FunctionQueue {
 
 export class AnimationOrchestrator {
   currentDelay: number;
+  orchestrationDelay: number;
 
-  constructor() {
-    this.currentDelay = 0;
+  constructor(currentDelay = 0, orchestrationDelay = 0) {
+    this.currentDelay = currentDelay;
+    this.orchestrationDelay = orchestrationDelay;
   }
 
   orchestrate(duration: number) {

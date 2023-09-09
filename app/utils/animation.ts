@@ -27,3 +27,16 @@ export class FunctionQueue {
     return this.queue.length === 0;
   }
 }
+
+export class AnimationOrchestrator {
+  currentDelay: number;
+
+  constructor() {
+    this.currentDelay = 0;
+  }
+
+  orchestrate(duration: number) {
+    this.currentDelay += duration;
+    return { duration, delay: this.currentDelay };
+  }
+}

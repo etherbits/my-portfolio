@@ -11,9 +11,18 @@ type Props = {
   Omit<InputWrapperProps, "children">;
 
 const TextArea = forwardRef<HTMLDivElement, Props>(function TextArea(
-  { label, containerClassName, register, errors, name, ...textAreaProps },
+  {
+    label,
+    containerClassName,
+    register,
+    errors,
+    name,
+    style,
+    ...textAreaProps
+  },
   ref,
 ) {
+  console.log(textAreaProps);
   return (
     <InputWrapper
       label={label}

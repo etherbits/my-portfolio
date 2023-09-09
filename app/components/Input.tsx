@@ -14,7 +14,16 @@ type Props = {
   Omit<InputWrapperProps, "children">;
 
 const Input = forwardRef<HTMLDivElement, Props>(function Input(
-  { icon, label, register, errors, containerClassName, name, ...inputProps },
+  {
+    icon,
+    label,
+    register,
+    errors,
+    containerClassName,
+    name,
+    style,
+    ...inputProps
+  },
   ref,
 ) {
   return (

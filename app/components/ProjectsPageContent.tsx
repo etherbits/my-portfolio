@@ -104,16 +104,16 @@ const descriptionVariants = {
 };
 
 const tagVariants = {
-  visible: (i: number) => ({
+  visible: {
     opacity: 1,
-  }),
+  },
   hidden: { opacity: 0 },
 };
 
 const buttonContainerVariants = {
-  visible: (tagCount: number) => ({
+  visible: {
     opacity: 1,
-  }),
+  },
   hidden: { opacity: 0 },
 };
 

@@ -78,9 +78,9 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
       <main className="py-11 md:w-[720px] md:py-16">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex w-full flex-col items-end gap-6"
+          className="mb-11 flex w-full flex-col items-end gap-6"
         >
-          <div className="w-full md:flex md:gap-8">
+          <div className="flex w-full flex-col gap-6 md:flex-row md:gap-8">
             <MotionInput
               icon="User"
               className="w-full"
@@ -121,7 +121,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
           {mailStatus.type && (
             <p
               className={cn(
-                "text-slate-400",
+                "text-sm text-slate-400 md:text-base",
                 {
                   "text-red-500": mailStatus.type === "error",
                 },

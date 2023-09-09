@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import RectLinks from "./RectLinks";
 import Button from "./Button";
 import OutlinedText from "./OutlineText";
@@ -15,6 +15,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import TextArea from "./TextArea";
 import { AnimationOrchestrator } from "../utils/animation";
+import { cn } from "../utils/tailwind";
 
 type Props = {
   contactDict: DictionarySection<"contact">;
@@ -29,6 +30,7 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<ContactMeFormSchema>({ resolver: zodResolver(contactMeSchema) });
 
@@ -37,7 +39,30 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
   const orchestrator = useMemo(() => new AnimationOrchestrator(), []);
   const orchestrate = (duration: number) => orchestrator.orchestrate(duration);
 
-  const onSubmit = (data: ContactMeFormSchema) => sendContactMail(data);
+  const [mailStatus, setMailStatus] = useState<{
+    message: string;
+    type: "success" | "error" | "pending" | null;
+  }>({ message: "", type: null });
+
+  const onSubmit = async (data: ContactMeFormSchema) => {
+    setMailStatus({
+      message: "Sending mail...",
+      type: "pending",
+    });
+    try {
+      await sendContactMail(data);
+      setMailStatus({
+        message: "Your mail has been sent to my inbox.",
+        type: "success",
+      });
+      reset();
+    } catch (err) {
+      setMailStatus({
+        message: "Sending your mail has failed. Please try again later",
+        type: "error",
+      });
+    }
+  };
 
   const animationDuration = 0.25;
 
@@ -93,6 +118,19 @@ const ContactMePageContent: React.FC<Props> = ({ contactDict }) => {
             animate={{ opacity: 1 }}
             transition={orchestrate(animationDuration)}
           />
+          {mailStatus.type && (
+            <p
+              className={cn(
+                "text-slate-400",
+                {
+                  "text-red-500": mailStatus.type === "error",
+                },
+                { "text-emerald-400": mailStatus.type === "success" },
+              )}
+            >
+              {mailStatus.message}
+            </p>
+          )}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

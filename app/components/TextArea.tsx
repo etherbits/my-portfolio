@@ -22,7 +22,6 @@ const TextArea = forwardRef<HTMLDivElement, Props>(function TextArea(
   },
   ref,
 ) {
-  console.log(textAreaProps);
   return (
     <InputWrapper
       label={label}

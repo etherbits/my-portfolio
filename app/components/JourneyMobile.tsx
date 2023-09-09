@@ -38,6 +38,7 @@ const JourneyMobileList: React.FC<JourneyCardListProps> = ({
       ]);
     };
   };
+
   return (
     <ul className="mb-14 mt-[4vh] flex w-[100%] flex-col items-center gap-6">
       {Object.entries(journeys).map(([id, journey], i) => {

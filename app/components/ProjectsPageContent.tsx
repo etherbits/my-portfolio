@@ -121,10 +121,6 @@ const MotionImage = motion(Image);
 
 const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
   const t = generateTranslator<"projects">(projectsDict);
-
-  const orchestrator = useMemo(() => new AnimationOrchestrator(), []);
-  const orchestrate = (duration: number) => orchestrator.orchestrate(duration);
-
   return (
     <>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -136,6 +132,9 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
         {projects.map((project, i) => {
           const isOdd = i % 2 !== 0;
           const projectDict = (t("items") as any)[project.id];
+          const orchestrator = new AnimationOrchestrator();
+          const orchestrate = (duration: number) =>
+            orchestrator.orchestrate(duration);
           return (
             <motion.li
               id={`project-${i}-item`}

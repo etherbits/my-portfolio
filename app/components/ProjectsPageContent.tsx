@@ -7,6 +7,8 @@ import Image from "next/image";
 import Button from "./Button";
 import { cn } from "@/app/utils/tailwind";
 import Link from "next/link";
+import { useMemo } from "react";
+import { AnimationOrchestrator } from "../utils/animation";
 
 type Props = {
   projectsDict: DictionarySection<"projects">;
@@ -70,7 +72,6 @@ const imageVariants = {
     opacity: 1,
     translateX: "0",
     scale: 1,
-    transition: { duration: 0.25 },
   },
   hidden: (isOdd: boolean) => ({
     opacity: 0,
@@ -84,7 +85,6 @@ const blobVariants = {
     opacity: 1,
     scale: 1,
     translateY: "-50%",
-    transition: { duration: 0.75 },
   },
   hidden: { opacity: 0, scale: 0 },
 };
@@ -92,10 +92,6 @@ const blobVariants = {
 const titleVariants = {
   visible: {
     opacity: 1,
-    transition: {
-      duration: 0.25,
-      delay: 0.25,
-    },
   },
   hidden: { opacity: 0 },
 };
@@ -103,10 +99,6 @@ const titleVariants = {
 const descriptionVariants = {
   visible: {
     opacity: 1,
-    transition: {
-      duration: 0.25,
-      delay: 0.5,
-    },
   },
   hidden: { opacity: 0 },
 };
@@ -114,10 +106,6 @@ const descriptionVariants = {
 const tagVariants = {
   visible: (i: number) => ({
     opacity: 1,
-    transition: {
-      duration: 0.25,
-      delay: 0.5 + 0.25 * i,
-    },
   }),
   hidden: { opacity: 0 },
 };
@@ -125,10 +113,6 @@ const tagVariants = {
 const buttonContainerVariants = {
   visible: (tagCount: number) => ({
     opacity: 1,
-    transition: {
-      duration: 0.25,
-      delay: 0.75 + 0.25 * tagCount,
-    },
   }),
   hidden: { opacity: 0 },
 };
@@ -137,6 +121,9 @@ const MotionImage = motion(Image);
 
 const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
   const t = generateTranslator<"projects">(projectsDict);
+
+  const orchestrator = useMemo(() => new AnimationOrchestrator(), []);
+  const orchestrate = (duration: number) => orchestrator.orchestrate(duration);
 
   return (
     <>
@@ -170,6 +157,7 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                   className="mx-auto mb-8 w-[90%] md:w-[100%]"
                   variants={imageVariants}
                   custom={isOdd}
+                  transition={orchestrate(0.25)}
                 />
                 <MotionImage
                   src="/images/laptop-blob.svg"
@@ -182,28 +170,31 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                     { "right-[10%]": isOdd },
                   )}
                   variants={blobVariants}
+                  transition={{ duration: 0.75 }}
                 />
               </div>
               <div className="flex flex-col md:basis-[clamp(24rem,44%,44rem)] ">
                 <motion.h3
                   className="mb-4 text-xl font-medium md:mb-8 md:text-clamp-xl"
                   variants={titleVariants}
+                  transition={orchestrate(0.25)}
                 >
                   {projectDict["title"]}
                 </motion.h3>
                 <motion.p
                   className="mb-4 text-sm md:mb-8 md:text-clamp-rg md:leading-[160%]"
                   variants={descriptionVariants}
+                  transition={orchestrate(0.25)}
                 >
                   {projectDict["body"]}
                 </motion.p>
                 <ul className="mb-8 flex max-w-full flex-wrap gap-3 text-[0.75rem] text-slate-300 md:mb-10 md:text-clamp-xm">
-                  {project.tags.map((tag, j) => (
+                  {project.tags.map((tag) => (
                     <motion.li
                       key={tag}
                       className="border-1 rounded-[4px] border border-slate-400 px-2 py-1"
                       variants={tagVariants}
-                      custom={j}
+                      transition={orchestrate(0.25)}
                     >
                       {tag}
                     </motion.li>
@@ -212,7 +203,7 @@ const ProjectsPageContent: React.FC<Props> = ({ projectsDict }) => {
                 <motion.div
                   className="flex flex-col"
                   variants={buttonContainerVariants}
-                  custom={project.tags.length}
+                  transition={orchestrate(0.25)}
                 >
                   {project.disclamer && (
                     <motion.p className="mb-6 text-right text-sm text-slate-400">

@@ -9,9 +9,9 @@ type Props = {
 const ProfileImage: React.FC<Props> = ({ className }) => {
   return (
     <Image
-      src="https://github.com/etherbits.png"
-      width={512}
-      height={512}
+      src="https://github.com/etherbits.png?size=200"
+      width={200}
+      height={200}
       alt="profile"
       className={cn("h-20 w-20 rounded-full ", className)}
     />

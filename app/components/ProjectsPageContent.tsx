@@ -17,7 +17,7 @@ type Props = {
 const projects = [
   {
     id: "unispace",
-    image: "/images/unispace-laptop.png",
+    image: "/images/unispace-laptop.webp",
     tags: [
       "React",
       "Javascript",
@@ -35,7 +35,7 @@ const projects = [
   },
   {
     id: "sandro",
-    image: "/images/sandro-laptop.png",
+    image: "/images/sandro-laptop.webp",
     tags: ["React", "Javascript", "SASS", "Framer Motion", "React Router"],
     button: {
       type: "webpage",
@@ -46,7 +46,7 @@ const projects = [
   },
   {
     id: "ebase",
-    image: "/images/ebase-laptop.png",
+    image: "/images/ebase-laptop.webp",
     tags: ["React", "Typescript", "NextJS", "SASS", "PostgreSQL", "Prisma"],
     button: {
       type: "demo",
@@ -57,7 +57,7 @@ const projects = [
   },
   {
     id: "octopus",
-    image: "/images/octopus-laptop.png",
+    image: "/images/octopus-laptop.webp",
     tags: ["Tauri", "React", "Typescript", "Zustand", "Tailwind", "Rust"],
     button: {
       type: "none",

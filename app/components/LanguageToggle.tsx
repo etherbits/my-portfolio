@@ -13,8 +13,8 @@ type Props = {
 };
 
 export const languages = {
-  en: { label: "English", image: "/images/eng.png" },
-  ge: { label: "ქართული", image: "/images/geo.png" },
+  en: { label: "English", image: "/images/eng.webp" },
+  ge: { label: "ქართული", image: "/images/geo.webp" },
 };
 
 const LanguageToggle: React.FC<Props> = ({ type }) => {

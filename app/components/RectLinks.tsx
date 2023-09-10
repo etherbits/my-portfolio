@@ -28,12 +28,12 @@ const linkObjs: LinkObj[] = [
     url: "https://github.com/etherbits",
   },
   {
-    imageSrc: "/images/twitter.jpg",
+    imageSrc: "/images/twitter.webp",
     imgType: "image",
     url: "https://twitter.com/etherbito",
   },
   {
-    imageSrc: "/images/linkedin.jpg",
+    imageSrc: "/images/linkedin.webp",
     imgType: "image",
     url: "https://www.linkedin.com/in/nika-qvrivishvili-126664203",
   },
@@ -71,6 +71,7 @@ const RectLinks: React.FC<Props> = ({
             )}
             style={{ width: `${size}px`, height: `${size}px` }}
             target="_blank"
+            aria-label="Resume/CV"
           >
             {link.imgType === "vector" ? (
               <Icon

@@ -73,12 +73,8 @@ const LineWaves: React.FC<Props> = ({
               }}
               transition={
                 {
-                  delay:
-                    1 +
-                    delay +
-                    1.5 * duration +
-                    i * delayIncrement,
-                  repeatDelay: duration * 1.5,
+                  delay: 1.5 + delay + 1.5 * duration + i * delayIncrement,
+                  repeatDelay: duration * 2,
                   duration: duration * 1.5,
                   repeat: Infinity,
                 } as Transition
